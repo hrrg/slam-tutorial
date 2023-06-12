@@ -12,3 +12,8 @@ ros2 bag play -s rosbag_v2   uzh_tracking_area_run2.bag
 
 ## ROS2 archive
 https://github.com/stars/Taeyoung96/lists/ros2
+
+## install rosbag2
+```
+sudo apt install ros-foxy-rosbag2*
+```
