@@ -10,11 +10,45 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/features2d.hpp>
 #include <chrono>
+#include <unistd.h>
 
-// global variables
-//cv::Mat image_left;
-//cv::Mat image_right;
+
+void detect_keypoints(cv::Mat* image_left, cv::Mat* image_right){
+    cv::Ptr<cv::Feature2D> orb = cv::ORB::create();
+    std::vector<cv::KeyPoint> keypoints_left;
+    cv::Mat descriptors_left;
+    orb->detectAndCompute(*image_left, cv::noArray(), keypoints_left, descriptors_left);
+    
+    std::vector<cv::KeyPoint> keypoints_right;
+    cv::Mat descriptors_right;
+    orb->detectAndCompute(*image_right, cv::noArray(), keypoints_right, descriptors_right);
+
+    // Match descriptors
+    std::vector<cv::DMatch> matches;
+    cv::BFMatcher matcher(cv::NORM_HAMMING);
+    matcher.match(descriptors_left, descriptors_right, matches);
+    // Filter matches using ratio test
+    std::vector<cv::DMatch> filtered_matches;
+    double ratio_threshold = 0.7;
+    for (const auto& match : matches)
+    {
+        if (match.distance < ratio_threshold * matches[match.queryIdx].distance)
+            filtered_matches.push_back(match);
+    }
+    // compute R|t from 
+   cv::Mat matched_image;
+    cv::drawMatches(*image_left, keypoints_left, *image_right, keypoints_right,
+                    filtered_matches, matched_image, cv::Scalar::all(-1),
+                    cv::Scalar::all(-1), std::vector<char>(),
+                    cv::DrawMatchesFlags::DEFAULT );
+    
+    // Display matches
+    cv::imshow("Matches", matched_image); 
+}
+
+
 class ImageSubscriberNode : public rclcpp::Node
 {
 public:
@@ -29,44 +63,34 @@ public:
   }
 
 private:
-  void topic_callback(const sensor_msgs::msg::Image::ConstSharedPtr& tmp_1, const sensor_msgs::msg::Image::ConstSharedPtr& tmp_2) const
+  void topic_callback(const sensor_msgs::msg::Image::ConstSharedPtr& img_msg_left, const sensor_msgs::msg::Image::ConstSharedPtr& img_msg_right) const
   {
-    cv::Mat frame_left(tmp_1->height, tmp_1->width, CV_8UC1,
-    const_cast<unsigned char*>(tmp_1->data.data()), tmp_1->step);
+    RCLCPP_INFO(this->get_logger(), "callback");
+    cv::Mat image_left(img_msg_left->height, img_msg_left->width, CV_8UC1,
+    const_cast<unsigned char*>(img_msg_left->data.data()), img_msg_left->step);
  
-    cv::Mat frame_right(tmp_2->height, tmp_2->width, CV_8UC1,
-    const_cast<unsigned char*>(tmp_2->data.data()), tmp_2->step);
-
-    cv::Mat frames;
-    cv::hconcat(frame_left, frame_right, frames);
-    cv::imshow("view", frames);
-    cv::waitKey(1);
+    cv::Mat image_right(img_msg_right->height, img_msg_right->width, CV_8UC1,
+    const_cast<unsigned char*>(img_msg_right->data.data()), img_msg_right->step);
+    detect_keypoints(&image_left, &image_right);
+    
+    
   }
   message_filters::Subscriber<sensor_msgs::msg::Image> subscription_temp_1_;
   message_filters::Subscriber<sensor_msgs::msg::Image> subscription_temp_2_;
   std::shared_ptr<message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image>> sync_;
 };
 
-void callback_image(const sensor_msgs::msg::Image::ConstSharedPtr & image) {
-    cv::Mat frame(image->height, image->width, CV_8UC1,
-    const_cast<unsigned char*>(image->data.data()), image->step);
-    std::cout << image->height << "," << image->width <<"\n";
-    cv::imshow("view", frame);
-    //cv::waitKey(0.1);
-}
+
+
+
+
 
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
     cv::namedWindow("view");
     cv::startWindowThread();
-    //auto node = rclcpp::Node::make_shared("main_node");
+    
     auto node = std::make_shared<ImageSubscriberNode>();
-    //CLCPP_INFO(node->get_logger(), "Image Subscriber Test");
-    
-    //image_transport::ImageTransport it(node);
-    //image_transport::Subscriber image_left_sub = it.subscribe("/alphasense/cam0/image_raw", 1, callback_image);
-    //image_transport::Subscriber image_right_sub = it.subscribe("/alphasense/cam3/image_raw", 1, callback_image);
-    
     
     rclcpp::spin(node);
     rclcpp::shutdown();
