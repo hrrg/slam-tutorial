@@ -17,8 +17,8 @@ find_package(OpenCV 4 REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(PCL 1.10 REQUIRED COMPONENTS common io visualization)
-
-
+find_package(tf2_ros REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -47,6 +47,8 @@ function(custom_executable target)
     "image_transport"
     "OpenCV"
     "PCL"
+    "tf2_ros"
+    "nav_msgs"
     )
   install(TARGETS ${target}_node
   DESTINATION lib/${PROJECT_NAME})
