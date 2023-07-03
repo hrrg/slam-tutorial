@@ -219,7 +219,8 @@ class ImageSubscriberNode : public rclcpp::Node {
 
     tracker.detect_keypoints(&image_left, &image_right);
     tracker.triangulate_points();
-    Eigen::Matrix4f transfomation = tracker.icp();
+    // Eigen::Matrix4f transfomation = tracker.icp();
+    Eigen::Matrix4f transfomation = tracker.pnp();
 
     // logging
     // auto current_frame =  tracker.frames.back();
