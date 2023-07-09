@@ -61,10 +61,15 @@ public:
     void detect_keypoints(cv::Mat* image_left, cv::Mat* image_right);
     void triangulate_points();
     Eigen::Matrix4f icp();
+    void add_transformations(Eigen::Matrix4f t);
+    void update_camera_trajectory();
+    void print_last_camera_position();
 public:
     cv::Ptr<cv::Feature2D> feature_detector; 
     std::vector<Frame> frames;
-
+    std::vector<Eigen::Matrix4f> world_to_camera_transformation;
+    std::vector<Eigen::Matrix4f> camera_to_world_transformation;
+    std::vector<Eigen::Vector3f> camera_trajectory;
 };
 
 void Tracker::detect_keypoints(cv::Mat* image_left, cv::Mat* image_right) {
@@ -137,6 +142,33 @@ Eigen::Matrix4f Tracker::icp(){
     bool is_converged = icp.hasConverged();
 }
 
+void Tracker::add_transformations(Eigen::Matrix4f t)
+{
+    // The first frame is treated as the world frame
+    if (camera_to_world_transformation.size() < 1) {
+        world_to_camera_transformation.push_back(t);
+        camera_to_world_transformation.push_back(t.inverse());
+        return;
+    }
+
+    auto last_w2c_t = world_to_camera_transformation.back();
+    Eigen::Matrix4f current_w2c_t = last_w2c_t * t;
+    world_to_camera_transformation.push_back(current_w2c_t);
+    camera_to_world_transformation.push_back(current_w2c_t.inverse());
+}
+
+void Tracker::update_camera_trajectory()
+{
+    // World coordinate of camera:
+    // p_w = T_wc * 0_c = T_wc.translation()
+    auto last_c2w_t = camera_to_world_transformation.back();
+    camera_trajectory.push_back(last_c2w_t.translation());
+}
+
+void Tracker::print_last_camera_position()
+{
+    // TODO(heejoon1130@gmail.com)
+}
 
 class ImageSubscriberNode : public rclcpp::Node
 {
@@ -167,6 +199,10 @@ private:
         tracker.detect_keypoints(&image_left, &image_right);
         tracker.triangulate_points();
         Eigen::Matrix4f transfomation = tracker.icp();
+
+        tracker.add_transformations(transformation);
+        tracker.update_camera_trajectory();
+        tracker.print_last_camera_position();
 
         // logging
         //auto current_frame =  tracker.frames.back();
