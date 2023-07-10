@@ -26,24 +26,33 @@
 #include <chrono>
 #include <unistd.h>
 
-cv::Mat camera_matrix_left = (cv::Mat_<double>(3,4) << 457.587, 0, 379.999, -0.0216401454975,
-                                                         0, 456.134, 255.238,  -0.064676986768,
-                                                         0, 0, 1, 0.00981073058949);
-    
-cv::Mat camera_matrix_right = (cv::Mat_<double>(3,4) << 458.654, 0, 369.215, -0.0198435579556,
-                                                         0, 457.296, 248.375,  0.0453689425024,
-                                                         0, 0, 1, 0.00786212447038); 
+cv::Mat intrinsic_left = (cv::Mat_<double>(3,3) << 458.654, 0, 367.215,
+                                                         0, 457.296, 248.375,
+                                                         0, 0, 1); 
+
+cv::Mat intrinsic_right = (cv::Mat_<double>(3,3) << 457.587, 0, 379.999,
+                                                   0, 456.134, 255.238,
+                                                   0, 0, 1);
+cv::Mat calib_left = (cv::Mat_<double>(3,4) << 0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+         0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768,
+        -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949);
+cv::Mat calib_right = (cv::Mat_<double>(3,4) << 0.0125552670891, -0.999755099723, 0.0182237714554, -0.0198435579556,
+         0.999598781151, 0.0130119051815, 0.0251588363115, 0.0453689425024,
+        -0.0253898008918, 0.0179005838253, 0.999517347078, 0.00786212447038);
+cv::Mat projection_left = intrinsic_left*calib_left;
+cv::Mat projection_right = intrinsic_right*calib_right;
 
 class Frame
 {
 public:
     Frame(){
-        transfomation.setIdentity();
+        transformation = new Eigen::Matrix4f();
+        transformation->setIdentity();
         world_points = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
     };
     ~Frame(){};
 public:
-    Eigen::Matrix4f transfomation;   // Rotation and translation of Frame
+    Eigen::Matrix<float,4,4> *transformation;   // Rotation and translation of Frame
     std::vector<cv::KeyPoint> keypoints_left;
     std::vector<cv::KeyPoint> keypoints_right;
     std::vector<cv::Point2d>  matched_keypoints_left;
@@ -64,7 +73,6 @@ public:
 public:
     cv::Ptr<cv::Feature2D> feature_detector; 
     std::vector<Frame> frames;
-
 };
 
 void Tracker::detect_keypoints(cv::Mat* image_left, cv::Mat* image_right) {
@@ -106,7 +114,7 @@ void Tracker::detect_keypoints(cv::Mat* image_left, cv::Mat* image_right) {
 void Tracker::triangulate_points(){
     cv::Mat world_points;
     auto frame = frames.back();
-    cv::triangulatePoints(camera_matrix_left, camera_matrix_right, frame.matched_keypoints_left, frame.matched_keypoints_right, world_points);        
+    cv::triangulatePoints(projection_left, projection_right, frame.matched_keypoints_left, frame.matched_keypoints_right, world_points);        
     
     for (int world_point_idx = 0; world_point_idx < world_points.cols ; world_point_idx++){
         auto point = world_points.col(world_point_idx);
@@ -118,8 +126,8 @@ void Tracker::triangulate_points(){
 Eigen::Matrix4f Tracker::icp(){
     // run icp
     if(frames.size() < 2) return Eigen::Matrix4f::Identity();
-    auto current_frame = frames.back();
-    auto previous_frame = frames.at(frames.size() - 2);
+    auto current_frame = &frames.back();
+    auto previous_frame = &frames.at(frames.size() - 2);
     
     pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
     icp.setMaxCorrespondenceDistance(1.0);
@@ -128,13 +136,12 @@ Eigen::Matrix4f Tracker::icp(){
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr align(new pcl::PointCloud<pcl::PointXYZ>);
     
-    icp.setInputSource(current_frame.world_points);
-    icp.setInputTarget(previous_frame.world_points);
+    icp.setInputSource(current_frame->world_points);
+    icp.setInputTarget(previous_frame->world_points);
     icp.align(*align);
 
-    return icp.getFinalTransformation();
-    double score  = icp.getFitnessScore();
-    bool is_converged = icp.hasConverged();
+    *current_frame->transformation = icp.getFinalTransformation()*(*previous_frame->transformation);
+    return *current_frame->transformation;
 }
 
 
@@ -166,10 +173,18 @@ private:
         
         tracker.detect_keypoints(&image_left, &image_right);
         tracker.triangulate_points();
-        Eigen::Matrix4f transfomation = tracker.icp();
-
+        tracker.icp();
+        auto current_frame = &tracker.frames.back();
+        
+        Eigen::Matrix4f transfomation = *current_frame->transformation;
+        std::stringstream ss;
+        ss << transfomation;
+        RCLCPP_INFO(this->get_logger(), "frames size : %d",tracker.frames.size());
+        RCLCPP_INFO(this->get_logger(), ss.str());
         // logging
         //auto current_frame =  tracker.frames.back();
+        // 이전 frame의 p_2=T*p_1
+        
         Eigen::Vector3f translation = transfomation.block<3, 1>(0, 3);
 
         // Extract rotation matrix
@@ -178,7 +193,8 @@ private:
         // Convert rotation matrix to unit quaternion
         Eigen::Quaternionf quaternion(rotation);
         geometry_msgs::msg::TransformStamped transform_msg;
-        //transform_msg.header.stamp = msg.header.stamp;
+        
+        transform_msg.header.stamp = this->now();
         transform_msg.header.frame_id = odom_frame_;
         transform_msg.child_frame_id = child_frame_;
         transform_msg.transform.rotation.x = quaternion.x();
@@ -191,7 +207,7 @@ private:
         tf_broadcaster_->sendTransform(transform_msg);
 
         nav_msgs::msg::Odometry odom_msg;
-        //odom_msg.header.stamp = msg.header.stamp;
+        odom_msg.header.stamp = this->now();
         odom_msg.header.frame_id = odom_frame_;
         odom_msg.child_frame_id = child_frame_;
         odom_msg.pose.pose.orientation.x = quaternion.x();
@@ -214,7 +230,7 @@ private:
     
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_; // what is tf broadcasters role?
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_publisher_;
-    std::string odom_frame_{"odom"};
+    std::string odom_frame_{"world"};
     std::string child_frame_{"base_link"};
 };
 
