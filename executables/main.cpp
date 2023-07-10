@@ -38,12 +38,12 @@ class Frame
 {
 public:
     Frame(){
-        transfomation.setIdentity();
+        transformation.setIdentity();
         world_points = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
     };
     ~Frame(){};
 public:
-    Eigen::Matrix4f transfomation;   // Rotation and translation of Frame
+    Eigen::Matrix4f transformation;   // Rotation and translation of Frame
     std::vector<cv::KeyPoint> keypoints_left;
     std::vector<cv::KeyPoint> keypoints_right;
     std::vector<cv::Point2d>  matched_keypoints_left;
@@ -120,7 +120,7 @@ void Tracker::triangulate_points(){
     }
 }
 
-Eigen::Matrix4f Tracker::icp(){
+Eigen::Matrix4f Tracker::icp() {
     // run icp
     if(frames.size() < 2) return Eigen::Matrix4f::Identity();
     auto current_frame = frames.back();
@@ -137,9 +137,10 @@ Eigen::Matrix4f Tracker::icp(){
     icp.setInputTarget(previous_frame.world_points);
     icp.align(*align);
 
-    return icp.getFinalTransformation();
     double score  = icp.getFitnessScore();
     bool is_converged = icp.hasConverged();
+
+    return icp.getFinalTransformation();
 }
 
 void Tracker::add_transformations(Eigen::Matrix4f t)
@@ -162,7 +163,7 @@ void Tracker::update_camera_trajectory()
     // World coordinate of camera:
     // p_w = T_wc * 0_c = T_wc.translation()
     auto last_c2w_t = camera_to_world_transformation.back();
-    camera_trajectory.push_back(last_c2w_t.translation());
+    camera_trajectory.push_back(last_c2w_t.block<3, 1>(0, 3));
 }
 
 void Tracker::print_last_camera_position()
@@ -198,7 +199,7 @@ private:
         
         tracker.detect_keypoints(&image_left, &image_right);
         tracker.triangulate_points();
-        Eigen::Matrix4f transfomation = tracker.icp();
+        Eigen::Matrix4f transformation = tracker.icp();
 
         tracker.add_transformations(transformation);
         tracker.update_camera_trajectory();
@@ -206,10 +207,10 @@ private:
 
         // logging
         //auto current_frame =  tracker.frames.back();
-        Eigen::Vector3f translation = transfomation.block<3, 1>(0, 3);
+        Eigen::Vector3f translation = transformation.block<3, 1>(0, 3);
 
         // Extract rotation matrix
-        Eigen::Matrix3f rotation = transfomation.block<3, 3>(0, 0);
+        Eigen::Matrix3f rotation = transformation.block<3, 3>(0, 0);
 
         // Convert rotation matrix to unit quaternion
         Eigen::Quaternionf quaternion(rotation);
