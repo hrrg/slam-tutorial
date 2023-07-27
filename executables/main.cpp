@@ -6,6 +6,8 @@
 #include "tf2_ros/transform_broadcaster.h"
 #include "tf2_ros/static_transform_broadcaster.h"
 #include "nav_msgs/msg/odometry.hpp"
+#include "sensor_msgs/msg/point_cloud2.hpp"
+#include "sensor_msgs/point_cloud2_iterator.hpp"
 
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
@@ -25,6 +27,64 @@
 
 #include <chrono>
 #include <unistd.h>
+#include <regex>
+inline std::string FixFrameId(const std::string &frame_id) {
+    return std::regex_replace(frame_id, std::regex("^/"), "");
+}
+
+
+inline std::unique_ptr<sensor_msgs::msg::PointCloud2> CreatePointCloud2Msg(const size_t n_points,
+                                                         const std_msgs::msg::Header &header,
+                                                         bool timestamp = false) {
+    auto cloud_msg = std::make_unique<sensor_msgs::msg::PointCloud2>();
+    sensor_msgs::PointCloud2Modifier modifier(*cloud_msg);
+    cloud_msg->header = header;
+    cloud_msg->header.frame_id = FixFrameId(cloud_msg->header.frame_id);
+    cloud_msg->fields.clear();
+    int offset = 0;
+    offset = addPointField(*cloud_msg, "x", 1, sensor_msgs::msg::PointField::FLOAT32, offset);
+    offset = addPointField(*cloud_msg, "y", 1, sensor_msgs::msg::PointField::FLOAT32, offset);
+    offset = addPointField(*cloud_msg, "z", 1, sensor_msgs::msg::PointField::FLOAT32, offset);
+    offset += sizeOfPointField(sensor_msgs::msg::PointField::FLOAT32);
+    if (timestamp) {
+        // asuming timestamp on a velodyne fashion for now (between 0.0 and 1.0)
+        offset = addPointField(*cloud_msg, "time", 1, sensor_msgs::msg::PointField::FLOAT64, offset);
+        offset += sizeOfPointField(sensor_msgs::msg::PointField::FLOAT64);
+    }
+
+    // Resize the point cloud accordingly
+    cloud_msg->point_step = offset;
+    cloud_msg->row_step = cloud_msg->width * cloud_msg->point_step;
+    cloud_msg->data.resize(cloud_msg->height * cloud_msg->row_step);
+    modifier.resize(n_points);
+    return cloud_msg;
+}
+
+inline void FillPointCloud2XYZ(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud, sensor_msgs::msg::PointCloud2 &msg) {
+    sensor_msgs::PointCloud2Iterator<float> msg_x(msg, "x");
+    sensor_msgs::PointCloud2Iterator<float> msg_y(msg, "y");
+    sensor_msgs::PointCloud2Iterator<float> msg_z(msg, "z");
+    for (size_t i = 0; i < cloud->points.size(); i++, ++msg_x, ++msg_y, ++msg_z) {
+        const auto p = cloud->points[i];
+        *msg_x = p.x;
+        *msg_y = p.y;
+        *msg_z = p.z;
+    }
+}
+
+// inline std::unique_ptr<PointCloud2> EigenToPointCloud2(const std::vector<Eigen::Vector3d> &points,
+//                                                        const Header &header) {
+//     auto msg = CreatePointCloud2Msg(points.size(), header);
+//     FillPointCloud2XYZ(points, *msg);
+//     return msg;
+// }
+
+inline std::unique_ptr<sensor_msgs::msg::PointCloud2> EigenToPointCloud2(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud,
+                                                       const std_msgs::msg::Header &header) {
+    auto msg = CreatePointCloud2Msg(cloud->points.size(), header);
+    FillPointCloud2XYZ(cloud, *msg);
+    return msg;
+}
 
 cv::Mat intrinsic_left = (cv::Mat_<double>(3,3) << 458.654, 0, 367.215,
                                                          0, 457.296, 248.375,
@@ -160,6 +220,7 @@ public:
         rclcpp::QoS qos(rclcpp::KeepLast{200});
         tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
         odom_publisher_ = create_publisher<nav_msgs::msg::Odometry>("odometry", qos);
+        wp_publisher_ = create_publisher<sensor_msgs::msg::PointCloud2>("wp", 10);
     }
 
 private:
@@ -175,12 +236,10 @@ private:
         tracker.triangulate_points();
         tracker.icp();
         auto current_frame = &tracker.frames.back();
-        
+        auto world_points = current_frame->world_points;
         Eigen::Matrix4f transfomation = *current_frame->transformation;
         std::stringstream ss;
-        ss << transfomation;
-        RCLCPP_INFO(this->get_logger(), "frames size : %d",tracker.frames.size());
-        RCLCPP_INFO(this->get_logger(), ss.str());
+
         // logging
         //auto current_frame =  tracker.frames.back();
         // 이전 frame의 p_2=T*p_1
@@ -218,7 +277,13 @@ private:
         odom_msg.pose.pose.position.y = translation.y();
         odom_msg.pose.pose.position.z = translation.z();
         odom_publisher_->publish(odom_msg);
-     
+
+        sensor_msgs::msg::PointCloud2 wp_msg;
+        wp_msg.header.stamp = this->now();
+        wp_msg.header.frame_id = child_frame_;        
+        wp_publisher_->publish(std::move(EigenToPointCloud2(world_points, wp_msg.header)));
+
+
     }
     
 public:
@@ -230,8 +295,10 @@ private:
     
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_; // what is tf broadcasters role?
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_publisher_;
+    rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr wp_publisher_;
     std::string odom_frame_{"world"};
     std::string child_frame_{"base_link"};
+    std::string map_frame_{"wp"};
 };
 
 
