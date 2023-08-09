@@ -1,33 +1,22 @@
-#include <cstdio>
-#include <memory>
-
-#include "rclcpp/rclcpp.hpp"
-#include "sensor_msgs/msg/image.hpp"
-#include "tf2_ros/transform_broadcaster.h"
-#include "tf2_ros/static_transform_broadcaster.h"
-#include "nav_msgs/msg/odometry.hpp"
-#include "sensor_msgs/msg/point_cloud2.hpp"
-#include "sensor_msgs/point_cloud2_iterator.hpp"
-
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/time_synchronizer.h>
-#include <image_transport/image_transport.hpp>
-
-
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/features2d.hpp>
-#include <opencv2/calib3d.hpp>
-
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/registration/icp.h>
+#include <unistd.h>
 
 #include <chrono>
-#include <unistd.h>
+#include <cstdio>
+#include <image_transport/image_transport.hpp>
+#include <memory>
+#include <opencv2/calib3d.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/features2d.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <regex>
+
 
 class Map
 {
@@ -57,13 +46,16 @@ void Map::update_localmap(pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud, Eigen::Mat
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 inline std::string FixFrameId(const std::string &frame_id) {
     return std::regex_replace(frame_id, std::regex("^/"), "");
 }
 
+
 inline std::unique_ptr<sensor_msgs::msg::PointCloud2> CreatePointCloud2Msg(const size_t n_points,
                                                          const std_msgs::msg::Header &header,
                                                          bool timestamp = false) {
+
     auto cloud_msg = std::make_unique<sensor_msgs::msg::PointCloud2>();
     sensor_msgs::PointCloud2Modifier modifier(*cloud_msg);
     cloud_msg->header = header;
@@ -76,7 +68,8 @@ inline std::unique_ptr<sensor_msgs::msg::PointCloud2> CreatePointCloud2Msg(const
     offset += sizeOfPointField(sensor_msgs::msg::PointField::FLOAT32);
     if (timestamp) {
         // asuming timestamp on a velodyne fashion for now (between 0.0 and 1.0)
-        offset = addPointField(*cloud_msg, "time", 1, sensor_msgs::msg::PointField::FLOAT64, offset);
+        offset =
+            addPointField(*cloud_msg, "time", 1, sensor_msgs::msg::PointField::FLOAT64, offset);
         offset += sizeOfPointField(sensor_msgs::msg::PointField::FLOAT64);
     }
 
@@ -88,7 +81,8 @@ inline std::unique_ptr<sensor_msgs::msg::PointCloud2> CreatePointCloud2Msg(const
     return cloud_msg;
 }
 
-inline void FillPointCloud2XYZ(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud, sensor_msgs::msg::PointCloud2 &msg) {
+inline void FillPointCloud2XYZ(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud,
+                               sensor_msgs::msg::PointCloud2 &msg) {
     sensor_msgs::PointCloud2Iterator<float> msg_x(msg, "x");
     sensor_msgs::PointCloud2Iterator<float> msg_y(msg, "y");
     sensor_msgs::PointCloud2Iterator<float> msg_z(msg, "z");
@@ -102,12 +96,16 @@ inline void FillPointCloud2XYZ(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud,
 
 
 
-inline std::unique_ptr<sensor_msgs::msg::PointCloud2> EigenToPointCloud2(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud,
-                                                       const std_msgs::msg::Header &header) {
+
+
+inline std::unique_ptr<sensor_msgs::msg::PointCloud2>
+EigenToPointCloud2(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud,
+                   const std_msgs::msg::Header &header) {
     auto msg = CreatePointCloud2Msg(cloud->points.size(), header);
     FillPointCloud2XYZ(cloud, *msg);
     return msg;
 }
+
 
  cv::Mat intrinsic_left = (cv::Mat_<double>(3,3) << 458.654, 0, 367.215,
                                                           0, 457.296, 248.375,
@@ -144,44 +142,59 @@ class Frame
 {
 public:
     Frame(){
+
         transformation = new Eigen::Matrix4f();
         transformation->setIdentity();
         world_points = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
     };
     ~Frame(){};
-public:
-    Eigen::Matrix<float,4,4> *transformation;   // Rotation and translation of Frame
+
+  public:
+    Eigen::Matrix<float, 4, 4> *transformation; // Rotation and translation of Frame
     std::vector<cv::KeyPoint> keypoints_left;
     std::vector<cv::KeyPoint> keypoints_right;
-    std::vector<cv::Point2d>  matched_keypoints_left;
-    std::vector<cv::Point2d>  matched_keypoints_right;
+    std::vector<cv::Point2d> matched_keypoints_left;
+    std::vector<cv::Point2d> matched_keypoints_right;
     pcl::PointCloud<pcl::PointXYZ>::Ptr world_points;
 };
 
-class Tracker
-{
-public:
-    Tracker(){
-        feature_detector = cv::ORB::create();
-    }
+class Tracker {
+  public:
+    Tracker() { feature_detector = cv::ORB::create(); }
     ~Tracker(){};
-    void detect_keypoints(cv::Mat* image_left, cv::Mat* image_right);
+    void equalize_histogram(cv::Mat &image_left, cv::Mat &image_right, int method = 0);
+    void detect_keypoints(cv::Mat *image_left, cv::Mat *image_right);
     void triangulate_points();
     Eigen::Matrix4f icp();
-public:
-    cv::Ptr<cv::Feature2D> feature_detector; 
+
+  public:
+    cv::Ptr<cv::Feature2D> feature_detector;
     std::vector<Frame> frames;
 
 };
 
-void Tracker::detect_keypoints(cv::Mat* image_left, cv::Mat* image_right) {
+void Tracker::equalize_histogram(cv::Mat &image_left, cv::Mat &image_right, int method = 0) {
+    if (method == 0) {
+        cv::equalizeHist(image1, image1);
+        cv::equalizeHist(image2, image2);
+    } else if (method == 1) {
+        cv::Ptr<cv::CLAHE> clahe_left = cv::createCLAHE(2.0, cv::Size(8, 8));
+        cv::Ptr<cv::CLAHE> clahe_right = cv::createCLAHE(2.0, cv::Size(8, 8));
+        clahe_left->apply(image1, image1);
+        clahe_right->apply(image2, image2);
+    }
+}
+
+void Tracker::detect_keypoints(cv::Mat *image_left, cv::Mat *image_right) {
     Frame frame;
     cv::Mat descriptors_left;
     cv::Mat descriptors_right;
-    
+
     // Feature detection
-    feature_detector->detectAndCompute(*image_left, cv::noArray(), frame.keypoints_left, descriptors_left);    
-    feature_detector->detectAndCompute(*image_right, cv::noArray(), frame.keypoints_right, descriptors_right);
+    feature_detector->detectAndCompute(*image_left, cv::noArray(), frame.keypoints_left,
+                                       descriptors_left);
+    feature_detector->detectAndCompute(*image_right, cv::noArray(), frame.keypoints_right,
+                                       descriptors_right);
 
     // Match descriptors
     std::vector<cv::DMatch> matches;
@@ -190,58 +203,63 @@ void Tracker::detect_keypoints(cv::Mat* image_left, cv::Mat* image_right) {
 
     // Filter matches using ratio test
     std::vector<cv::DMatch> filtered_matches;
-    //double ratio_threshold = 0.1;
-    for (const auto& match : matches)
-    {
-        if (match.distance < 50){
+    // double ratio_threshold = 0.1;
+    for (const auto &match : matches) {
+        if (match.distance < 50) {
             filtered_matches.push_back(match);
         }
     }
-       
+
     // Retrieve 3D points for matched keypoints
-    for (const cv::DMatch& match : filtered_matches) {
+    for (const cv::DMatch &match : filtered_matches) {
         cv::Point2f pt1 = frame.keypoints_left[match.queryIdx].pt;
-        cv::Point2f pt2 = frame.
-        
-        keypoints_right[match.trainIdx].pt;
+        cv::Point2f pt2 = frame
+                              .
+
+                          keypoints_right[match.trainIdx]
+                              .pt;
         frame.matched_keypoints_left.push_back(pt1);
-        frame.matched_keypoints_right.push_back(pt2);     
+        frame.matched_keypoints_right.push_back(pt2);
     }
     frames.push_back(frame);
 }
 
-void Tracker::triangulate_points(){
+void Tracker::triangulate_points() {
     cv::Mat world_points;
     auto frame = frames.back();
-    cv::triangulatePoints(projection_left, projection_right, frame.matched_keypoints_left, frame.matched_keypoints_right, world_points);        
-    
-    for (int world_point_idx = 0; world_point_idx < world_points.cols ; world_point_idx++){
+    cv::triangulatePoints(projection_left, projection_right, frame.matched_keypoints_left,
+                          frame.matched_keypoints_right, world_points);
+
+    for (int world_point_idx = 0; world_point_idx < world_points.cols; world_point_idx++) {
         auto point = world_points.col(world_point_idx);
-        pcl::PointXYZ p(point.at<double>(0),point.at<double>(1),point.at<double>(2));        
+        pcl::PointXYZ p(point.at<double>(0), point.at<double>(1), point.at<double>(2));
         frame.world_points->push_back(p);
     }
 }
 
-Eigen::Matrix4f Tracker::icp(){
+Eigen::Matrix4f Tracker::icp() {
     // run icp
-    if(frames.size() < 2) return Eigen::Matrix4f::Identity();
+    if (frames.size() < 2)
+        return Eigen::Matrix4f::Identity();
     auto current_frame = &frames.back();
     auto previous_frame = &frames.at(frames.size() - 2);
-    
+
     pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
     icp.setMaxCorrespondenceDistance(1.0);
     icp.setTransformationEpsilon(0.001);
     icp.setMaximumIterations(100);
 
     pcl::PointCloud<pcl::PointXYZ>::Ptr align(new pcl::PointCloud<pcl::PointXYZ>);
-    
+
     icp.setInputSource(current_frame->world_points);
     icp.setInputTarget(previous_frame->world_points);
     icp.align(*align);
 
-    *current_frame->transformation = icp.getFinalTransformation()*(*previous_frame->transformation);
+    *current_frame->transformation =
+        icp.getFinalTransformation() * (*previous_frame->transformation);
     return *current_frame->transformation;
 }
+
 
 
 class ImageSubscriberNode : public rclcpp::Node
@@ -265,19 +283,22 @@ public:
         map_publisher_ = create_publisher<sensor_msgs::msg::PointCloud2>("local_map", qos);
     }
 
-private:
-    void topic_callback(const sensor_msgs::msg::Image::ConstSharedPtr& img_msg_left, const sensor_msgs::msg::Image::ConstSharedPtr& img_msg_right)
-    {        
+  private:
+    void topic_callback(const sensor_msgs::msg::Image::ConstSharedPtr &img_msg_left,
+                        const sensor_msgs::msg::Image::ConstSharedPtr &img_msg_right) {
         cv::Mat image_left(img_msg_left->height, img_msg_left->width, CV_8UC1,
-        const_cast<unsigned char*>(img_msg_left->data.data()), img_msg_left->step);
+                           const_cast<unsigned char *>(img_msg_left->data.data()),
+                           img_msg_left->step);
 
         cv::Mat image_right(img_msg_right->height, img_msg_right->width, CV_8UC1,
+
         const_cast<unsigned char*>(img_msg_right->data.data()), img_msg_right->step);
         cv::Mat image_small_left;
         cv::Mat image_small_right;
         cv::resize(image_left, image_small_left, cv::Size(img_msg_left->width/4, img_msg_left->height/4));
         cv::resize(image_right, image_small_right, cv::Size(img_msg_left->width/4, img_msg_left->height/4));
         tracker.detect_keypoints(&image_small_left, &image_small_right);
+
         tracker.triangulate_points();
         
         tracker.icp();
@@ -287,9 +308,9 @@ private:
         std::stringstream ss;
         RCLCPP_INFO(this->get_logger(), "callback");
         // logging
-        //auto current_frame =  tracker.frames.back();
+        // auto current_frame =  tracker.frames.back();
         // 이전 frame의 p_2=T*p_1
-        
+
         Eigen::Vector3f translation = transfomation.block<3, 1>(0, 3);
 
         // Extract rotation matrix
@@ -299,7 +320,7 @@ private:
         // Convert rotation matrix to unit quaternion
         Eigen::Quaternionf quaternion(rotation);
         geometry_msgs::msg::TransformStamped transform_msg;
-        
+
         transform_msg.header.stamp = this->now();
         transform_msg.header.frame_id = odom_frame_;
         transform_msg.child_frame_id = child_frame_;
@@ -325,6 +346,7 @@ private:
         odom_msg.pose.pose.position.z = translation.z();
         odom_publisher_->publish(odom_msg);
 
+
         sensor_msgs::msg::PointCloud2 frame_msg;
         frame_msg.header.stamp = this->now();
         frame_msg.header.frame_id = child_frame_;        
@@ -344,10 +366,13 @@ public:
     Tracker tracker;
     Map map;
 private:
+
     message_filters::Subscriber<sensor_msgs::msg::Image> subscription_temp_1_;
     message_filters::Subscriber<sensor_msgs::msg::Image> subscription_temp_2_;
-    std::shared_ptr<message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image>> sync_;
-    
+    std::shared_ptr<
+        message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image>>
+        sync_;
+
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_; // what is tf broadcasters role?
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_publisher_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr frame_publisher_;
@@ -357,22 +382,16 @@ private:
     std::string map_frame_{"frame"};
 };
 
-
-
-
-
-
-
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
     cv::namedWindow("view");
     cv::startWindowThread();
-    
+
     auto node = std::make_shared<ImageSubscriberNode>();
-    
+
     rclcpp::spin(node);
     rclcpp::shutdown();
-    
+
     node = nullptr;
 
     return 0;
