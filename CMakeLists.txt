@@ -20,15 +20,15 @@ find_package(PCL 1.10 REQUIRED COMPONENTS common io visualization)
 find_package(tf2_ros REQUIRED)
 find_package(nav_msgs REQUIRED)
 
-add_library(stereo_calibration "")
+# add_library(stereo_calibration "")
 
-target_sources(stereo_calibration 
-PRIVATE ${CMAKE_CURRENT_LIST_DIR}/executables/stereo_calibration.cpp
-PUBLIC ${CMAKE_CURRENT_LIST_DIR}/executables/stereo_calibration.h)
-target_link_libraries(stereo_calibration  ${THIRD_PARTY_LIBS} )
+# target_sources(stereo_calibration 
+# PRIVATE ${CMAKE_CURRENT_LIST_DIR}/executables/stereo_calibration.cpp
+# PUBLIC ${CMAKE_CURRENT_LIST_DIR}/executables/stereo_calibration.h)
+# target_link_libraries(stereo_calibration  ${THIRD_PARTY_LIBS} )
 
-target_include_directories(stereo_calibration
-PUBLIC ${CMAKE_CURRENT_LIST_DIR}/executables)
+# target_include_directories(stereo_calibration
+# PUBLIC ${CMAKE_CURRENT_LIST_DIR}/executables)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -76,3 +76,5 @@ install(DIRECTORY
   launch
   DESTINATION share/${PROJECT_NAME}/
 )
+
+add_subdirectory(src)
