@@ -17,7 +17,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <regex>
 
-#include "stereo_calibration/stereo_calibration.h"
+#include "stereo_calibration.h"
 
 class Map {
   public:
@@ -179,6 +179,7 @@ class Tracker {
   public:
     Tracker() { feature_detector = cv::ORB::create(); }
     ~Tracker(){};
+    void stereo_calibrate(cv::Mat &image_left, cv::Mat &image_right);
     void detect_keypoints(cv::Mat *image_left, cv::Mat *image_right);
     void triangulate_points();
     Eigen::Matrix4f icp();
@@ -187,6 +188,64 @@ class Tracker {
     cv::Ptr<cv::Feature2D> feature_detector;
     std::vector<Frame> frames;
 };
+
+void Tracker::stereo_calibrate(cv::Mat &image_left, cv::Mat &image_right) {
+    Frame frame;
+
+    equalizeStereoHist(image_left, image_right, 1, true);
+    std::vector<cv::Point2f> matched_left, matched_right;
+    obtainCorrespondingPoints(image_left, image_right, matched_left, matched_right, 50, true);
+    std::vector<cv::Point2f> undistort_left, undistort_right;
+    undistortKeyPoints(matched_left, matched_right, undistort_left, undistort_right, K_left,
+                       K_right, D_left, D_right);
+
+    std::vector<cv::Point3f> matched_left_homogeneous, matched_right_homogeneous;
+    cv::convertPointsToHomogeneous(matched_left, matched_left_homogeneous);
+    cv::convertPointsToHomogeneous(matched_right, matched_right_homogeneous);
+
+    Eigen::MatrixXd matched_left_eigen = convertToEigenMatrix(matched_left_homogeneous);
+    Eigen::MatrixXd matched_right_eigen = convertToEigenMatrix(matched_right_homogeneous);
+
+    Eigen::MatrixXd F = computeFundamentalmatrixNormalized(matched_left_eigen, matched_right_eigen);
+    Eigen::Vector3d p1 = matched_left_eigen.row(0);
+    Eigen::Vector3d p2 = matched_right_eigen.row(0);
+
+    Eigen::Vector3d e1 = compute_epipole(F);
+    Eigen::Vector3d e2 = compute_epipole(F.transpose());
+
+    std::pair<Eigen::Matrix3d, Eigen::Matrix3d> homographies =
+        compute_matching_homographies(e2, F, image_right, matched_left_eigen, matched_right_eigen);
+
+    Eigen::MatrixXd new_points1 =
+        divideByZ(homographies.first * matched_left_eigen.transpose()).transpose();
+    Eigen::MatrixXd new_points2 =
+        divideByZ(homographies.second * matched_right_eigen.transpose()).transpose();
+
+    int numRows = new_points1.rows();
+
+    for (int i = 0; i < numRows; ++i) {
+        double x = new_points1(i, 0) / new_points1(i, 2);
+        double y = new_points1(i, 1) / new_points1(i, 2);
+        frame.matched_keypoints_left.push_back(cv::Point2d(x, y));
+    }
+
+    for (int i = 0; i < numRows; ++i) {
+        double x = new_points2(i, 0) / new_points2(i, 2);
+        double y = new_points2(i, 1) / new_points2(i, 2);
+        frame.matched_keypoints_right.push_back(cv::Point2d(x, y));
+    }
+    frames.push_back(frame);
+
+    cv::Mat im1_warped, im2_warped;
+    cv::warpPerspective(image_left, im1_warped, eigenToMat(homographies.first.inverse()),
+                        image_left.size(), cv::INTER_LINEAR);
+    cv::warpPerspective(image_right, im2_warped, eigenToMat(homographies.second.inverse()),
+                        image_right.size(), cv::INTER_LINEAR);
+
+    cv::Mat result;
+    cv::hconcat(im1_warped, im2_warped, result);
+    cv::imshow("result", result);
+}
 
 void Tracker::detect_keypoints(cv::Mat *image_left, cv::Mat *image_right) {
     Frame frame;
@@ -430,6 +489,12 @@ class ImageSubscriberNode : public rclcpp::Node {
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
     cv::namedWindow("view");
+    cv::startWindowThread();
+    cv::namedWindow("histogram equalization");
+    cv::startWindowThread();
+    cv::namedWindow("Matched Features");
+    cv::startWindowThread();
+    cv::namedWindow("result");
     cv::startWindowThread();
 
     auto node = std::make_shared<ImageSubscriberNode>();
