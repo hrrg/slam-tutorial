@@ -423,10 +423,9 @@ inline std::string FixFrameId(const std::string &frame_id) {
     return std::regex_replace(frame_id, std::regex("^/"), "");
 }
 
-
-inline std::unique_ptr<sensor_msgs::msg::PointCloud2> CreatePointCloud2Msg(const size_t n_points,
-                                                         const std_msgs::msg::Header &header,
-                                                         bool timestamp = false) {
+inline std::unique_ptr<sensor_msgs::msg::PointCloud2>
+CreatePointCloud2Msg(const size_t n_points, const std_msgs::msg::Header &header,
+                     bool timestamp = false) {
 
     auto cloud_msg = std::make_unique<sensor_msgs::msg::PointCloud2>();
     sensor_msgs::PointCloud2Modifier modifier(*cloud_msg);
@@ -463,10 +462,6 @@ inline void FillPointCloud2XYZ(const std::vector<Eigen::Vector3d> &cloud,
     }
 }
 
-
-
-
-
 inline std::unique_ptr<sensor_msgs::msg::PointCloud2>
 EigenToPointCloud2(const std::vector<Eigen::Vector3d> &cloud,
                    const std_msgs::msg::Header &header) {
@@ -475,6 +470,37 @@ EigenToPointCloud2(const std::vector<Eigen::Vector3d> &cloud,
     return msg;
 }
 
+cv::Mat intrinsic_left =
+    (cv::Mat_<double>(3, 3) << 458.654, 0, 367.215, 0, 457.296, 248.375, 0, 0, 1);
+cv::Mat intrinsic_right =
+    (cv::Mat_<double>(3, 3) << 457.587, 0, 379.999, 0, 456.134, 255.238, 0, 0, 1);
+cv::Mat calib_left =
+    (cv::Mat_<double>(3, 4) << 0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+     0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768, -0.0257744366974,
+     0.00375618835797, 0.999660727178, 0.00981073058949);
+cv::Mat calib_right =
+    (cv::Mat_<double>(3, 4) << 0.0125552670891, -0.999755099723, 0.0182237714554, -0.0198435579556,
+     0.999598781151, 0.0130119051815, 0.0251588363115, 0.0453689425024, -0.0253898008918,
+     0.0179005838253, 0.999517347078, 0.00786212447038);
+
+// MH_01_easy.bag
+cv::Mat K_left = (cv::Mat_<double>(3, 3) << 458.654, 0, 367.215, 0, 457.296, 248.375, 0, 0, 1);
+
+cv::Mat K_right = (cv::Mat_<double>(3, 3) << 457.587, 0, 379.999, 0, 456.134, 255.238, 0, 0, 1);
+cv::Mat C_left =
+    (cv::Mat_<double>(3, 4) << 0.0148655429818, -0.999880929698, 0.00414029679422,
+        -0.0216401454975, 0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768,
+        -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949);
+cv::Mat C_right =
+    (cv::Mat_<double>(3, 4) << 0.0125552670891, -0.999755099723, 0.0182237714554,
+        -0.0198435579556, 0.999598781151, 0.0130119051815, 0.0251588363115, 0.0453689425024,
+        -0.0253898008918, 0.0179005838253, 0.999517347078, 0.00786212447038);
+cv::Mat P_left = K_left * C_left;
+cv::Mat P_right = K_right * C_left;
+cv::Mat D_left =
+    (cv::Mat_<double>(5, 1) << -0.28368365, 0.07451284, -0.00010473, -3.55590700e-05);
+cv::Mat D_right =
+    (cv::Mat_<double>(5, 1) << -0.28340811, 0.07395907, 0.00019359, 1.76187114e-05);
 
  cv::Mat intrinsic_left = (cv::Mat_<double>(3,3) << 458.654, 0, 367.215,
                                                           0, 457.296, 248.375,
@@ -511,7 +537,7 @@ class Tracker {
   public:
     Tracker() { feature_detector = cv::ORB::create(); }
     ~Tracker(){};
-    void equalize_histogram(cv::Mat &image_left, cv::Mat &image_right, int method = 0);
+    void stereo_calibrate(cv::Mat &image_left, cv::Mat &image_right);
     void detect_keypoints(cv::Mat *image_left, cv::Mat *image_right);
     std::vector<Eigen::Vector3d> triangulate_points(const std::vector<cv::Point2d>& ,const std::vector<cv::Point2d>& );
     Eigen::Matrix4f icp();
@@ -519,19 +545,64 @@ class Tracker {
   public:
     cv::Ptr<cv::Feature2D> feature_detector;
     std::vector<Frame> frames;
-
 };
 
-void Tracker::equalize_histogram(cv::Mat &image_left, cv::Mat &image_right, int method) {
-    if (method == 0) {
-        cv::equalizeHist(image_left, image_right);
-        cv::equalizeHist(image_left, image_right);
-    } else if (method == 1) {
-        cv::Ptr<cv::CLAHE> clahe_left = cv::createCLAHE(2.0, cv::Size(8, 8));
-        cv::Ptr<cv::CLAHE> clahe_right = cv::createCLAHE(2.0, cv::Size(8, 8));
-        clahe_left->apply(image_left, image_left);
-        clahe_right->apply(image_right, image_right);
+void Tracker::stereo_calibrate(cv::Mat &image_left, cv::Mat &image_right) {
+    Frame frame;
+
+    equalizeStereoHist(image_left, image_right, 1, true);
+    std::vector<cv::Point2f> matched_left, matched_right;
+    obtainCorrespondingPoints(image_left, image_right, matched_left, matched_right, 50, true);
+    std::vector<cv::Point2f> undistort_left, undistort_right;
+    undistortKeyPoints(matched_left, matched_right, undistort_left, undistort_right, K_left,
+                       K_right, D_left, D_right);
+
+    std::vector<cv::Point3f> matched_left_homogeneous, matched_right_homogeneous;
+    cv::convertPointsToHomogeneous(matched_left, matched_left_homogeneous);
+    cv::convertPointsToHomogeneous(matched_right, matched_right_homogeneous);
+
+    Eigen::MatrixXd matched_left_eigen = convertToEigenMatrix(matched_left_homogeneous);
+    Eigen::MatrixXd matched_right_eigen = convertToEigenMatrix(matched_right_homogeneous);
+
+    Eigen::MatrixXd F = computeFundamentalmatrixNormalized(matched_left_eigen, matched_right_eigen);
+    Eigen::Vector3d p1 = matched_left_eigen.row(0);
+    Eigen::Vector3d p2 = matched_right_eigen.row(0);
+
+    Eigen::Vector3d e1 = compute_epipole(F);
+    Eigen::Vector3d e2 = compute_epipole(F.transpose());
+
+    std::pair<Eigen::Matrix3d, Eigen::Matrix3d> homographies =
+        compute_matching_homographies(e2, F, image_right, matched_left_eigen, matched_right_eigen);
+
+    Eigen::MatrixXd new_points1 =
+        divideByZ(homographies.first * matched_left_eigen.transpose()).transpose();
+    Eigen::MatrixXd new_points2 =
+        divideByZ(homographies.second * matched_right_eigen.transpose()).transpose();
+
+    int numRows = new_points1.rows();
+
+    for (int i = 0; i < numRows; ++i) {
+        double x = new_points1(i, 0) / new_points1(i, 2);
+        double y = new_points1(i, 1) / new_points1(i, 2);
+        frame.matched_keypoints_left.push_back(cv::Point2d(x, y));
     }
+
+    for (int i = 0; i < numRows; ++i) {
+        double x = new_points2(i, 0) / new_points2(i, 2);
+        double y = new_points2(i, 1) / new_points2(i, 2);
+        frame.matched_keypoints_right.push_back(cv::Point2d(x, y));
+    }
+    frames.push_back(frame);
+
+    cv::Mat im1_warped, im2_warped;
+    cv::warpPerspective(image_left, im1_warped, eigenToMat(homographies.first.inverse()),
+                        image_left.size(), cv::INTER_LINEAR);
+    cv::warpPerspective(image_right, im2_warped, eigenToMat(homographies.second.inverse()),
+                        image_right.size(), cv::INTER_LINEAR);
+
+    cv::Mat result;
+    cv::hconcat(im1_warped, im2_warped, result);
+    cv::imshow("result", result);
 }
 
 void Tracker::detect_keypoints(cv::Mat *image_left, cv::Mat *image_right) {
@@ -583,6 +654,7 @@ std::vector<Eigen::Vector3d> triangulate_points(const std::vector<cv::Point2d> m
 }
 
 
+class ImageSubscriberNode : public rclcpp::Node {
 
 
 class ImageSubscriberNode : public rclcpp::Node
@@ -617,26 +689,67 @@ public:
 
         cv::Mat image_right(img_msg_right->height, img_msg_right->width, CV_8UC1,
 
-        const_cast<unsigned char*>(img_msg_right->data.data()), img_msg_right->step);
+                            const_cast<unsigned char *>(img_msg_right->data.data()),
+                            img_msg_right->step);
         cv::Mat image_small_left;
         cv::Mat image_small_right;
-    
-        // TODO: Preprocess image
-        equalizeStereoHist(image_small_left, image_small_right, 1, false);
-        // Rectify
-        // Undistort
-        // 전처리 하면 matching 된 keypoint 까지나옴
-        tracker.detect_keypoints(&image_small_left, &image_small_right);
-        const auto frame_points = tracker.triangulate_points();
-        std::vector<Eigen::Vector3d> points_3d;
-        
-        const auto [cloud_downsampled, cloud_source, new_pose] = register_frame(frame_points);
-        // update map
-        add_cloud_to_map(cloud_downsampled);
-        RemovePointsFarFromLocation(new_pose);
-        // update pose
-        slam_ctx.poses_.push_back(new_pose);
+        cv::resize(image_left, image_small_left,
+                   cv::Size(img_msg_left->width / 4, img_msg_left->height / 4));
+        cv::resize(image_right, image_small_right,
+                   cv::Size(img_msg_left->width / 4, img_msg_left->height / 4));
+        // tracker.detect_keypoints(&image_small_left, &image_small_right);
 
+        // Start Pre-processing
+        // Histogram Equalization, Feature matching, Undistortion, and Rectification
+        equalizeStereoHist(image_small_left, image_small_right, 1, false);
+        std::vector<cv::Point2f> matched_left, matched_right;
+        obtainCorrespondingPoints(img1, img2, matched_left, matched_right, 50, false);
+        std::vector<cv::Point2f> undistort_left, undistort_right;
+        undistortKeyPoints(matched_left, matched_right, undistort_left, undistort_right, K_left,
+                        K_right, D_left, D_right);
+
+        std::vector<cv::Point3f> matched_left_homogeneous, matched_right_homogeneous;
+        cv::convertPointsToHomogeneous(matched_left, matched_left_homogeneous);
+        cv::convertPointsToHomogeneous(matched_right, matched_right_homogeneous);
+
+        Eigen::MatrixXd matched_left_eigen = convertToEigenMatrix(matched_left_homogeneous);
+        Eigen::MatrixXd matched_right_eigen = convertToEigenMatrix(matched_right_homogeneous);
+
+        Eigen::MatrixXd F = computeFundamentalmatrixNormalized(matched_left_eigen, matched_right_eigen);
+        Eigen::Vector3d p1 = matched_left_eigen.row(0);
+        Eigen::Vector3d p2 = matched_right_eigen.row(0);
+
+        Eigen::Vector3d e1 = compute_epipole(F);
+        Eigen::Vector3d e2 = compute_epipole(F.transpose());
+
+        std::pair<Eigen::Matrix3d, Eigen::Matrix3d> homographies =
+            compute_matching_homographies(e2, F, img2, matched_left_eigen, matched_right_eigen);
+
+        Eigen::MatrixXd new_points1 =
+            divideByZ(homographies.first * matched_left_eigen.transpose()).transpose();
+        Eigen::MatrixXd new_points2 =
+            divideByZ(homographies.second * matched_right_eigen.transpose()).transpose();
+
+        // End Pre-processing
+
+        // Convert homogeneous points into non-homogeneous points
+        int numRows = new_points1.rows();
+        
+        for (int i = 0; i < numRows; ++i) {
+            double x = new_points1(i, 0) / new_points1(i, 2);
+            double y = new_points1(i, 1) / new_points1(i, 2);
+            frame.matched_keypoints_left.push_back(cv::Point2d(x,y));
+        }
+
+        for (int i = 0; i < numRows; ++i) {
+            double x = new_points2(i, 0) / new_points2(i, 2);
+            double y = new_points2(i, 1) / new_points2(i, 2);
+            frame.matched_keypoints_right.push_back(cv::Point2d(x,y));
+        }
+
+        tracker.triangulate_points();
+
+        tracker.icp();
         auto current_frame = &tracker.frames.back();
         auto frame_points = current_frame->points_3d;
         auto current_pose = slam_ctx.poses_.back().matrix();
@@ -679,7 +792,6 @@ public:
         odom_msg.pose.pose.position.z = translation.z();
         odom_publisher_->publish(odom_msg);
 
-
         sensor_msgs::msg::PointCloud2 frame_msg;
         frame_msg.header.stamp = this->now();
         frame_msg.header.frame_id = child_frame_;        
@@ -693,9 +805,7 @@ public:
         map_publisher_->publish(std::move(EigenToPointCloud2(slam_ctx.get_registered_map(), map_msg.header)));
     }
 
-
-    
-public:
+  public:
     Tracker tracker;
     Map map;
 private:
@@ -721,6 +831,12 @@ private:
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
     cv::namedWindow("view");
+    cv::startWindowThread();
+    cv::namedWindow("histogram equalization");
+    cv::startWindowThread();
+    cv::namedWindow("Matched Features");
+    cv::startWindowThread();
+    cv::namedWindow("result");
     cv::startWindowThread();
 
     auto node = std::make_shared<ImageSubscriberNode>();
