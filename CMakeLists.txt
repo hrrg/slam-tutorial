@@ -44,6 +44,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+add_subdirectory(include)
 
 function(custom_executable target)
   add_executable(${target}_node executables/${target}.cpp)
@@ -52,8 +53,9 @@ function(custom_executable target)
     /usr/include/eigen3
     /usr/include/vtk-5.8
   )
-  target_link_libraries(${target}_node ${PCL_LIBRARIES} 
+  target_link_libraries(${target}_node 
   stereo_calibration
+  TBB::tbb 
   )
   ament_target_dependencies(${target}_node
     "rclcpp"
@@ -80,4 +82,3 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}/
 )
 
-add_subdirectory(src)
