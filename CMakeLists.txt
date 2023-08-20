@@ -44,7 +44,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-add_subdirectory(include)
+add_subdirectory(src)
 
 function(custom_executable target)
   add_executable(${target}_node executables/${target}.cpp)
