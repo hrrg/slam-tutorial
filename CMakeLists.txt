@@ -16,9 +16,12 @@ find_package(rclcpp REQUIRED)
 find_package(OpenCV 4 REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(image_transport REQUIRED)
-find_package(PCL 1.10 REQUIRED COMPONENTS common io visualization)
+find_package(Eigen3 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(tsl-robin-map REQUIRED)
+find_package(Sophus REQUIRED)
+find_package(TBB REQUIRED)
 
 # add_library(stereo_calibration "")
 
@@ -41,26 +44,28 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+add_subdirectory(include)
 
-message(${PCL_INCLUDE_DIRS})
 function(custom_executable target)
   add_executable(${target}_node executables/${target}.cpp)
   include_directories(
     ${OpenCV_INCLUDE_DIRS}
-    ${PCL_INCLUDE_DIRS}
+    /usr/include/eigen3
     /usr/include/vtk-5.8
   )
-  target_link_libraries(${target}_node ${PCL_LIBRARIES} 
+  target_link_libraries(${target}_node 
   stereo_calibration
+  TBB::tbb 
   )
   ament_target_dependencies(${target}_node
     "rclcpp"
     "sensor_msgs"
     "image_transport"
     "OpenCV"
-    "PCL"
+    "Eigen3"
     "tf2_ros"
     "nav_msgs"
+    "TBB"
     )
   install(TARGETS ${target}_node
   DESTINATION lib/${PROJECT_NAME})
@@ -77,4 +82,3 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}/
 )
 
-add_subdirectory(src)

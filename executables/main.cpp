@@ -1,51 +1,406 @@
+#define FMT_HEADER_ONLY
+#include <fmt/format.h>
+#include "sensor_msgs/msg/point_cloud2.hpp"
+#include "sensor_msgs/point_cloud2_iterator.hpp"
+#include "tf2_ros/transform_broadcaster.h"
+#include "nav_msgs/msg/odometry.hpp"
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/time_synchronizer.h>
-#include <pcl/point_cloud.h>
-#include <pcl/point_types.h>
-#include <pcl/registration/icp.h>
-#include <unistd.h>
-
-#include <chrono>
-#include <cstdio>
 #include <image_transport/image_transport.hpp>
-#include <memory>
+
 #include <opencv2/calib3d.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/features2d.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+
 #include <regex>
+#include <memory>
+#include <tuple>
+#include <unistd.h>
+#include <chrono>
+#include <cstdio>
 
-#include "stereo_calibration/stereo_calibration.h"
+#include <tbb/blocked_range.h>
+#include <tbb/parallel_reduce.h>
+#include <tsl/robin_map.h>
 
-class Map {
-  public:
-    Map() { map = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>()); };
-    ~Map(){};
-    void update_localmap(pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud, Eigen::Matrix4f new_pose);
+#include <sophus/se3.hpp>
+#include "stereo_calibration.h"
 
-  public:
-    pcl::PointCloud<pcl::PointXYZ>::Ptr map;
+// TODO: Manage parameters
+// Constant Parameters
+constexpr int ESTIMATION_THRESHOLD_ = 0.0001;
+constexpr int MAX_NUM_ITERATIONS_ = 100;
+// Configurable Parameters
+double initial_threshold_ = 2.0;    // adptive
+const double min_motion_th_ = 0.1;  // constant
+
+double model_error_sse2_ = 0;
+int num_samples_ = 0;
+const double min_range_ = 5.0;     // constant
+const double max_range_ = 100.0;   // constant
+const double voxel_size_ = 20;    // constant
+double max_distance_ = 100.0;
+int max_points_per_voxel_ = 20;
+Sophus::SE3d model_deviation_ = Sophus::SE3d();
+
+using Voxel = Eigen::Vector3i;
+
+struct VoxelBlock {
+    // buffer of points with a max limit of n_points
+    std::vector<Eigen::Vector3d> points;
+    int num_points_;
+    inline void AddPoint(const Eigen::Vector3d &point) {
+        if (points.size() < static_cast<size_t>(num_points_)) points.push_back(point);
+    }
+};
+struct VoxelHash {
+    size_t operator()(const Voxel &voxel) const {
+        const uint32_t *vec = reinterpret_cast<const uint32_t *>(voxel.data());
+        return ((1 << 20) - 1) & (vec[0] * 73856093 ^ vec[1] * 19349663 ^ vec[2] * 83492791);
+    }
 };
 
-void Map::update_localmap(pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud, Eigen::Matrix4f new_pose) {
-    pcl::PointCloud<pcl::PointXYZ>::Ptr points_transformed(new pcl::PointCloud<pcl::PointXYZ>());
-    points_transformed->reserve(cloud->points.size());
 
-    for (const auto &point : cloud->points) {
-        Eigen::Vector4f point_homogeneous(point.x, point.y, point.z, 1.0);
-        Eigen::Vector4f transformed_point = new_pose * point_homogeneous;
-        pcl::PointXYZ transformed_point_3d(transformed_point.x(), transformed_point.y(),
-                                           transformed_point.z());
-        points_transformed->push_back(transformed_point_3d);
+
+class SLAM_Context{
+public:
+    SLAM_Context(){};
+    ~SLAM_Context(){};
+
+    Sophus::SE3d motion_model() const {
+        Sophus::SE3d pred = Sophus::SE3d(); // 아무 history 없을때 identity
+        const size_t N = poses_.size();
+        if (N < 2) return pred;
+        return poses_[N - 2].inverse() * poses_[N - 1];
+    }
+    std::vector<Eigen::Vector3d> get_registered_map() const {
+        std::vector<Eigen::Vector3d> points;
+        points.reserve(max_points_per_voxel_ * map_.size());
+        for (const auto &[voxel, voxel_block] : map_) {
+            (void)voxel;
+            for (const auto &point : voxel_block.points) {
+                points.push_back(point);
+            }
+        }
+        return points;
     }
 
-    // Assuming map is a pcl::PointCloud<pcl::PointXYZ>::Ptr
-    *map += *points_transformed;
+public:
+    std::vector<Sophus::SE3d> poses_;
+    tsl::robin_map<Voxel, VoxelBlock, VoxelHash> map_;
+    
+    
+};
+SLAM_Context slam_ctx;
+// ICP
+namespace Eigen {
+using Matrix6d = Eigen::Matrix<double, 6, 6>;
+using Matrix3_6d = Eigen::Matrix<double, 3, 6>;
+using Vector6d = Eigen::Matrix<double, 6, 1>;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+inline double square(double x) { return x * x; }
+
+struct ResultTuple {
+    ResultTuple() {
+        JTJ.setZero();
+        JTr.setZero();
+    }
+
+    ResultTuple operator+(const ResultTuple &other) {
+        this->JTJ += other.JTJ;
+        this->JTr += other.JTr;
+        return *this;
+    }
+
+    Eigen::Matrix6d JTJ;
+    Eigen::Vector6d JTr;
+};
+
+struct Cloud_Tuple {
+    Cloud_Tuple(std::size_t n) {
+        source.reserve(n);
+        target.reserve(n);
+    }
+    std::vector<Eigen::Vector3d> source;
+    std::vector<Eigen::Vector3d> target;
+};
+
+std::tuple<std::vector<Eigen::Vector3d>,std::vector<Eigen::Vector3d>>
+get_correspondence(
+    const std::vector<Eigen::Vector3d> &points, const tsl::robin_map<Voxel, VoxelBlock, VoxelHash> &map, double max_correspondance_distance)  {
+    // Lambda Function to obtain the KNN of one point, maybe refactor
+    auto GetClosestNeighboor = [&](const Eigen::Vector3d &point) {
+        auto kx = static_cast<int>(point[0] / voxel_size_);
+        auto ky = static_cast<int>(point[1] / voxel_size_);
+        auto kz = static_cast<int>(point[2] / voxel_size_);
+        std::vector<Voxel> voxels;
+        voxels.reserve(27);
+        for (int i = kx - 1; i < kx + 1 + 1; ++i) {
+            for (int j = ky - 1; j < ky + 1 + 1; ++j) {
+                for (int k = kz - 1; k < kz + 1 + 1; ++k) {
+                    voxels.emplace_back(i, j, k);
+                }
+            }
+        }
+
+
+        std::vector<Eigen::Vector3d> neighboors;
+        neighboors.reserve(27 * max_points_per_voxel_);
+        std::for_each(voxels.cbegin(), voxels.cend(), [&](const auto &voxel) {
+            auto search = map.find(voxel);
+            if (search != map.end()) {
+                const auto &points = search->second.points;
+                if (!points.empty()) {
+                    for (const auto &point : points) {
+                        neighboors.emplace_back(point);
+                    }
+                }
+            }
+        });
+
+        Eigen::Vector3d closest_neighbor;
+        double closest_distance2 = std::numeric_limits<double>::max();
+        std::for_each(neighboors.cbegin(), neighboors.cend(), [&](const auto &neighbor) {
+            double distance = (neighbor - point).squaredNorm();
+            if (distance < closest_distance2) {
+                closest_neighbor = neighbor;
+                closest_distance2 = distance;
+            }
+        });
+
+        return closest_neighbor;
+    };
+    using points_iterator = std::vector<Eigen::Vector3d>::const_iterator;
+    const auto [source, target] = tbb::parallel_reduce(
+        // Range
+        tbb::blocked_range<points_iterator>{points.cbegin(), points.cend()},
+        // Identity
+        Cloud_Tuple(points.size()),
+        // 1st lambda: Parallel computation
+        [max_correspondance_distance, &GetClosestNeighboor](
+            const tbb::blocked_range<points_iterator> &r, Cloud_Tuple res) -> Cloud_Tuple {
+            auto &[src, tgt] = res;
+            src.reserve(r.size());
+            tgt.reserve(r.size());
+            for (const auto &point : r) {
+                Eigen::Vector3d closest_neighboors = GetClosestNeighboor(point);
+                if ((closest_neighboors - point).norm() < max_correspondance_distance) {
+                    src.emplace_back(point);
+                    tgt.emplace_back(closest_neighboors);
+                }
+            }
+            return res;
+        },
+        // 2nd lambda: Parallel reduction
+        [](Cloud_Tuple a, const Cloud_Tuple &b) -> Cloud_Tuple {
+            auto &[src, tgt] = a;
+            const auto &[srcp, tgtp] = b;
+            src.insert(src.end(),  //
+                       std::make_move_iterator(srcp.begin()), std::make_move_iterator(srcp.end()));
+            tgt.insert(tgt.end(),  //
+                       std::make_move_iterator(tgtp.begin()), std::make_move_iterator(tgtp.end()));
+            return a;
+        });
+
+    return std::make_tuple(source, target);
+}
+
+
+
+
+
+void transform_cloud(const Sophus::SE3d &T, std::vector<Eigen::Vector3d> &cloud) {
+    std::transform(cloud.cbegin(), cloud.cend(), cloud.begin(),
+                   [&](const auto &point) { return T * point; });
+}
+
+Sophus::SE3d AlignClouds(const std::vector<Eigen::Vector3d> &source,
+                         const std::vector<Eigen::Vector3d> &target,
+                         double th) {
+    auto compute_jacobian_and_residual = [&](auto i) {
+        const Eigen::Vector3d residual = source[i] - target[i];
+        Eigen::Matrix3_6d J_r;
+        J_r.block<3, 3>(0, 0) = Eigen::Matrix3d::Identity();
+        J_r.block<3, 3>(0, 3) = -1.0 * Sophus::SO3d::hat(source[i]);
+        return std::make_tuple(J_r, residual);
+    };
+
+    const auto &[JTJ, JTr] = tbb::parallel_reduce(
+        // Range
+        tbb::blocked_range<size_t>{0, source.size()},
+        // Identity
+        ResultTuple(),
+        // 1st Lambda: Parallel computation
+        [&](const tbb::blocked_range<size_t> &r, ResultTuple J) -> ResultTuple {
+            auto Weight = [&](double residual2) { return square(th) / square(th + residual2); };
+            auto &[JTJ_private, JTr_private] = J;
+            for (auto i = r.begin(); i < r.end(); ++i) {
+                const auto &[J_r, residual] = compute_jacobian_and_residual(i);
+                const double w = Weight(residual.squaredNorm());
+                JTJ_private.noalias() += J_r.transpose() * w * J_r;
+                JTr_private.noalias() += J_r.transpose() * w * residual;
+            }
+            return J;
+        },
+        // 2nd Lambda: Parallel reduction of the private Jacboians
+        [&](ResultTuple a, const ResultTuple &b) -> ResultTuple { return a + b; });
+
+    const Eigen::Vector6d x = JTJ.ldlt().solve(-JTr);
+    return Sophus::SE3d::exp(x);
+}
+
+Sophus::SE3d register_frame_icp(const std::vector<Eigen::Vector3d> &cloud,
+                           const tsl::robin_map<Voxel, VoxelBlock, VoxelHash> &map,
+                           const Sophus::SE3d &pose_initial_guess,
+                           double max_correspondence_distance,
+                           double kernel) {
+    if (map.empty()) return pose_initial_guess;
+
+    // Equation (9)
+    std::vector<Eigen::Vector3d> source = cloud;
+    transform_cloud(pose_initial_guess, source);
+
+    // ICP-loop
+    Sophus::SE3d T_icp = Sophus::SE3d();
+    for (int j = 0; j < MAX_NUM_ITERATIONS_; ++j) {
+        // Equation (10)
+        const auto &[src, tgt] = get_correspondence(source, map, max_correspondence_distance);
+        // Equation (11)
+        auto estimation = AlignClouds(src, tgt, kernel);
+        // Equation (12)
+        transform_cloud(estimation, source);
+        // Update iterations
+        T_icp = estimation * T_icp;
+        // Termination criteria
+        if (estimation.log().norm() < ESTIMATION_THRESHOLD_) break;
+    }
+    // Spit the final transformation
+    return T_icp * pose_initial_guess;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+double compute_model_error(const Sophus::SE3d &model_deviation, double max_range) {
+    const double theta = Eigen::AngleAxisd(model_deviation.rotationMatrix()).angle();
+    const double delta_rot = 2.0 * max_range * std::sin(theta / 2.0);
+    const double delta_trans = model_deviation.translation().norm();
+    return delta_trans + delta_rot;
+}
+
+double get_adaptive_threshold(){
+    double model_error = compute_model_error(model_deviation_, max_range_);
+    if (model_error > min_motion_th_) {
+        model_error_sse2_ += model_error * model_error;
+        num_samples_++;
+    }
+
+    if (num_samples_ < 1) {
+        return initial_threshold_;
+    }
+    return std::sqrt(model_error_sse2_ / num_samples_);
+}
+
+
+std::vector<Eigen::Vector3d> voxelize_downsample(const std::vector<Eigen::Vector3d> &cloud,
+                                             double voxel_size) {
+    tsl::robin_map<Voxel, Eigen::Vector3d, VoxelHash> grid;
+    grid.reserve(cloud.size());
+    for (const auto &point : cloud) {
+        const auto voxel = Voxel((point / voxel_size).cast<int>());
+        if (grid.contains(voxel)) continue;
+        grid.insert({voxel, point});
+    }
+    std::vector<Eigen::Vector3d> frame_dowsampled;
+    frame_dowsampled.reserve(grid.size());
+    for (const auto &[voxel, point] : grid) {
+        (void)voxel;
+        frame_dowsampled.emplace_back(point);
+    }
+    return frame_dowsampled;
+}
+
+std::vector<Eigen::Vector3d> preprocess(const std::vector<Eigen::Vector3d> &cloud,
+                                        double max_range,
+                                        double min_range) {
+    std::vector<Eigen::Vector3d> inliers;
+    std::copy_if(cloud.cbegin(), cloud.cend(), std::back_inserter(inliers), [&](const auto &pt) {
+        const double norm = pt.norm();
+        return norm < max_range && norm > min_range;
+    });
+    return inliers;
+}
+
+void add_cloud_to_map(const std::vector<Eigen::Vector3d> &cloud) {
+    auto map = &slam_ctx.map_;
+    std::for_each(cloud.cbegin(), cloud.cend(), [&](const auto &point) {
+        auto voxel = Voxel((point / voxel_size_).template cast<int>());
+        auto search = map->find(voxel);
+        if (search != map->end()) {
+            auto &voxel_block = search.value();
+            voxel_block.AddPoint(point);
+        } else {
+            map->insert({voxel, VoxelBlock{{point}, max_points_per_voxel_}});
+        }
+    });
+}
+
+void RemovePointsFarFromLocation(const Eigen::Vector3d &origin) {    
+    for (const auto &[voxel, voxel_block] : slam_ctx.map_) {
+        const auto &pt = voxel_block.points.front();
+        const auto max_distance2 = max_distance_ * max_distance_;
+        if ((pt - origin).squaredNorm() > (max_distance2)) {
+            slam_ctx.map_.erase(voxel);
+        }
+    }
+}
+
+void update_map(const std::vector<Eigen::Vector3d> cloud, const Sophus::SE3d &pose) {
+    std::vector<Eigen::Vector3d>  cloud_transformed(cloud.size());
+    std::transform(cloud.cbegin(), cloud.cend(), cloud_transformed.begin(),
+                   [&](const auto &point) { return pose * point; });
+    const Eigen::Vector3d &origin = pose.translation();
+    add_cloud_to_map(cloud_transformed);
+    //RemovePointsFarFromLocation(origin);
+}
+
+
+// This is SLAM 
+std::tuple<std::vector<Eigen::Vector3d>,std::vector<Eigen::Vector3d>,Sophus::SE3d>
+register_frame(const std::vector<Eigen::Vector3d> &cloud) {
+    // Preprocess the input cloud
+    //const auto &cloud_cropped = preprocess(cloud, max_range_, min_range_);    // lidar의 range (min, max)
+    const auto &cloud_cropped = cloud;
+    // Voxelize
+    //std::cout<<cloud.size()<<"\n";
+    //const auto cloud_downsampled = voxelize_downsample(cloud_cropped, voxel_size_*0.5);  // map으로 저장할것  
+    //const auto cloud_source = voxelize_downsample(cloud_cropped, voxel_size_*1.5);       // 연산에 쓸거
+    //std::cout<<cloud_downsampled.size()<<"\n";
+    //std::cout<<cloud_source.size()<<"\n";
+    const auto cloud_downsampled = cloud_cropped;
+    const auto cloud_source = cloud_cropped;
+    const double sigma = get_adaptive_threshold(); // Need to see
+    
+    const auto T_initial_guess = slam_ctx.motion_model();   // identity 아니면 직전 transformation
+    const auto last_pose = !slam_ctx.poses_.empty() ? slam_ctx.poses_.back() : Sophus::SE3d();
+    const auto pose_initial_guess = last_pose * T_initial_guess;
+
+    const Sophus::SE3d new_pose = register_frame_icp(cloud_source,         
+                                                     slam_ctx.map_,     
+                                                     pose_initial_guess,  
+                                                     3.0 * sigma,    
+                                                     sigma / 3.0);
+    const auto model_deviation = pose_initial_guess.inverse() * new_pose;
+    model_deviation_ = model_deviation;
+
+    // /poses_.push_back(new_pose);
+    return std::make_tuple(cloud_downsampled, cloud_source, new_pose);
+}
+
 
 inline std::string FixFrameId(const std::string &frame_id) {
     return std::regex_replace(frame_id, std::regex("^/"), "");
@@ -80,39 +435,39 @@ CreatePointCloud2Msg(const size_t n_points, const std_msgs::msg::Header &header,
     return cloud_msg;
 }
 
-inline void FillPointCloud2XYZ(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud,
+inline void FillPointCloud2XYZ(const std::vector<Eigen::Vector3d> &cloud,
                                sensor_msgs::msg::PointCloud2 &msg) {
     sensor_msgs::PointCloud2Iterator<float> msg_x(msg, "x");
     sensor_msgs::PointCloud2Iterator<float> msg_y(msg, "y");
     sensor_msgs::PointCloud2Iterator<float> msg_z(msg, "z");
-    for (size_t i = 0; i < cloud->points.size(); i++, ++msg_x, ++msg_y, ++msg_z) {
-        const auto p = cloud->points[i];
-        *msg_x = p.x;
-        *msg_y = p.y;
-        *msg_z = p.z;
+    for (size_t i = 0; i < cloud.size(); i++, ++msg_x, ++msg_y, ++msg_z) {
+        const Eigen::Vector3d &point = cloud[i];
+        *msg_x = point.x();
+        *msg_y = point.y();
+        *msg_z = point.z();
     }
 }
 
 inline std::unique_ptr<sensor_msgs::msg::PointCloud2>
-EigenToPointCloud2(const pcl::PointCloud<pcl::PointXYZ>::Ptr &cloud,
+EigenToPointCloud2(const std::vector<Eigen::Vector3d> &cloud,
                    const std_msgs::msg::Header &header) {
-    auto msg = CreatePointCloud2Msg(cloud->points.size(), header);
+    auto msg = CreatePointCloud2Msg(cloud.size(), header);
     FillPointCloud2XYZ(cloud, *msg);
     return msg;
 }
 
-cv::Mat intrinsic_left =
-    (cv::Mat_<double>(3, 3) << 458.654, 0, 367.215, 0, 457.296, 248.375, 0, 0, 1);
-cv::Mat intrinsic_right =
-    (cv::Mat_<double>(3, 3) << 457.587, 0, 379.999, 0, 456.134, 255.238, 0, 0, 1);
-cv::Mat calib_left =
-    (cv::Mat_<double>(3, 4) << 0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
-     0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768, -0.0257744366974,
-     0.00375618835797, 0.999660727178, 0.00981073058949);
-cv::Mat calib_right =
-    (cv::Mat_<double>(3, 4) << 0.0125552670891, -0.999755099723, 0.0182237714554, -0.0198435579556,
-     0.999598781151, 0.0130119051815, 0.0251588363115, 0.0453689425024, -0.0253898008918,
-     0.0179005838253, 0.999517347078, 0.00786212447038);
+// cv::Mat intrinsic_left =
+//     (cv::Mat_<double>(3, 3) << 458.654, 0, 367.215, 0, 457.296, 248.375, 0, 0, 1);
+// cv::Mat intrinsic_right =
+//     (cv::Mat_<double>(3, 3) << 457.587, 0, 379.999, 0, 456.134, 255.238, 0, 0, 1);
+// cv::Mat calib_left =
+//     (cv::Mat_<double>(3, 4) << 0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+//      0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768, -0.0257744366974,
+//      0.00375618835797, 0.999660727178, 0.00981073058949);
+// cv::Mat calib_right =
+//     (cv::Mat_<double>(3, 4) << 0.0125552670891, -0.999755099723, 0.0182237714554, -0.0198435579556,
+//      0.999598781151, 0.0130119051815, 0.0251588363115, 0.0453689425024, -0.0253898008918,
+//      0.0179005838253, 0.999517347078, 0.00786212447038);
 
 // MH_01_easy.bag
 cv::Mat K_left = (cv::Mat_<double>(3, 3) << 458.654, 0, 367.215, 0, 457.296, 248.375, 0, 0, 1);
@@ -133,146 +488,41 @@ cv::Mat D_left =
 cv::Mat D_right =
     (cv::Mat_<double>(5, 1) << -0.28340811, 0.07395907, 0.00019359, 1.76187114e-05);
 
-// cv::Mat intrinsic_left = (cv::Mat_<double>(3,3) << 9.842439e+02, 0.000000e+00, 6.900000e+02,
-//                                                  0.000000e+00, 9.808141e+02, 2.331966e+02,
-//                                                   0.000000e+00, 0.000000e+00, 1.000000e+00);
 
-// cv::Mat intrinsic_right = (cv::Mat_<double>(3,3) << 9.895267e+02, 0.000000e+00, 7.020000e+02,
-//                                                     0.000000e+00, 9.878386e+02, 2.455590e+02,
-//                                                      0.000000e+00, 0.000000e+00, 1.000000e+00);
-// cv::Mat calib_left = (cv::Mat_<double>(3,4) << 1.000000e+00, 0.000000e+00,
-// 0.000000e+00, 2.573699e-16,
-//                                                  0.000000e+00, 1.000000e+00, 0.000000e+00,
-//                                                  -1.059758e-16,
-//                                                   0.000000e+00,
-//                                                   0.000000e+00, 1.000000e+00,  1.614870e-16
-// );
-// cv::Mat calib_right = (cv::Mat_<double>(3,4) << 9.993513e-01, 1.860866e-02,
-// -3.083487e-02,-5.370000e-01,
-//                                              -1.887662e-02, 9.997863e-01,
-//                                              -8.421873e-03,4.822061e-03,
-//                                                  3.067156e-02, 8.998467e-03, 9.994890e-01,-1.252488e-02
-//);
-cv::Mat projection_left = intrinsic_left * calib_left;
-cv::Mat projection_right = intrinsic_right * calib_right;
+        
+//cv::Mat projection_left = intrinsic_left*calib_left;
+//cv::Mat projection_right = intrinsic_right*calib_right;
 
-class Frame {
-  public:
-    Frame() {
-
-        transformation = new Eigen::Matrix4f();
-        transformation->setIdentity();
-        world_points = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
-    };
-    ~Frame(){};
-
-  public:
-    Eigen::Matrix<float, 4, 4> *transformation; // Rotation and translation of Frame
-    std::vector<cv::KeyPoint> keypoints_left;
-    std::vector<cv::KeyPoint> keypoints_right;
-    std::vector<cv::Point2d> matched_keypoints_left;
-    std::vector<cv::Point2d> matched_keypoints_right;
-    pcl::PointCloud<pcl::PointXYZ>::Ptr world_points;
-};
-
-class Tracker {
-  public:
-    Tracker() { feature_detector = cv::ORB::create(); }
-    ~Tracker(){};
-    void detect_keypoints(cv::Mat *image_left, cv::Mat *image_right);
-    void triangulate_points();
-    Eigen::Matrix4f icp();
-
-  public:
-    cv::Ptr<cv::Feature2D> feature_detector;
-    std::vector<Frame> frames;
-};
-
-void Tracker::detect_keypoints(cv::Mat *image_left, cv::Mat *image_right) {
-    Frame frame;
-    cv::Mat descriptors_left;
-    cv::Mat descriptors_right;
-
-    // Feature detection
-    feature_detector->detectAndCompute(*image_left, cv::noArray(), frame.keypoints_left,
-                                       descriptors_left);
-    feature_detector->detectAndCompute(*image_right, cv::noArray(), frame.keypoints_right,
-                                       descriptors_right);
-
-    // Match descriptors
-    std::vector<cv::DMatch> matches;
-    cv::BFMatcher matcher(cv::NORM_HAMMING);
-    matcher.match(descriptors_left, descriptors_right, matches);
-
-    // Filter matches using ratio test
-    std::vector<cv::DMatch> filtered_matches;
-    // double ratio_threshold = 0.1;
-    for (const auto &match : matches) {
-        if (match.distance < 50) {
-            filtered_matches.push_back(match);
-        }
+std::vector<Eigen::Vector3d> triangulate_points(const std::vector<cv::Point2d> matched_keypoints_left,const std::vector<cv::Point2d> matched_keypoints_right) {
+    std::vector<Eigen::Vector3d> frame_points;
+    cv::Mat triangulated_points;
+    cv::triangulatePoints(P_left, P_right, matched_keypoints_left,
+                          matched_keypoints_right, triangulated_points);
+    frame_points.reserve(triangulated_points.cols);
+    for (int point_idx = 0; point_idx < triangulated_points.cols; point_idx++) {
+        auto point = triangulated_points.col(point_idx);
+        frame_points.emplace_back(point.at<double>(0), point.at<double>(1), point.at<double>(2));
     }
-
-    // Retrieve 3D points for matched keypoints
-    for (const cv::DMatch &match : filtered_matches) {
-        cv::Point2f pt1 = frame.keypoints_left[match.queryIdx].pt;
-        cv::Point2f pt2 = frame.keypoints_right[match.trainIdx].pt;
-        frame.matched_keypoints_left.push_back(pt1);
-        frame.matched_keypoints_right.push_back(pt2);
-    }
-    frames.push_back(frame);
+    return frame_points;
 }
 
-void Tracker::triangulate_points() {
-    cv::Mat world_points;
-    auto frame = frames.back();
-    cv::triangulatePoints(projection_left, projection_right, frame.matched_keypoints_left,
-                          frame.matched_keypoints_right, world_points);
 
-    for (int world_point_idx = 0; world_point_idx < world_points.cols; world_point_idx++) {
-        auto point = world_points.col(world_point_idx);
-        pcl::PointXYZ p(point.at<double>(0), point.at<double>(1), point.at<double>(2));
-        frame.world_points->push_back(p);
-    }
-}
+class ImageSubscriberNode : public rclcpp::Node
+{
 
-Eigen::Matrix4f Tracker::icp() {
-    // run icp
-    if (frames.size() < 2)
-        return Eigen::Matrix4f::Identity();
-    auto current_frame = &frames.back();
-    auto previous_frame = &frames.at(frames.size() - 2);
+public:
+    ImageSubscriberNode()
+      : Node("exact_time_subscriber")
+    {
+        // subscription_pointcloud = create_subscription<sensor_msgs::msg::PointCloud2>(
+        //     "pointcloud_topic", rclcpp::SensorDataQoS(),
+        //     std::bind(&ImageSubscriberNode::RegisterFrame, this, std::placeholders::_1));
 
-    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
-    icp.setMaxCorrespondenceDistance(1.0);
-    icp.setTransformationEpsilon(0.001);
-    icp.setMaximumIterations(100);
-
-    pcl::PointCloud<pcl::PointXYZ>::Ptr align(new pcl::PointCloud<pcl::PointXYZ>);
-
-    icp.setInputSource(current_frame->world_points);
-    icp.setInputTarget(previous_frame->world_points);
-    icp.align(*align);
-
-    *current_frame->transformation =
-        icp.getFinalTransformation() * (*previous_frame->transformation);
-    return *current_frame->transformation;
-}
-
-class ImageSubscriberNode : public rclcpp::Node {
-
-  public:
-    ImageSubscriberNode() : Node("exact_time_subscriber") {
-        // subscription_temp_1_.subscribe(this, "/kitti/camera_gray_left/image_raw");
-        // subscription_temp_2_.subscribe(this, "/kitti/camera_gray_right/image_raw");
-        subscription_temp_1_.subscribe(this, "/cam0/image_raw");
-        subscription_temp_2_.subscribe(this, "/cam1/image_raw");
-        sync_ = std::make_shared<
-            message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image>>(
-            subscription_temp_1_, subscription_temp_2_, 3);
-        sync_->registerCallback(std::bind(&ImageSubscriberNode::topic_callback, this,
-                                          std::placeholders::_1, std::placeholders::_2));
-
+        subscription_left_image.subscribe(this, "/cam0/image_raw");
+        subscription_right_image.subscribe(this, "/cam1/image_raw");  
+        sync_ = std::make_shared<message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image>>(subscription_left_image, subscription_right_image, 3);
+        sync_->registerCallback(std::bind(&ImageSubscriberNode::stereo_image_callback, this, std::placeholders::_1, std::placeholders::_2));
+        
         rclcpp::QoS qos(rclcpp::KeepLast{100});
         tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
         odom_publisher_ = create_publisher<nav_msgs::msg::Odometry>("odometry", qos);
@@ -281,29 +531,23 @@ class ImageSubscriberNode : public rclcpp::Node {
     }
 
   private:
-    void topic_callback(const sensor_msgs::msg::Image::ConstSharedPtr &img_msg_left,
+    void stereo_image_callback(const sensor_msgs::msg::Image::ConstSharedPtr &img_msg_left,
                         const sensor_msgs::msg::Image::ConstSharedPtr &img_msg_right) {
         cv::Mat image_left(img_msg_left->height, img_msg_left->width, CV_8UC1,
                            const_cast<unsigned char *>(img_msg_left->data.data()),
                            img_msg_left->step);
 
         cv::Mat image_right(img_msg_right->height, img_msg_right->width, CV_8UC1,
-
                             const_cast<unsigned char *>(img_msg_right->data.data()),
                             img_msg_right->step);
-        cv::Mat image_small_left;
-        cv::Mat image_small_right;
-        cv::resize(image_left, image_small_left,
-                   cv::Size(img_msg_left->width / 4, img_msg_left->height / 4));
-        cv::resize(image_right, image_small_right,
-                   cv::Size(img_msg_left->width / 4, img_msg_left->height / 4));
-        // tracker.detect_keypoints(&image_small_left, &image_small_right);
-
-        // Start Pre-processing
-        // Histogram Equalization, Feature matching, Undistortion, and Rectification
-        equalizeStereoHist(image_small_left, image_small_right, 1, false);
+      
+        // call by reference -> return
+        
+        equalizeStereoHist(image_left, image_right, 1, false);
+        
         std::vector<cv::Point2f> matched_left, matched_right;
-        obtainCorrespondingPoints(img1, img2, matched_left, matched_right, 50, false);
+        // 50 -> config->min_matched_num
+        obtainCorrespondingPoints(image_left, image_right, matched_left, matched_right, 200, false);
         std::vector<cv::Point2f> undistort_left, undistort_right;
         undistortKeyPoints(matched_left, matched_right, undistort_left, undistort_right, K_left,
                         K_right, D_left, D_right);
@@ -321,9 +565,10 @@ class ImageSubscriberNode : public rclcpp::Node {
 
         Eigen::Vector3d e1 = compute_epipole(F);
         Eigen::Vector3d e2 = compute_epipole(F.transpose());
-
+        
+        // img2 is image right
         std::pair<Eigen::Matrix3d, Eigen::Matrix3d> homographies =
-            compute_matching_homographies(e2, F, img2, matched_left_eigen, matched_right_eigen);
+            compute_matching_homographies(e2, F, image_right, matched_left_eigen, matched_right_eigen);
 
         Eigen::MatrixXd new_points1 =
             divideByZ(homographies.first * matched_left_eigen.transpose()).transpose();
@@ -333,40 +578,37 @@ class ImageSubscriberNode : public rclcpp::Node {
         // End Pre-processing
 
         // Convert homogeneous points into non-homogeneous points
-        int numRows = new_points1.rows();
-        
-        for (int i = 0; i < numRows; ++i) {
+        int matched_num = new_points1.rows();
+        std::vector<cv::Point2d> matched_keypoints_left, matched_keypoints_right;
+        matched_keypoints_left.reserve(matched_num);
+        matched_keypoints_right.reserve(matched_num);
+        for (int i = 0; i < matched_num; ++i) {
             double x = new_points1(i, 0) / new_points1(i, 2);
             double y = new_points1(i, 1) / new_points1(i, 2);
-            frame.matched_keypoints_left.push_back(cv::Point2d(x,y));
+            matched_keypoints_left.emplace_back(cv::Point2d(x,y));
         }
 
-        for (int i = 0; i < numRows; ++i) {
+        for (int i = 0; i < matched_num; ++i) {
             double x = new_points2(i, 0) / new_points2(i, 2);
             double y = new_points2(i, 1) / new_points2(i, 2);
-            frame.matched_keypoints_right.push_back(cv::Point2d(x,y));
+            matched_keypoints_right.emplace_back(cv::Point2d(x,y));
         }
 
-        tracker.triangulate_points();
+        auto triangulated_points = triangulate_points(matched_keypoints_left, matched_keypoints_right);
+        
+        auto [cloud_map, cloud_keypoints, new_pose] = register_frame(triangulated_points);
+        RCLCPP_INFO(this->get_logger(), "cloud_map size: %d cloud_keypoints size: %d", cloud_map.size(), cloud_keypoints.size());
+        RCLCPP_INFO(this->get_logger(), "new pose", new_pose.matrix());
+        update_map(cloud_map, new_pose);
+        slam_ctx.poses_.push_back(new_pose);
+        
 
-        tracker.icp();
-        auto current_frame = &tracker.frames.back();
-        auto world_points = current_frame->world_points;
-        Eigen::Matrix4f transfomation = *current_frame->transformation;
-        std::stringstream ss;
-        RCLCPP_INFO(this->get_logger(), "callback");
-        // logging
-        // auto current_frame =  tracker.frames.back();
-        // 이전 frame의 p_2=T*p_1
-
-        Eigen::Vector3f translation = transfomation.block<3, 1>(0, 3);
-
-        // Extract rotation matrix
-        Eigen::Matrix3f rotation = transfomation.block<3, 3>(0, 0);
-        map.update_localmap(world_points, transfomation);
+        Eigen::Vector3d translation = new_pose.matrix().block<3, 1>(0, 3);
+        Eigen::Matrix3d rotation = new_pose.matrix().block<3, 3>(0, 0);
+        
 
         // Convert rotation matrix to unit quaternion
-        Eigen::Quaternionf quaternion(rotation);
+        Eigen::Quaterniond quaternion(rotation);
         geometry_msgs::msg::TransformStamped transform_msg;
 
         transform_msg.header.stamp = this->now();
@@ -396,29 +638,32 @@ class ImageSubscriberNode : public rclcpp::Node {
 
         sensor_msgs::msg::PointCloud2 frame_msg;
         frame_msg.header.stamp = this->now();
-        frame_msg.header.frame_id = child_frame_;
-        frame_publisher_->publish(std::move(EigenToPointCloud2(world_points, frame_msg.header)));
+        frame_msg.header.frame_id = child_frame_;        
+        frame_publisher_->publish(std::move(EigenToPointCloud2(cloud_keypoints, frame_msg.header)));
 
         sensor_msgs::msg::PointCloud2 map_msg;
         map_msg.header.stamp = this->now();
         map_msg.header.frame_id = odom_frame_;
-        // auto local_map_header = msg->header;
-        // local_map_header.frame_id = odom_frame_;
-        map_publisher_->publish(std::move(EigenToPointCloud2(map.map, map_msg.header)));
+        //auto local_map_header = msg->header;
+        //local_map_header.frame_id = odom_frame_;
+        map_publisher_->publish(std::move(EigenToPointCloud2(slam_ctx.get_registered_map(), map_msg.header)));
+     
     }
 
-  public:
-    Tracker tracker;
-    Map map;
-
-  private:
-    message_filters::Subscriber<sensor_msgs::msg::Image> subscription_temp_1_;
-    message_filters::Subscriber<sensor_msgs::msg::Image> subscription_temp_2_;
+public:
+    
+private:
+    
+    
+    rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_pointcloud;
+    message_filters::Subscriber<sensor_msgs::msg::Image> subscription_left_image;
+    message_filters::Subscriber<sensor_msgs::msg::Image> subscription_right_image;
     std::shared_ptr<
         message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image>>
         sync_;
 
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_; // what is tf broadcasters role?
+
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_publisher_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr frame_publisher_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr map_publisher_;
@@ -430,6 +675,12 @@ class ImageSubscriberNode : public rclcpp::Node {
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
     cv::namedWindow("view");
+    cv::startWindowThread();
+    cv::namedWindow("histogram equalization");
+    cv::startWindowThread();
+    cv::namedWindow("Matched Features");
+    cv::startWindowThread();
+    cv::namedWindow("result");
     cv::startWindowThread();
 
     auto node = std::make_shared<ImageSubscriberNode>();
