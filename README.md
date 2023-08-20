@@ -50,3 +50,6 @@ ros2 run slam-tutorial main_node
 1. Convert KITTI stereo to `.bag` format.
 2. Implement `PnP` in `call_back` function to obtain R, t, and publish R, t.
 3. Visualize published R, t via rviz
+
+## Library
+1. [tsl-robin-map](https://github.com/Tessil/robin-map)
