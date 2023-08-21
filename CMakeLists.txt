@@ -71,7 +71,7 @@ function(custom_executable target)
   DESTINATION lib/${PROJECT_NAME})
 endfunction()
 
-custom_executable(main)
+# custom_executable(main)
 custom_executable(main_lidar)
 
 ament_package()
