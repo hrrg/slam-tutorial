@@ -72,7 +72,7 @@ function(custom_executable target)
 endfunction()
 
 custom_executable(main)
-# custom_executable(lidar_subscriber)
+custom_executable(main_lidar)
 
 ament_package()
 
