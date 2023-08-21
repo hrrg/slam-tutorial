@@ -15,8 +15,8 @@ void equalizeStereoHist(cv::Mat &image1, cv::Mat &image2, int method, bool show)
         cv::Mat compare_result;
         cv::hconcat(image1, image2, compare_result);
         cv::imshow("histogram equalization", compare_result);
-        cv::waitKey(0);
-        cv::destroyAllWindows();
+        // cv::waitKey(0);
+        // cv::destroyAllWindows();
     }
 }
 
@@ -54,8 +54,8 @@ void obtainCorrespondingPoints(cv::Mat &image_left, cv::Mat &image_right,
 
         // Display the matched image
         cv::imshow("Matched Features", matched_image);
-        cv::waitKey(0);
-        cv::destroyAllWindows();
+        // cv::waitKey(0);
+        // cv::destroyAllWindows();
     }
 }
 
