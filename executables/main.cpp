@@ -4,6 +4,7 @@
 #include "sensor_msgs/point_cloud2_iterator.hpp"
 #include "tf2_ros/transform_broadcaster.h"
 #include "nav_msgs/msg/odometry.hpp"
+#include "nav_msgs/msg/path.hpp"
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/time_synchronizer.h>
@@ -451,6 +452,7 @@ inline void FillPointCloud2XYZ(const std::vector<Eigen::Vector3d> &cloud,
 inline std::unique_ptr<sensor_msgs::msg::PointCloud2>
 EigenToPointCloud2(const std::vector<Eigen::Vector3d> &cloud,
                    const std_msgs::msg::Header &header) {
+    std::cout << "cloud" << cloud.size() << "\n";
     auto msg = CreatePointCloud2Msg(cloud.size(), header);
     FillPointCloud2XYZ(cloud, *msg);
     return msg;
@@ -526,8 +528,13 @@ public:
         rclcpp::QoS qos(rclcpp::KeepLast{100});
         tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
         odom_publisher_ = create_publisher<nav_msgs::msg::Odometry>("odometry", qos);
-        frame_publisher_ = create_publisher<sensor_msgs::msg::PointCloud2>("frame", qos);
+        frame_publisher_ = create_publisher<sensor_msgs::msg::PointCloud2>("scan", qos);
         map_publisher_ = create_publisher<sensor_msgs::msg::PointCloud2>("local_map", qos);
+        path_publisher_ = create_publisher<nav_msgs::msg::Path>("path", qos);
+
+        //child_frame_ = declare_parameter<std::string>("child_frame", child_frame_);
+        //odom_frame_ = declare_parameter<std::string>("odom_frame", odom_frame_);
+        path_msg_.header.frame_id = odom_frame_;
     }
 
   private:
@@ -611,7 +618,7 @@ public:
         Eigen::Quaterniond quaternion(rotation);
         geometry_msgs::msg::TransformStamped transform_msg;
 
-        transform_msg.header.stamp = this->now();
+        transform_msg.header.stamp = img_msg_left->header.stamp;
         transform_msg.header.frame_id = odom_frame_;
         transform_msg.child_frame_id = child_frame_;
         transform_msg.transform.rotation.x = quaternion.x();
@@ -623,31 +630,39 @@ public:
         transform_msg.transform.translation.z = translation.z();
         tf_broadcaster_->sendTransform(transform_msg);
 
-        nav_msgs::msg::Odometry odom_msg;
-        odom_msg.header.stamp = this->now();
-        odom_msg.header.frame_id = odom_frame_;
-        odom_msg.child_frame_id = child_frame_;
-        odom_msg.pose.pose.orientation.x = quaternion.x();
-        odom_msg.pose.pose.orientation.y = quaternion.y();
-        odom_msg.pose.pose.orientation.z = quaternion.z();
-        odom_msg.pose.pose.orientation.w = quaternion.w();
-        odom_msg.pose.pose.position.x = translation.x();
-        odom_msg.pose.pose.position.y = translation.y();
-        odom_msg.pose.pose.position.z = translation.z();
-        odom_publisher_->publish(odom_msg);
+        geometry_msgs::msg::PoseStamped pose_msg;
+        pose_msg.pose.orientation.x = quaternion.x();
+        pose_msg.pose.orientation.y = quaternion.y();
+        pose_msg.pose.orientation.z = quaternion.z();
+        pose_msg.pose.orientation.w = quaternion.w();
+        pose_msg.pose.position.x = translation.x();
+        pose_msg.pose.position.y = translation.y();
+        pose_msg.pose.position.z = translation.z();
+        pose_msg.header.stamp = img_msg_left->header.stamp;
+        pose_msg.header.frame_id = odom_frame_;
+        
+        path_msg_.poses.push_back(pose_msg);
+        path_publisher_->publish(path_msg_);
 
+        //// publish odometry msg
+        auto odom_msg = std::make_unique<nav_msgs::msg::Odometry>();
+        odom_msg->header = pose_msg.header;
+        odom_msg->header.frame_id = odom_frame_; 
+        odom_msg->child_frame_id = child_frame_;
+        odom_msg->pose.pose = pose_msg.pose;
+        odom_publisher_->publish(std::move(odom_msg));
+
+        //// Publish KISS-ICP internal data, just for debugging
         sensor_msgs::msg::PointCloud2 frame_msg;
-        frame_msg.header.stamp = this->now();
-        frame_msg.header.frame_id = child_frame_;        
+        frame_msg.header.stamp = img_msg_left->header.stamp;
+        frame_msg.header.frame_id = child_frame_; 
         frame_publisher_->publish(std::move(EigenToPointCloud2(cloud_keypoints, frame_msg.header)));
-
+        
+        // Map is referenced to the odometry_frame
         sensor_msgs::msg::PointCloud2 map_msg;
-        map_msg.header.stamp = this->now();
+        map_msg.header.stamp  = img_msg_left->header.stamp;
         map_msg.header.frame_id = odom_frame_;
-        //auto local_map_header = msg->header;
-        //local_map_header.frame_id = odom_frame_;
         map_publisher_->publish(std::move(EigenToPointCloud2(slam_ctx.get_registered_map(), map_msg.header)));
-     
     }
 
 public:
@@ -665,23 +680,24 @@ private:
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_; // what is tf broadcasters role?
 
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_publisher_;
+    rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr path_publisher_;
+    nav_msgs::msg::Path path_msg_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr frame_publisher_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr map_publisher_;
-    std::string odom_frame_{"world"};
+    std::string odom_frame_{"odom_frame"};
     std::string child_frame_{"base_link"};
-    std::string map_frame_{"frame"};
 };
 
 int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
-    cv::namedWindow("view");
-    cv::startWindowThread();
-    cv::namedWindow("histogram equalization");
-    cv::startWindowThread();
-    cv::namedWindow("Matched Features");
-    cv::startWindowThread();
-    cv::namedWindow("result");
-    cv::startWindowThread();
+    //cv::namedWindow("view");
+    //cv::startWindowThread();
+    //cv::namedWindow("histogram equalization");
+    //cv::startWindowThread();
+    //cv::namedWindow("Matched Features");
+    //cv::startWindowThread();
+    //cv::namedWindow("result");
+    //cv::startWindowThread();
 
     auto node = std::make_shared<ImageSubscriberNode>();
 
