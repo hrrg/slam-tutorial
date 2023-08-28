@@ -22,7 +22,7 @@ find_package(nav_msgs REQUIRED)
 find_package(tsl-robin-map REQUIRED)
 find_package(Sophus REQUIRED)
 find_package(TBB REQUIRED)
-
+set(CMAKE_BUILD_TYPE Release)
 # add_library(stereo_calibration "")
 
 # target_sources(stereo_calibration 
