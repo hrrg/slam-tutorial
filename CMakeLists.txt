@@ -28,10 +28,7 @@ find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(TBB REQUIRED)
-
-set(CMAKE_BUILD_TYPE Release) 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_BUILD_TYPE Release)
 # add_library(stereo_calibration "")
 
 # target_sources(stereo_calibration 
