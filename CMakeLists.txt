@@ -5,7 +5,7 @@ project(slam-tutorial)
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
-
+set(CMAKE_CXX_FLAGS "-O3")
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -14,15 +14,24 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(OpenCV 4 REQUIRED)
-find_package(sensor_msgs REQUIRED)
+
 find_package(image_transport REQUIRED)
 find_package(Eigen3 REQUIRED)
-find_package(tf2_ros REQUIRED)
-find_package(nav_msgs REQUIRED)
+
 find_package(tsl-robin-map REQUIRED)
 find_package(Sophus REQUIRED)
+
+find_package(tf2_ros REQUIRED)
+find_package(tf2_sensor_msgs REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(TBB REQUIRED)
 
+set(CMAKE_BUILD_TYPE Release) 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # add_library(stereo_calibration "")
 
 # target_sources(stereo_calibration 
@@ -44,7 +53,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-add_subdirectory(src)
+add_subdirectory(include)
 
 function(custom_executable target)
   add_executable(${target}_node executables/${target}.cpp)
@@ -59,11 +68,16 @@ function(custom_executable target)
   )
   ament_target_dependencies(${target}_node
     "rclcpp"
-    "sensor_msgs"
+  
     "image_transport"
     "OpenCV"
     "Eigen3"
+
     "tf2_ros"
+    "tf2_sensor_msgs"
+    "tf2_geometry_msgs"
+    "geometry_msgs"
+    "sensor_msgs"
     "nav_msgs"
     "TBB"
     )
@@ -71,9 +85,9 @@ function(custom_executable target)
   DESTINATION lib/${PROJECT_NAME})
 endfunction()
 
-custom_executable(main)
-custom_executable(main_lidar)
-
+#custom_executable(main)
+#custom_executable(main_lidar)
+custom_executable(imu)
 ament_package()
 
 
