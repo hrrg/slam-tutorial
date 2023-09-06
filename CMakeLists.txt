@@ -58,6 +58,7 @@ function(custom_executable target)
     ${OpenCV_INCLUDE_DIRS}
     /usr/include/eigen3
     /usr/include/vtk-5.8
+    ./include
   )
   target_link_libraries(${target}_node 
   stereo_calibration
@@ -83,8 +84,9 @@ function(custom_executable target)
 endfunction()
 
 #custom_executable(main)
-#custom_executable(main_lidar)
+custom_executable(main_lidar)
 custom_executable(imu)
+custom_executable(imu_lidar)
 ament_package()
 
 
