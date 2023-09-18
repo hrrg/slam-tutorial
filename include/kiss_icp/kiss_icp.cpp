@@ -1,54 +1,48 @@
 #define FMT_HEADER_ONLY
-#include <fmt/format.h>
 #include "kiss_icp.hpp"
+#include <fmt/format.h>
 
-#include <memory>
-#include <tuple>
-#include <unistd.h>
 #include <chrono>
 #include <cstdio>
-#include <vector>
 #include <iostream>
+#include <memory>
 #include <tbb/blocked_range.h>
-#include <tbb/parallel_reduce.h>
 #include <tbb/parallel_for.h>
+#include <tbb/parallel_reduce.h>
 #include <tsl/robin_map.h>
+#include <tuple>
+#include <unistd.h>
+#include <vector>
 
-#include <sophus/se3.hpp>
 #include <Eigen/Core>
-
+#include <sophus/se3.hpp>
 
 namespace Eigen {
 using Matrix6d = Eigen::Matrix<double, 6, 6>;
 using Matrix3_6d = Eigen::Matrix<double, 3, 6>;
 using Vector6d = Eigen::Matrix<double, 6, 1>;
-}
+} // namespace Eigen
 
-namespace kiss_icp
-{
+namespace kiss_icp {
 SLAM_Context slam_ctx;
 // TODO: Manage parameters
 // Constant Parameters
 constexpr int ESTIMATION_THRESHOLD_ = 0.0001;
 constexpr int MAX_NUM_ITERATIONS_ = 100;
 // Configurable Parameters
-double initial_threshold_ = 2.0;    // adptive
-const double min_motion_th_ = 0.1;  // constant
+double initial_threshold_ = 2.0;   // adptive
+const double min_motion_th_ = 0.1; // constant
 
 const double mid_pose_timestamp = 0.05;
 double model_error_sse2_ = 0;
 int num_samples_ = 0;
-const double min_range_ = 5.0;     // constant
-const double max_range_ = 100.0;   // constant
+const double min_range_ = 5.0;   // constant
+const double max_range_ = 100.0; // constant
 const double voxel_size_ = 1;    // constant
 double max_distance_ = 100.0;
-int max_points_per_voxel_ =  20;
-
+int max_points_per_voxel_ = 20;
 
 Sophus::SE3d model_deviation_ = Sophus::SE3d();
-
-
-
 
 // ICP
 
@@ -79,9 +73,10 @@ struct Cloud_Tuple {
     std::vector<Eigen::Vector3d> target;
 };
 
-std::tuple<std::vector<Eigen::Vector3d>,std::vector<Eigen::Vector3d>>
-get_correspondence(
-    const std::vector<Eigen::Vector3d> &points, const tsl::robin_map<Voxel, VoxelBlock, VoxelHash> &map, double max_correspondance_distance)  {
+std::tuple<std::vector<Eigen::Vector3d>, std::vector<Eigen::Vector3d>>
+get_correspondence(const std::vector<Eigen::Vector3d> &points,
+                   const tsl::robin_map<Voxel, VoxelBlock, VoxelHash> &map,
+                   double max_correspondance_distance) {
     // Lambda Function to obtain the KNN of one point, maybe refactor
     auto GetClosestNeighboor = [&](const Eigen::Vector3d &point) {
         auto kx = static_cast<int>(point[0] / voxel_size_);
@@ -96,7 +91,6 @@ get_correspondence(
                 }
             }
         }
-
 
         std::vector<Eigen::Vector3d> neighboors;
         neighboors.reserve(27 * max_points_per_voxel_);
@@ -149,9 +143,9 @@ get_correspondence(
         [](Cloud_Tuple a, const Cloud_Tuple &b) -> Cloud_Tuple {
             auto &[src, tgt] = a;
             const auto &[srcp, tgtp] = b;
-            src.insert(src.end(),  //
+            src.insert(src.end(), //
                        std::make_move_iterator(srcp.begin()), std::make_move_iterator(srcp.end()));
-            tgt.insert(tgt.end(),  //
+            tgt.insert(tgt.end(), //
                        std::make_move_iterator(tgtp.begin()), std::make_move_iterator(tgtp.end()));
             return a;
         });
@@ -159,18 +153,13 @@ get_correspondence(
     return std::make_tuple(source, target);
 }
 
-
-
-
-
 void transform_cloud(const Sophus::SE3d &T, std::vector<Eigen::Vector3d> &cloud) {
     std::transform(cloud.cbegin(), cloud.cend(), cloud.begin(),
                    [&](const auto &point) { return T * point; });
 }
 
 Sophus::SE3d AlignClouds(const std::vector<Eigen::Vector3d> &source,
-                         const std::vector<Eigen::Vector3d> &target,
-                         double th) {
+                         const std::vector<Eigen::Vector3d> &target, double th) {
     auto compute_jacobian_and_residual = [&](auto i) {
         const Eigen::Vector3d residual = source[i] - target[i];
         Eigen::Matrix3_6d J_r;
@@ -204,15 +193,15 @@ Sophus::SE3d AlignClouds(const std::vector<Eigen::Vector3d> &source,
 }
 
 Sophus::SE3d register_frame_icp(const std::vector<Eigen::Vector3d> &cloud,
-                           const tsl::robin_map<Voxel, VoxelBlock, VoxelHash> &map,
-                           const Sophus::SE3d &pose_initial_guess,
-                           double max_correspondence_distance,
-                           double kernel) {
-    if (map.empty()) return pose_initial_guess;
+                                const tsl::robin_map<Voxel, VoxelBlock, VoxelHash> &map,
+                                const Sophus::SE3d &pose_initial_guess,
+                                double max_correspondence_distance, double kernel) {
+    if (map.empty())
+        return pose_initial_guess;
 
     // Equation (9)
     std::vector<Eigen::Vector3d> source = cloud;
-    transform_cloud(pose_initial_guess, source);    // point to point x point to map
+    transform_cloud(pose_initial_guess, source); // point to point x point to map
 
     // ICP-loop
     Sophus::SE3d T_icp = Sophus::SE3d();
@@ -226,14 +215,13 @@ Sophus::SE3d register_frame_icp(const std::vector<Eigen::Vector3d> &cloud,
         // Update iterations
         T_icp = estimation * T_icp;
         // Termination criteria
-        if (estimation.log().norm() < ESTIMATION_THRESHOLD_) break;
+        if (estimation.log().norm() < ESTIMATION_THRESHOLD_)
+            break;
     }
     // Spit the final transformation
     return T_icp * pose_initial_guess;
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 double compute_model_error(const Sophus::SE3d &model_deviation, double max_range) {
     const double theta = Eigen::AngleAxisd(model_deviation.rotationMatrix()).angle();
@@ -242,7 +230,7 @@ double compute_model_error(const Sophus::SE3d &model_deviation, double max_range
     return delta_trans + delta_rot;
 }
 
-double get_adaptive_threshold(){
+double get_adaptive_threshold() {
     double model_error = compute_model_error(model_deviation_, max_range_);
     if (model_error > min_motion_th_) {
         model_error_sse2_ += model_error * model_error;
@@ -255,14 +243,14 @@ double get_adaptive_threshold(){
     return std::sqrt(model_error_sse2_ / num_samples_);
 }
 
-
 std::vector<Eigen::Vector3d> voxelize_downsample(const std::vector<Eigen::Vector3d> &cloud,
-                                             double voxel_size) {
+                                                 double voxel_size) {
     tsl::robin_map<Voxel, Eigen::Vector3d, VoxelHash> grid;
     grid.reserve(cloud.size());
     for (const auto &point : cloud) {
         const auto voxel = Voxel((point / voxel_size).cast<int>());
-        if (grid.contains(voxel)) continue;
+        if (grid.contains(voxel))
+            continue;
         grid.insert({voxel, point});
     }
     std::vector<Eigen::Vector3d> frame_dowsampled;
@@ -274,8 +262,7 @@ std::vector<Eigen::Vector3d> voxelize_downsample(const std::vector<Eigen::Vector
     return frame_dowsampled;
 }
 
-std::vector<Eigen::Vector3d> preprocess(const std::vector<Eigen::Vector3d> &cloud,
-                                        double max_range,
+std::vector<Eigen::Vector3d> preprocess(const std::vector<Eigen::Vector3d> &cloud, double max_range,
                                         double min_range) {
     std::vector<Eigen::Vector3d> inliers;
     std::copy_if(cloud.cbegin(), cloud.cend(), std::back_inserter(inliers), [&](const auto &pt) {
@@ -299,7 +286,7 @@ void add_cloud_to_map(const std::vector<Eigen::Vector3d> &cloud) {
     });
 }
 
-void RemovePointsFarFromLocation(const Eigen::Vector3d &origin) {    
+void RemovePointsFarFromLocation(const Eigen::Vector3d &origin) {
     for (const auto &[voxel, voxel_block] : slam_ctx.map_) {
         const auto &pt = voxel_block.points.front();
         const auto max_distance2 = max_distance_ * max_distance_;
@@ -310,35 +297,36 @@ void RemovePointsFarFromLocation(const Eigen::Vector3d &origin) {
 }
 
 void update_map(const std::vector<Eigen::Vector3d> cloud, const Sophus::SE3d &pose) {
-    std::vector<Eigen::Vector3d>  cloud_transformed(cloud.size());
+    std::vector<Eigen::Vector3d> cloud_transformed(cloud.size());
     std::transform(cloud.cbegin(), cloud.cend(), cloud_transformed.begin(),
                    [&](const auto &point) { return pose * point; });
     const Eigen::Vector3d &origin = pose.translation();
     add_cloud_to_map(cloud_transformed);
     RemovePointsFarFromLocation(origin);
 }
-
-
-std::vector<Eigen::Vector3d> deskew_pointcloud(const std::vector<Eigen::Vector3d> &cloud,
-                                        const std::vector<Eigen::Vector3d> imu_angular_velocity,
-                                        const std::vector<double> &timestamps) {
-   std::vector<Eigen::Vector3d> deskewed(cloud.size());
+////////////////////////////////////////// Unverified code
+std::vector<Eigen::Vector3d>
+deskew_pointcloud(const std::vector<Eigen::Vector3d> &cloud,
+                  const std::vector<Eigen::Vector3d> imu_angular_velocity,
+                  const std::vector<double> &timestamps) {
+    std::vector<Eigen::Vector3d> deskewed(cloud.size());
 
     Eigen::Vector3d rotation;
     rotation.setZero();
     for (size_t i = 0; i < imu_angular_velocity.size(); ++i) {
         Eigen::Vector3d angular_velocity = imu_angular_velocity[i];
-        double time_delta = timestamps[i];        
-        rotation += time_delta*angular_velocity;
+        double time_delta = timestamps[i];
+        rotation += time_delta * angular_velocity;
     }
-    rotation *= -1;
-    std::cout << "rotation" << rotation[0] <<  rotation[1]  << rotation[2]<< "\n";
+    // rotation *= -1;
+    std::cout << "rotation" << rotation[0] << rotation[1] << rotation[2] << "\n";
     for (int i = 0; i < cloud.size(); i++) {
-        const auto& pt = cloud[i];
+        const auto &pt = cloud[i];
 
         // TODO: transform IMU data into the LIDAR frame
         double delta_t = 0.1 * static_cast<double>(i) / cloud.size();
-        Eigen::Quaterniond delta_q(Eigen::AngleAxisd(delta_t / 2.0 * rotation.norm(), rotation.normalized()));
+        Eigen::Quaterniond delta_q(
+            Eigen::AngleAxisd(delta_t / 2.0 * rotation.norm(), rotation.normalized()));
 
         Eigen::Vector3d pt_ = delta_q.conjugate() * pt;
 
@@ -348,32 +336,28 @@ std::vector<Eigen::Vector3d> deskew_pointcloud(const std::vector<Eigen::Vector3d
     return deskewed;
 }
 
-// This is SLAM 
-std::tuple<std::vector<Eigen::Vector3d>,std::vector<Eigen::Vector3d>,Sophus::SE3d>
-register_frame(const std::vector<Eigen::Vector3d> &cloud, const std::vector<Eigen::Vector3d> &T_deskew,
+// This is SLAM
+std::tuple<std::vector<Eigen::Vector3d>, std::vector<Eigen::Vector3d>, Sophus::SE3d> register_frame(
+    const std::vector<Eigen::Vector3d> &cloud, const std::vector<Eigen::Vector3d> &T_deskew,
     const std::vector<Eigen::Vector3d> &T_motion, const std::vector<double> &timestamps) {
-    auto T_initial_guess = slam_ctx.motion_model();   // identity 아니면 직전 transformation
-    const auto &deskewed_cloud = deskew_pointcloud(cloud,T_deskew, timestamps);
+    auto T_initial_guess = slam_ctx.motion_model(); // identity 아니면 직전 transformation
+    const auto &deskewed_cloud = deskew_pointcloud(cloud, T_deskew, timestamps);
     // Preprocess the input cloud
-    const auto &cloud_cropped = preprocess(deskewed_cloud, max_range_, min_range_);    // lidar의 range (min, max)
+    const auto &cloud_cropped =
+        preprocess(deskewed_cloud, max_range_, min_range_); // lidar의 range (min, max)
     // Voxelize
-    
-    const auto cloud_downsampled = voxelize_downsample(cloud_cropped, voxel_size_*0.5);  // map으로 저장할것  
-    const auto cloud_source = voxelize_downsample(cloud_cropped, voxel_size_*1.5);       // 연산에 쓸거
-    
+
+    const auto cloud_downsampled =
+        voxelize_downsample(cloud_cropped, voxel_size_ * 0.5); // map으로 저장할것
+    const auto cloud_source = voxelize_downsample(cloud_cropped, voxel_size_ * 1.5); // 연산에 쓸거
+
     const double sigma = get_adaptive_threshold(); // Need to see
-    
-    
-    
-    
+
     const auto last_pose = !slam_ctx.poses_.empty() ? slam_ctx.poses_.back() : Sophus::SE3d();
     const auto pose_initial_guess = last_pose * T_initial_guess;
 
-    const Sophus::SE3d new_pose = register_frame_icp(cloud_source,         
-                                                     slam_ctx.map_,     
-                                                     pose_initial_guess,  
-                                                     3.0 * sigma,    
-                                                     sigma / 3.0);
+    const Sophus::SE3d new_pose = register_frame_icp(cloud_source, slam_ctx.map_,
+                                                     pose_initial_guess, 3.0 * sigma, sigma / 3.0);
     const auto model_deviation = pose_initial_guess.inverse() * new_pose;
     model_deviation_ = model_deviation;
 
@@ -381,7 +365,4 @@ register_frame(const std::vector<Eigen::Vector3d> &cloud, const std::vector<Eige
     return std::make_tuple(cloud_downsampled, cloud_source, new_pose);
 }
 
-
-
-
-}
+} // namespace kiss_icp
