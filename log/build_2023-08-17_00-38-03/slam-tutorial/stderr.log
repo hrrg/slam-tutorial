@@ -1,0 +1,14 @@
+CMake Error at CMakeLists.txt:80 (add_subdirectory):
+  The binary directory
+
+    /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/src
+
+  is already used to build a source directory.  It cannot be used to build
+  source directory
+
+    /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/src
+
+  Specify a unique binary directory name.
+
+
+make: *** [Makefile:280: cmake_check_build_system] Error 1

@@ -1,0 +1,33 @@
+[0.030s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.082s] [35m[1mScanning dependencies of target main_node[0m
+[0.117s] [ 50%] Built target lidar_subscriber_node
+[0.134s] [ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[2.074s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[2.075s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[2.075s]    41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[2.075s]       |                                                                                         [01;36m[K^[m[K
+[9.645s] [100%] [32m[1mLinking CXX executable main_node[0m
+[11.446s] [100%] Built target main_node
+[11.460s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[11.509s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[11.520s] -- Install configuration: ""
+[11.522s] -- Execute custom install script
+[11.523s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/main_node
+[11.524s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/lidar_subscriber_node
+[11.524s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/package_run_dependencies/slam-tutorial
+[11.525s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/parent_prefix_path/slam-tutorial
+[11.526s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.sh
+[11.526s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.dsv
+[11.527s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.sh
+[11.527s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.dsv
+[11.528s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.bash
+[11.528s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.sh
+[11.528s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.zsh
+[11.529s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.dsv
+[11.529s] -- Symlinking: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv
+[11.539s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/packages/slam-tutorial
+[11.540s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig.cmake
+[11.540s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig-version.cmake
+[11.540s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.xml
+[11.542s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial//launch/main_node.launch.py
+[11.547s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial

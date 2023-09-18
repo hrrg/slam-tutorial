@@ -1,0 +1,72 @@
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+/usr/local/include/pcl-1.12/usr/include/eigen3/usr/include/usr/include/ni/usr/include/openni2/usr/include/vtk-7.1/usr/include/freetype2/usr/include/x86_64-linux-gnu
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+   41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+      |                                                                                         [01;36m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kvoid estimate_motion_svd(pcl::PointCloud<pcl::PointXYZ>::Ptr, pcl::PointCloud<pcl::PointXYZ>::Ptr)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KcomputeCentroid(const Ptr&, pcl::PointXYZ*)[m[K’
+   34 |     pcl::computeCentroid(ref_cloud, &centroid_ref[01;31m[K)[m[K;
+      |                                                  [01;31m[K^[m[K
+In file included from [01m[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099[m[K,
+                 from [01m[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44[m[K,
+                 from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9[m[K:
+[01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, PointOutT&)[m[K’
+  894 | [01;36m[KcomputeCentroid[m[K (const pcl::PointCloud<PointInT>& cloud,
+      | [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst Ptr[m[K’ {aka ‘[01m[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >[m[K’} is not derived from ‘[01m[Kconst pcl::PointCloud<PointT>[m[K’
+   34 |     pcl::computeCentroid(ref_cloud, &centroid_ref[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099[m[K,
+                 from [01m[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44[m[K,
+                 from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9[m[K:
+[01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, const Indices&, PointOutT&)[m[K’
+  913 | [01;36m[KcomputeCentroid[m[K (const pcl::PointCloud<PointInT>& cloud,
+      | [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst Ptr[m[K’ {aka ‘[01m[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >[m[K’} is not derived from ‘[01m[Kconst pcl::PointCloud<PointT>[m[K’
+   34 |     pcl::computeCentroid(ref_cloud, &centroid_ref[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KcomputeCentroid(const Ptr&, pcl::PointXYZ*)[m[K’
+   35 |     pcl::computeCentroid(curr_cloud, &centroid_curr[01;31m[K)[m[K;
+      |                                                    [01;31m[K^[m[K
+In file included from [01m[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099[m[K,
+                 from [01m[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44[m[K,
+                 from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9[m[K:
+[01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, PointOutT&)[m[K’
+  894 | [01;36m[KcomputeCentroid[m[K (const pcl::PointCloud<PointInT>& cloud,
+      | [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst Ptr[m[K’ {aka ‘[01m[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >[m[K’} is not derived from ‘[01m[Kconst pcl::PointCloud<PointT>[m[K’
+   35 |     pcl::computeCentroid(curr_cloud, &centroid_curr[01;36m[K)[m[K;
+      |                                                    [01;36m[K^[m[K
+In file included from [01m[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099[m[K,
+                 from [01m[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44[m[K,
+                 from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9[m[K:
+[01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, const Indices&, PointOutT&)[m[K’
+  913 | [01;36m[KcomputeCentroid[m[K (const pcl::PointCloud<PointInT>& cloud,
+      | [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst Ptr[m[K’ {aka ‘[01m[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >[m[K’} is not derived from ‘[01m[Kconst pcl::PointCloud<PointT>[m[K’
+   35 |     pcl::computeCentroid(curr_cloud, &centroid_curr[01;36m[K)[m[K;
+      |                                                    [01;36m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kvoid generate_2d_points()[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:86:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kpre_error[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   86 |     double [01;35m[Kpre_error[m[K = 1000000;
+      |            [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:87:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcount[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   87 |     int [01;35m[Kcount[m[K = 0;
+      |         [01;35m[K^~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:100:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  100 | int main([01;35m[Kint argc[m[K, char **argv) {
+      |          [01;35m[K~~~~^~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:100:27:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  100 | int main(int argc, [01;35m[Kchar **argv[m[K) {
+      |                    [01;35m[K~~~~~~~^~~~[m[K
+make[2]: *** [CMakeFiles/lidar_subscriber_node.dir/build.make:63: CMakeFiles/lidar_subscriber_node.dir/executables/lidar_subscriber.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/lidar_subscriber_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,98 @@
+[0.022s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.060s] [35m[1mScanning dependencies of target main_node[0m
+[0.085s] [ 50%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[1.675s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.675s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[1.675s]    41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[1.675s]       |                                                                                         [01;36m[K^[m[K
+[1.718s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid callback_image(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[1.718s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:16:62:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kimage[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.718s]    16 | void callback_image([01;35m[Kconst sensor_msgs::msg::Image::SharedPtr image[m[K) {
+[1.718s]       |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[1.741s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[1.741s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:27:80:[m[K [01;31m[Kerror: [m[K‘[01m[Knh[m[K’ was not declared in this scope
+[1.741s]    27 |     message_filters::Subscriber<sensor_msgs::msg::Image> image_subscriber_left([01;31m[Knh[m[K)
+[1.741s]       |                                                                                [01;31m[K^~[m[K
+[1.741s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:28:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Kauto[m[K’
+[1.741s]    28 |     [01;31m[Kauto[m[K image_subscriber_right = node->create_subscription<sensor_msgs::msg::Image>(
+[1.741s]       |     [01;31m[K^~~~[m[K
+[1.745s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:32:110:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kimage_transport::ImageTransport::subscribe(const char [27], int, void (&)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr))[m[K’
+[1.745s]    32 |     image_transport::Subscriber image_left_sub = it.subscribe("/alphasense/cam0/image_raw", 1, callback_image[01;31m[K)[m[K;
+[1.746s]       |                                                                                                              [01;31m[K^[m[K
+[1.746s] In file included from [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:43[m[K,
+[1.747s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.747s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:151:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kimage_transport::Subscriber image_transport::ImageTransport::subscribe(const string&, uint32_t, void (*)(const ImageConstPtr&), const image_transport::TransportHints*)[m[K’ <near match>
+[1.747s]   151 |   Subscriber [01;36m[Ksubscribe[m[K(
+[1.747s]       |              [01;36m[K^~~~~~~~~[m[K
+[1.748s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:151:14:[m[K [01;36m[Knote: [m[K  conversion of argument 3 would be ill-formed:
+[1.748s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:32:96:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kvoid (*)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’ {aka ‘[01m[Kvoid (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)[m[K’} to ‘[01m[Kvoid (*)(const ImageConstPtr&)[m[K’ {aka ‘[01m[Kvoid (*)(const std::shared_ptr<const sensor_msgs::msg::Image_<std::allocator<void> > >&)[m[K’} [[01;31m[K-fpermissive[m[K]
+[1.749s]    32 |     image_transport::Subscriber image_left_sub = it.subscribe("/alphasense/cam0/image_raw", 1, [01;31m[Kcallback_image[m[K);
+[1.749s]       |                                                                                                [01;31m[K^~~~~~~~~~~~~~[m[K
+[1.749s]       |                                                                                                [01;31m[K|[m[K
+[1.749s]       |                                                                                                [01;31m[Kvoid (*)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) {aka void (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)}[m[K
+[1.749s] In file included from [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:43[m[K,
+[1.749s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.749s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:141:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kimage_transport::Subscriber image_transport::ImageTransport::subscribe(const string&, uint32_t, const Callback&, const VoidPtr&, const image_transport::TransportHints*)[m[K’
+[1.749s]   141 |   Subscriber [01;36m[Ksubscribe[m[K(
+[1.749s]       |              [01;36m[K^~~~~~~~~[m[K
+[1.749s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:143:34:[m[K [01;36m[Knote: [m[K  no known conversion for argument 3 from ‘[01m[Kvoid(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’ {aka ‘[01m[Kvoid(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)[m[K’} to ‘[01m[Kconst Callback&[m[K’ {aka ‘[01m[Kconst std::function<void(const std::shared_ptr<const sensor_msgs::msg::Image_<std::allocator<void> > >&)>&[m[K’}
+[1.750s]   143 |     [01;36m[Kconst Subscriber::Callback & callback[m[K,
+[1.750s]       |     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+[1.750s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:165:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> image_transport::Subscriber image_transport::ImageTransport::subscribe(const string&, uint32_t, void (T::*)(const ImageConstPtr&), T*, const image_transport::TransportHints*)[m[K’
+[1.750s]   165 |   Subscriber [01;36m[Ksubscribe[m[K(
+[1.750s]       |              [01;36m[K^~~~~~~~~[m[K
+[1.750s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:165:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.750s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:32:110:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(const ImageConstPtr&)[m[K’ and ‘[01m[Kvoid (*)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’ {aka ‘[01m[Kvoid (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)[m[K’}
+[1.750s]    32 |     image_transport::Subscriber image_left_sub = it.subscribe("/alphasense/cam0/image_raw", 1, callback_image[01;36m[K)[m[K;
+[1.750s]       |                                                                                                              [01;36m[K^[m[K
+[1.750s] In file included from [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:43[m[K,
+[1.751s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.751s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:178:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> image_transport::Subscriber image_transport::ImageTransport::subscribe(const string&, uint32_t, void (T::*)(const ImageConstPtr&), const std::shared_ptr<_Tp>&, const image_transport::TransportHints*)[m[K’
+[1.751s]   178 |   Subscriber [01;36m[Ksubscribe[m[K(
+[1.751s]       |              [01;36m[K^~~~~~~~~[m[K
+[1.751s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:178:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.751s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:32:110:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(const ImageConstPtr&)[m[K’ and ‘[01m[Kvoid (*)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’ {aka ‘[01m[Kvoid (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)[m[K’}
+[1.751s]    32 |     image_transport::Subscriber image_left_sub = it.subscribe("/alphasense/cam0/image_raw", 1, callback_image[01;36m[K)[m[K;
+[1.751s]       |                                                                                                              [01;36m[K^[m[K
+[1.751s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:33:111:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kimage_transport::ImageTransport::subscribe(const char [27], int, void (&)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr))[m[K’
+[1.751s]    33 |     image_transport::Subscriber image_right_sub = it.subscribe("/alphasense/cam1/image_raw", 1, callback_image[01;31m[K)[m[K;
+[1.752s]       |                                                                                                               [01;31m[K^[m[K
+[1.752s] In file included from [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:43[m[K,
+[1.752s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.752s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:151:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kimage_transport::Subscriber image_transport::ImageTransport::subscribe(const string&, uint32_t, void (*)(const ImageConstPtr&), const image_transport::TransportHints*)[m[K’ <near match>
+[1.752s]   151 |   Subscriber [01;36m[Ksubscribe[m[K(
+[1.752s]       |              [01;36m[K^~~~~~~~~[m[K
+[1.752s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:151:14:[m[K [01;36m[Knote: [m[K  conversion of argument 3 would be ill-formed:
+[1.752s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:33:97:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kvoid (*)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’ {aka ‘[01m[Kvoid (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)[m[K’} to ‘[01m[Kvoid (*)(const ImageConstPtr&)[m[K’ {aka ‘[01m[Kvoid (*)(const std::shared_ptr<const sensor_msgs::msg::Image_<std::allocator<void> > >&)[m[K’} [[01;31m[K-fpermissive[m[K]
+[1.752s]    33 |     image_transport::Subscriber image_right_sub = it.subscribe("/alphasense/cam1/image_raw", 1, [01;31m[Kcallback_image[m[K);
+[1.752s]       |                                                                                                 [01;31m[K^~~~~~~~~~~~~~[m[K
+[1.752s]       |                                                                                                 [01;31m[K|[m[K
+[1.753s]       |                                                                                                 [01;31m[Kvoid (*)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr) {aka void (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)}[m[K
+[1.753s] In file included from [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:43[m[K,
+[1.753s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.753s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:141:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kimage_transport::Subscriber image_transport::ImageTransport::subscribe(const string&, uint32_t, const Callback&, const VoidPtr&, const image_transport::TransportHints*)[m[K’
+[1.753s]   141 |   Subscriber [01;36m[Ksubscribe[m[K(
+[1.753s]       |              [01;36m[K^~~~~~~~~[m[K
+[1.753s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:143:34:[m[K [01;36m[Knote: [m[K  no known conversion for argument 3 from ‘[01m[Kvoid(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’ {aka ‘[01m[Kvoid(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)[m[K’} to ‘[01m[Kconst Callback&[m[K’ {aka ‘[01m[Kconst std::function<void(const std::shared_ptr<const sensor_msgs::msg::Image_<std::allocator<void> > >&)>&[m[K’}
+[1.753s]   143 |     [01;36m[Kconst Subscriber::Callback & callback[m[K,
+[1.753s]       |     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+[1.753s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:165:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> image_transport::Subscriber image_transport::ImageTransport::subscribe(const string&, uint32_t, void (T::*)(const ImageConstPtr&), T*, const image_transport::TransportHints*)[m[K’
+[1.754s]   165 |   Subscriber [01;36m[Ksubscribe[m[K(
+[1.754s]       |              [01;36m[K^~~~~~~~~[m[K
+[1.754s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:165:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.754s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:33:111:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(const ImageConstPtr&)[m[K’ and ‘[01m[Kvoid (*)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’ {aka ‘[01m[Kvoid (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)[m[K’}
+[1.754s]    33 |     image_transport::Subscriber image_right_sub = it.subscribe("/alphasense/cam1/image_raw", 1, callback_image[01;36m[K)[m[K;
+[1.754s]       |                                                                                                               [01;36m[K^[m[K
+[1.754s] In file included from [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:43[m[K,
+[1.754s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.754s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:178:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> image_transport::Subscriber image_transport::ImageTransport::subscribe(const string&, uint32_t, void (T::*)(const ImageConstPtr&), const std::shared_ptr<_Tp>&, const image_transport::TransportHints*)[m[K’
+[1.755s]   178 |   Subscriber [01;36m[Ksubscribe[m[K(
+[1.755s]       |              [01;36m[K^~~~~~~~~[m[K
+[1.755s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.hpp:178:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.755s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:33:111:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(const ImageConstPtr&)[m[K’ and ‘[01m[Kvoid (*)(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’ {aka ‘[01m[Kvoid (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > >)[m[K’}
+[1.755s]    33 |     image_transport::Subscriber image_right_sub = it.subscribe("/alphasense/cam1/image_raw", 1, callback_image[01;36m[K)[m[K;
+[1.755s]       |                                                                                                               [01;36m[K^[m[K
+[3.515s] make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+[3.515s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/main_node.dir/all] Error 2
+[3.515s] make: *** [Makefile:141: all] Error 2
+[3.517s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

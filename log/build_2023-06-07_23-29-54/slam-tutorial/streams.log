@@ -1,0 +1,33 @@
+[0.026s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.067s] [35m[1mScanning dependencies of target main_node[0m
+[0.091s] [ 50%] Built target lidar_subscriber_node
+[0.106s] [ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[1.837s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[1.837s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[1.837s]    41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[1.837s]       |                                                                                         [01;36m[K^[m[K
+[8.526s] [100%] [32m[1mLinking CXX executable main_node[0m
+[9.754s] [100%] Built target main_node
+[9.767s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[9.804s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[9.811s] -- Install configuration: ""
+[9.811s] -- Execute custom install script
+[9.812s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/main_node
+[9.812s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/lidar_subscriber_node
+[9.813s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/package_run_dependencies/slam-tutorial
+[9.813s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/parent_prefix_path/slam-tutorial
+[9.814s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.sh
+[9.814s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.dsv
+[9.814s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.sh
+[9.815s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.dsv
+[9.815s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.bash
+[9.815s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.sh
+[9.815s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.zsh
+[9.816s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.dsv
+[9.816s] -- Symlinking: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv
+[9.826s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/packages/slam-tutorial
+[9.826s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig.cmake
+[9.826s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig-version.cmake
+[9.826s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.xml
+[9.827s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial//launch/main_node.launch.py
+[9.832s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial

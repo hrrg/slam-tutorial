@@ -1,0 +1,5 @@
+CMake Error at include/stereo_calibration/CMakeLists.txt:25 (set_global_target_properties):
+  Unknown CMake command "set_global_target_properties".
+
+
+make: *** [Makefile:280: cmake_check_build_system] Error 1

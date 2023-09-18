@@ -1,0 +1,4 @@
+[ 50%] Built target stereo_calibration
+[35m[1mScanning dependencies of target main_node[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[100%] [32m[1mLinking CXX executable main_node[0m

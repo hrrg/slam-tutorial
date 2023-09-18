@@ -1,0 +1,45 @@
+[0.023s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.048s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.069s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.320s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.329s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.515s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.519s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[4.181s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.244s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[4.245s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.458s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[4.619s] -- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+[5.645s] -- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)
+[6.066s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[6.169s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[6.266s] -- Added test 'copyright' to check source files copyright and LICENSE
+[6.302s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[6.303s] -- Configured cppcheck include dirs: 
+[6.303s] -- Configured cppcheck exclude dirs and/or files: 
+[6.340s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[6.340s] -- Configured cpplint exclude dirs and/or files: 
+[6.345s] -- Added test 'flake8' to check Python code syntax and style conventions
+[6.354s] -- Added test 'lint_cmake' to check CMake code style
+[6.358s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[6.390s] -- Added test 'uncrustify' to check C / C++ code style
+[6.390s] -- Configured uncrustify additional arguments: 
+[6.395s] -- Added test 'xmllint' to check XML markup files
+[6.396s] CMake Error at CMakeLists.txt:80 (add_subdirectory):
+[6.396s]   The binary directory
+[6.396s] 
+[6.396s]     /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/src
+[6.397s] 
+[6.397s]   is already used to build a source directory.  It cannot be used to build
+[6.397s]   source directory
+[6.397s] 
+[6.397s]     /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/src
+[6.397s] 
+[6.397s]   Specify a unique binary directory name.
+[6.398s] 
+[6.398s] 
+[6.399s] -- Configuring incomplete, errors occurred!
+[6.399s] See also "/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/CMakeFiles/CMakeOutput.log".
+[6.399s] See also "/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/CMakeFiles/CMakeError.log".
+[6.409s] make: *** [Makefile:280: cmake_check_build_system] Error 1
+[6.413s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

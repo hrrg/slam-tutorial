@@ -1,0 +1,55 @@
+[0.019s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.058s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.085s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.299s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.325s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.509s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.516s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[3.974s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.057s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[4.060s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.277s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[4.431s] -- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+[5.269s] -- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)
+[5.707s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[5.809s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[5.921s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.992s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.992s] -- Configured cppcheck include dirs: 
+[5.992s] -- Configured cppcheck exclude dirs and/or files: 
+[6.029s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[6.030s] -- Configured cpplint exclude dirs and/or files: 
+[6.035s] -- Added test 'flake8' to check Python code syntax and style conventions
+[6.045s] -- Added test 'lint_cmake' to check CMake code style
+[6.050s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[6.087s] -- Added test 'uncrustify' to check C / C++ code style
+[6.087s] -- Configured uncrustify additional arguments: 
+[6.092s] -- Added test 'xmllint' to check XML markup files
+[6.098s] -- Configuring done
+[6.142s] -- Generating done
+[6.145s] -- Build files have been written to: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[6.188s] [ 50%] Built target stereo_calibration
+[6.226s] [ 75%] [32m[1mLinking CXX executable main_node[0m
+[8.514s] [100%] Built target main_node
+[8.526s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[8.560s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[8.567s] -- Install configuration: ""
+[8.568s] -- Execute custom install script
+[8.568s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/main_node
+[8.569s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/package_run_dependencies/slam-tutorial
+[8.569s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/parent_prefix_path/slam-tutorial
+[8.569s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.sh
+[8.570s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.dsv
+[8.570s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.sh
+[8.570s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.dsv
+[8.571s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.bash
+[8.571s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.sh
+[8.571s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.zsh
+[8.572s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.dsv
+[8.572s] -- Symlinking: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv
+[8.581s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/packages/slam-tutorial
+[8.582s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig.cmake
+[8.582s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig-version.cmake
+[8.582s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.xml
+[8.582s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial//launch/main_node.launch.py
+[8.587s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial

@@ -1,0 +1,28 @@
+[0.024s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.092s] [35m[1mScanning dependencies of target main_node[0m
+[0.128s] [ 50%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[1.783s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.784s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[1.784s]    41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[1.784s]       |                                                                                         [01;36m[K^[m[K
+[1.829s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid callback_stereo_image(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr, sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[1.829s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:16:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kimage_left_[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.829s]    16 | void callback_stereo_image([01;35m[Kconst sensor_msgs::msg::Image::SharedPtr image_left_[m[K, const sensor_msgs::msg::Image::SharedPtr image_right_) {
+[1.829s]       |                            [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[1.829s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:16:123:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kimage_right_[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.829s]    16 | void callback_stereo_image(const sensor_msgs::msg::Image::SharedPtr image_left_, [01;35m[Kconst sensor_msgs::msg::Image::SharedPtr image_right_[m[K) {
+[1.829s]       |                                                                                  [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~[m[K
+[1.829s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[1.829s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:29:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ has not been declared
+[1.829s]    29 |     [01;31m[Kros[m[K::NodeHandle nh;
+[1.830s]       |     [01;31m[K^~~[m[K
+[1.854s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:34:80:[m[K [01;31m[Kerror: [m[K‘[01m[Knh[m[K’ was not declared in this scope
+[1.854s]    34 |     message_filters::Subscriber<sensor_msgs::msg::Image> image_subscriber_left([01;31m[Knh[m[K)
+[1.854s]       |                                                                                [01;31m[K^~[m[K
+[1.854s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:35:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Kauto[m[K’
+[1.855s]    35 |     [01;31m[Kauto[m[K image_subscriber_right = node->create_subscription<sensor_msgs::msg::Image>(
+[1.855s]       |     [01;31m[K^~~~[m[K
+[3.679s] make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+[3.679s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/main_node.dir/all] Error 2
+[3.679s] make: *** [Makefile:141: all] Error 2
+[3.682s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

@@ -1,0 +1,255 @@
+[0.000000] (-) TimerEvent: {}
+[0.000738] (slam-tutorial) JobQueued: {'identifier': 'slam-tutorial', 'dependencies': OrderedDict()}
+[0.002431] (slam-tutorial) JobStarted: {'identifier': 'slam-tutorial'}
+[0.015605] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'cmake'}
+[0.017000] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'build'}
+[0.018357] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', '--', '-j12', '-l12'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/jeongmyung'), ('OLDPWD', '/home/jeongmyung/slam-tutorial_ws/src'), ('ROS_PYTHON_VERSION', '3'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('COLCON_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jeongmyung'), ('NAME', 'DESKTOP-MF41F2K'), ('WSL_INTEROP', '/run/WSL/9_interop'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', 'b82a13f3-9730-41f0-914d-85dcb7f18c1d'), ('DISPLAY', '192.168.48.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CUDA_BIN_PATH', '/usr/loca/cuda-12.0/bin'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('WSLENV', 'WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[0.050880] (slam-tutorial) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.071534] (slam-tutorial) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.099336] (-) TimerEvent: {}
+[0.199891] (-) TimerEvent: {}
+[0.286976] (slam-tutorial) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.299980] (-) TimerEvent: {}
+[0.311198] (slam-tutorial) StdoutLine: {'line': b'-- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[0.400148] (-) TimerEvent: {}
+[0.471844] (slam-tutorial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.479779] (slam-tutorial) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.500440] (-) TimerEvent: {}
+[0.600901] (-) TimerEvent: {}
+[0.701377] (-) TimerEvent: {}
+[0.801813] (-) TimerEvent: {}
+[0.902254] (-) TimerEvent: {}
+[1.002902] (-) TimerEvent: {}
+[1.103340] (-) TimerEvent: {}
+[1.203765] (-) TimerEvent: {}
+[1.304201] (-) TimerEvent: {}
+[1.404634] (-) TimerEvent: {}
+[1.505058] (-) TimerEvent: {}
+[1.605495] (-) TimerEvent: {}
+[1.705962] (-) TimerEvent: {}
+[1.806436] (-) TimerEvent: {}
+[1.906875] (-) TimerEvent: {}
+[2.007340] (-) TimerEvent: {}
+[2.107812] (-) TimerEvent: {}
+[2.208280] (-) TimerEvent: {}
+[2.308781] (-) TimerEvent: {}
+[2.409222] (-) TimerEvent: {}
+[2.509665] (-) TimerEvent: {}
+[2.610117] (-) TimerEvent: {}
+[2.710542] (-) TimerEvent: {}
+[2.811122] (-) TimerEvent: {}
+[2.911568] (-) TimerEvent: {}
+[3.012048] (-) TimerEvent: {}
+[3.112496] (-) TimerEvent: {}
+[3.212903] (-) TimerEvent: {}
+[3.313302] (-) TimerEvent: {}
+[3.413769] (-) TimerEvent: {}
+[3.514230] (-) TimerEvent: {}
+[3.614754] (-) TimerEvent: {}
+[3.715188] (-) TimerEvent: {}
+[3.815739] (-) TimerEvent: {}
+[3.916197] (-) TimerEvent: {}
+[3.995316] (slam-tutorial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.016372] (-) TimerEvent: {}
+[4.079777] (slam-tutorial) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[4.082851] (slam-tutorial) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[4.116555] (-) TimerEvent: {}
+[4.217023] (-) TimerEvent: {}
+[4.307041] (slam-tutorial) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[4.317140] (-) TimerEvent: {}
+[4.417527] (-) TimerEvent: {}
+[4.463426] (slam-tutorial) StdoutLine: {'line': b'-- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)\n'}
+[4.517654] (-) TimerEvent: {}
+[4.618100] (-) TimerEvent: {}
+[4.718583] (-) TimerEvent: {}
+[4.819049] (-) TimerEvent: {}
+[4.919458] (-) TimerEvent: {}
+[5.019916] (-) TimerEvent: {}
+[5.120390] (-) TimerEvent: {}
+[5.220871] (-) TimerEvent: {}
+[5.321324] (-) TimerEvent: {}
+[5.357955] (slam-tutorial) StdoutLine: {'line': b'-- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)\n'}
+[5.421473] (-) TimerEvent: {}
+[5.521924] (-) TimerEvent: {}
+[5.622355] (-) TimerEvent: {}
+[5.722808] (-) TimerEvent: {}
+[5.808256] (slam-tutorial) StdoutLine: {'line': b'-- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)\n'}
+[5.822953] (-) TimerEvent: {}
+[5.917672] (slam-tutorial) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[5.923123] (-) TimerEvent: {}
+[6.017207] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[6.023231] (-) TimerEvent: {}
+[6.052021] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[6.052337] (slam-tutorial) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[6.052430] (slam-tutorial) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[6.084234] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[6.084494] (slam-tutorial) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[6.089506] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[6.098110] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[6.102932] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[6.123365] (-) TimerEvent: {}
+[6.134622] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[6.134885] (slam-tutorial) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[6.139764] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[6.155611] (slam-tutorial) StdoutLine: {'line': b'-- Configuring done\n'}
+[6.208786] (slam-tutorial) StdoutLine: {'line': b'-- Generating done\n'}
+[6.212032] (slam-tutorial) StdoutLine: {'line': b'-- Build files have been written to: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial\n'}
+[6.223521] (-) TimerEvent: {}
+[6.238661] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target stereo_calibration\x1b[0m\n'}
+[6.242514] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target main_node\x1b[0m\n'}
+[6.283972] (slam-tutorial) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o\x1b[0m\n'}
+[6.323711] (-) TimerEvent: {}
+[6.345733] (slam-tutorial) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object src/stereo_calibration/CMakeFiles/stereo_calibration.dir/stereo_calibration.cpp.o\x1b[0m\n'}
+[6.423886] (-) TimerEvent: {}
+[6.524390] (-) TimerEvent: {}
+[6.624868] (-) TimerEvent: {}
+[6.652422] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:30:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Kstereo_calibration.h: No such file or directory\n'}
+[6.652724] (slam-tutorial) StderrLine: {'line': b'   30 | #include \x1b[01;31m\x1b[K"stereo_calibration.h"\x1b[m\x1b[K\n'}
+[6.652823] (slam-tutorial) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.652951] (slam-tutorial) StderrLine: {'line': b'compilation terminated.\n'}
+[6.655218] (slam-tutorial) StderrLine: {'line': b'make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1\n'}
+[6.655657] (slam-tutorial) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:116: CMakeFiles/main_node.dir/all] Error 2\n'}
+[6.655836] (slam-tutorial) StderrLine: {'line': b'make[1]: *** Waiting for unfinished jobs....\n'}
+[6.725124] (-) TimerEvent: {}
+[6.825565] (-) TimerEvent: {}
+[6.926059] (-) TimerEvent: {}
+[7.026558] (-) TimerEvent: {}
+[7.126997] (-) TimerEvent: {}
+[7.227516] (-) TimerEvent: {}
+[7.328001] (-) TimerEvent: {}
+[7.428470] (-) TimerEvent: {}
+[7.529051] (-) TimerEvent: {}
+[7.629513] (-) TimerEvent: {}
+[7.730046] (-) TimerEvent: {}
+[7.830501] (-) TimerEvent: {}
+[7.930995] (-) TimerEvent: {}
+[7.987905] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/src/stereo_calibration/stereo_calibration.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[KEigen::MatrixXd computeFundamentalmatrixNormalized(const MatrixXd&, const MatrixXd&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[7.988206] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/src/stereo_calibration/stereo_calibration.cpp:94:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kn\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-variable\x1b[m\x1b[K]\n'}
+[7.988305] (slam-tutorial) StderrLine: {'line': b'   94 |     int \x1b[01;35m\x1b[Kn\x1b[m\x1b[K = points1.rows();\n'}
+[7.988385] (slam-tutorial) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[8.031320] (-) TimerEvent: {}
+[8.131910] (-) TimerEvent: {}
+[8.232399] (-) TimerEvent: {}
+[8.332841] (-) TimerEvent: {}
+[8.433273] (-) TimerEvent: {}
+[8.533739] (-) TimerEvent: {}
+[8.634224] (-) TimerEvent: {}
+[8.734730] (-) TimerEvent: {}
+[8.835178] (-) TimerEvent: {}
+[8.935630] (-) TimerEvent: {}
+[9.036148] (-) TimerEvent: {}
+[9.136621] (-) TimerEvent: {}
+[9.237207] (-) TimerEvent: {}
+[9.337721] (-) TimerEvent: {}
+[9.438209] (-) TimerEvent: {}
+[9.538674] (-) TimerEvent: {}
+[9.639105] (-) TimerEvent: {}
+[9.739561] (-) TimerEvent: {}
+[9.840070] (-) TimerEvent: {}
+[9.940531] (-) TimerEvent: {}
+[10.041007] (-) TimerEvent: {}
+[10.141469] (-) TimerEvent: {}
+[10.241967] (-) TimerEvent: {}
+[10.342451] (-) TimerEvent: {}
+[10.443090] (-) TimerEvent: {}
+[10.543609] (-) TimerEvent: {}
+[10.644075] (-) TimerEvent: {}
+[10.744508] (-) TimerEvent: {}
+[10.844982] (-) TimerEvent: {}
+[10.945448] (-) TimerEvent: {}
+[11.045939] (-) TimerEvent: {}
+[11.146416] (-) TimerEvent: {}
+[11.246954] (-) TimerEvent: {}
+[11.347419] (-) TimerEvent: {}
+[11.447922] (-) TimerEvent: {}
+[11.548382] (-) TimerEvent: {}
+[11.648866] (-) TimerEvent: {}
+[11.749365] (-) TimerEvent: {}
+[11.849803] (-) TimerEvent: {}
+[11.950267] (-) TimerEvent: {}
+[12.050760] (-) TimerEvent: {}
+[12.151256] (-) TimerEvent: {}
+[12.251721] (-) TimerEvent: {}
+[12.352204] (-) TimerEvent: {}
+[12.452651] (-) TimerEvent: {}
+[12.553119] (-) TimerEvent: {}
+[12.653618] (-) TimerEvent: {}
+[12.754144] (-) TimerEvent: {}
+[12.854612] (-) TimerEvent: {}
+[12.955078] (-) TimerEvent: {}
+[13.055567] (-) TimerEvent: {}
+[13.156181] (-) TimerEvent: {}
+[13.256648] (-) TimerEvent: {}
+[13.357062] (-) TimerEvent: {}
+[13.457527] (-) TimerEvent: {}
+[13.558019] (-) TimerEvent: {}
+[13.658476] (-) TimerEvent: {}
+[13.759089] (-) TimerEvent: {}
+[13.859564] (-) TimerEvent: {}
+[13.960025] (-) TimerEvent: {}
+[14.060461] (-) TimerEvent: {}
+[14.161072] (-) TimerEvent: {}
+[14.261504] (-) TimerEvent: {}
+[14.362016] (-) TimerEvent: {}
+[14.462508] (-) TimerEvent: {}
+[14.563021] (-) TimerEvent: {}
+[14.663548] (-) TimerEvent: {}
+[14.764054] (-) TimerEvent: {}
+[14.864502] (-) TimerEvent: {}
+[14.964977] (-) TimerEvent: {}
+[15.065463] (-) TimerEvent: {}
+[15.166006] (-) TimerEvent: {}
+[15.266478] (-) TimerEvent: {}
+[15.366918] (-) TimerEvent: {}
+[15.467383] (-) TimerEvent: {}
+[15.567909] (-) TimerEvent: {}
+[15.668640] (-) TimerEvent: {}
+[15.769091] (-) TimerEvent: {}
+[15.869549] (-) TimerEvent: {}
+[15.970061] (-) TimerEvent: {}
+[16.070519] (-) TimerEvent: {}
+[16.170989] (-) TimerEvent: {}
+[16.271488] (-) TimerEvent: {}
+[16.371983] (-) TimerEvent: {}
+[16.472408] (-) TimerEvent: {}
+[16.572862] (-) TimerEvent: {}
+[16.673331] (-) TimerEvent: {}
+[16.773975] (-) TimerEvent: {}
+[16.874449] (-) TimerEvent: {}
+[16.974938] (-) TimerEvent: {}
+[17.075436] (-) TimerEvent: {}
+[17.175982] (-) TimerEvent: {}
+[17.276462] (-) TimerEvent: {}
+[17.377125] (-) TimerEvent: {}
+[17.477583] (-) TimerEvent: {}
+[17.578214] (-) TimerEvent: {}
+[17.678660] (-) TimerEvent: {}
+[17.779076] (-) TimerEvent: {}
+[17.879548] (-) TimerEvent: {}
+[17.980013] (-) TimerEvent: {}
+[18.080495] (-) TimerEvent: {}
+[18.180934] (-) TimerEvent: {}
+[18.281439] (-) TimerEvent: {}
+[18.381895] (-) TimerEvent: {}
+[18.482405] (-) TimerEvent: {}
+[18.582933] (-) TimerEvent: {}
+[18.683458] (-) TimerEvent: {}
+[18.783921] (-) TimerEvent: {}
+[18.884380] (-) TimerEvent: {}
+[18.984930] (-) TimerEvent: {}
+[19.085409] (-) TimerEvent: {}
+[19.185875] (-) TimerEvent: {}
+[19.286307] (-) TimerEvent: {}
+[19.386800] (-) TimerEvent: {}
+[19.487235] (-) TimerEvent: {}
+[19.587696] (-) TimerEvent: {}
+[19.688157] (-) TimerEvent: {}
+[19.788634] (-) TimerEvent: {}
+[19.831472] (slam-tutorial) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX static library libstereo_calibration.a\x1b[0m\n'}
+[19.888845] (-) TimerEvent: {}
+[19.964192] (slam-tutorial) StdoutLine: {'line': b'[ 75%] Built target stereo_calibration\n'}
+[19.965159] (slam-tutorial) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[19.968380] (slam-tutorial) CommandEnded: {'returncode': 2}
+[19.988994] (-) TimerEvent: {}
+[20.011194] (slam-tutorial) JobEnded: {'identifier': 'slam-tutorial', 'rc': 2}
+[20.021910] (-) EventReactorShutdown: {}

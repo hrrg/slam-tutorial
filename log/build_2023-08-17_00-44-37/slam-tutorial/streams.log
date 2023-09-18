@@ -1,0 +1,24 @@
+[0.024s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.049s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.070s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.286s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.294s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.453s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.457s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[4.337s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.397s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[4.399s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.598s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[4.754s] -- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+[5.655s] -- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)
+[6.064s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[6.154s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[6.226s] CMake Error at include/stereo_calibration/CMakeLists.txt:25 (set_global_target_properties):
+[6.226s]   Unknown CMake command "set_global_target_properties".
+[6.227s] 
+[6.227s] 
+[6.229s] -- Configuring incomplete, errors occurred!
+[6.229s] See also "/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/CMakeFiles/CMakeOutput.log".
+[6.229s] See also "/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/CMakeFiles/CMakeError.log".
+[6.239s] make: *** [Makefile:280: cmake_check_build_system] Error 1
+[6.243s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

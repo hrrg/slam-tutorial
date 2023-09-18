@@ -62,6 +62,7 @@ function(custom_executable target)
   )
   target_link_libraries(${target}_node 
   stereo_calibration
+  kiss_icp
   TBB::tbb 
   )
   ament_target_dependencies(${target}_node
@@ -84,7 +85,7 @@ function(custom_executable target)
 endfunction()
 
 #custom_executable(main)
-custom_executable(main_lidar)
+#custom_executable(main_lidar)
 custom_executable(imu)
 custom_executable(imu_lidar)
 ament_package()

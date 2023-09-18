@@ -1,0 +1,490 @@
+[0.000000] (-) TimerEvent: {}
+[0.000794] (slam-tutorial) JobQueued: {'identifier': 'slam-tutorial', 'dependencies': OrderedDict()}
+[0.001080] (slam-tutorial) JobStarted: {'identifier': 'slam-tutorial'}
+[0.015355] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'cmake'}
+[0.016801] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'build'}
+[0.018423] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', '--', '-j12', '-l12'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/jeongmyung'), ('OLDPWD', '/home/jeongmyung/slam-tutorial_ws/src'), ('ROS_PYTHON_VERSION', '3'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('COLCON_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jeongmyung'), ('NAME', 'DESKTOP-MF41F2K'), ('WSL_INTEROP', '/run/WSL/9_interop'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', '294fe904-2650-4652-9eae-a76314883930'), ('DISPLAY', '192.168.48.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CUDA_BIN_PATH', '/usr/loca/cuda-12.0/bin'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('WSLENV', 'WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[0.063904] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target stereo_calibration\x1b[0m\n'}
+[0.085557] (slam-tutorial) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object include/stereo_calibration/CMakeFiles/stereo_calibration.dir/stereo_calibration.cpp.o\x1b[0m\n'}
+[0.099614] (-) TimerEvent: {}
+[0.200062] (-) TimerEvent: {}
+[0.300540] (-) TimerEvent: {}
+[0.401087] (-) TimerEvent: {}
+[0.501532] (-) TimerEvent: {}
+[0.602018] (-) TimerEvent: {}
+[0.702486] (-) TimerEvent: {}
+[0.802961] (-) TimerEvent: {}
+[0.903395] (-) TimerEvent: {}
+[1.003870] (-) TimerEvent: {}
+[1.104324] (-) TimerEvent: {}
+[1.204748] (-) TimerEvent: {}
+[1.305204] (-) TimerEvent: {}
+[1.405671] (-) TimerEvent: {}
+[1.506093] (-) TimerEvent: {}
+[1.606541] (-) TimerEvent: {}
+[1.691347] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/include/stereo_calibration/stereo_calibration.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[KEigen::MatrixXd computeFundamentalmatrixNormalized(const MatrixXd&, const MatrixXd&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.691744] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/include/stereo_calibration/stereo_calibration.cpp:94:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kn\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-variable\x1b[m\x1b[K]\n'}
+[1.691839] (slam-tutorial) StderrLine: {'line': b'   94 |     int \x1b[01;35m\x1b[Kn\x1b[m\x1b[K = points1.rows();\n'}
+[1.691921] (slam-tutorial) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.706676] (-) TimerEvent: {}
+[1.807044] (-) TimerEvent: {}
+[1.907487] (-) TimerEvent: {}
+[2.007965] (-) TimerEvent: {}
+[2.108431] (-) TimerEvent: {}
+[2.208922] (-) TimerEvent: {}
+[2.309391] (-) TimerEvent: {}
+[2.409864] (-) TimerEvent: {}
+[2.510337] (-) TimerEvent: {}
+[2.610779] (-) TimerEvent: {}
+[2.711229] (-) TimerEvent: {}
+[2.811695] (-) TimerEvent: {}
+[2.912148] (-) TimerEvent: {}
+[3.012642] (-) TimerEvent: {}
+[3.113127] (-) TimerEvent: {}
+[3.213674] (-) TimerEvent: {}
+[3.314225] (-) TimerEvent: {}
+[3.414788] (-) TimerEvent: {}
+[3.515271] (-) TimerEvent: {}
+[3.615777] (-) TimerEvent: {}
+[3.716216] (-) TimerEvent: {}
+[3.816694] (-) TimerEvent: {}
+[3.917173] (-) TimerEvent: {}
+[4.017695] (-) TimerEvent: {}
+[4.118129] (-) TimerEvent: {}
+[4.218542] (-) TimerEvent: {}
+[4.319002] (-) TimerEvent: {}
+[4.419525] (-) TimerEvent: {}
+[4.519977] (-) TimerEvent: {}
+[4.620459] (-) TimerEvent: {}
+[4.720891] (-) TimerEvent: {}
+[4.821382] (-) TimerEvent: {}
+[4.921831] (-) TimerEvent: {}
+[5.022283] (-) TimerEvent: {}
+[5.122769] (-) TimerEvent: {}
+[5.223248] (-) TimerEvent: {}
+[5.323711] (-) TimerEvent: {}
+[5.424213] (-) TimerEvent: {}
+[5.524716] (-) TimerEvent: {}
+[5.625207] (-) TimerEvent: {}
+[5.725687] (-) TimerEvent: {}
+[5.826211] (-) TimerEvent: {}
+[5.926682] (-) TimerEvent: {}
+[6.027169] (-) TimerEvent: {}
+[6.127596] (-) TimerEvent: {}
+[6.228017] (-) TimerEvent: {}
+[6.328491] (-) TimerEvent: {}
+[6.428932] (-) TimerEvent: {}
+[6.529417] (-) TimerEvent: {}
+[6.629856] (-) TimerEvent: {}
+[6.730299] (-) TimerEvent: {}
+[6.830714] (-) TimerEvent: {}
+[6.931161] (-) TimerEvent: {}
+[7.031634] (-) TimerEvent: {}
+[7.132083] (-) TimerEvent: {}
+[7.232593] (-) TimerEvent: {}
+[7.333044] (-) TimerEvent: {}
+[7.433511] (-) TimerEvent: {}
+[7.533936] (-) TimerEvent: {}
+[7.634402] (-) TimerEvent: {}
+[7.734858] (-) TimerEvent: {}
+[7.835303] (-) TimerEvent: {}
+[7.935813] (-) TimerEvent: {}
+[8.036285] (-) TimerEvent: {}
+[8.136765] (-) TimerEvent: {}
+[8.237193] (-) TimerEvent: {}
+[8.337654] (-) TimerEvent: {}
+[8.438129] (-) TimerEvent: {}
+[8.538694] (-) TimerEvent: {}
+[8.639186] (-) TimerEvent: {}
+[8.739658] (-) TimerEvent: {}
+[8.840128] (-) TimerEvent: {}
+[8.940591] (-) TimerEvent: {}
+[9.041035] (-) TimerEvent: {}
+[9.141485] (-) TimerEvent: {}
+[9.241909] (-) TimerEvent: {}
+[9.342413] (-) TimerEvent: {}
+[9.442899] (-) TimerEvent: {}
+[9.543377] (-) TimerEvent: {}
+[9.643875] (-) TimerEvent: {}
+[9.744308] (-) TimerEvent: {}
+[9.844713] (-) TimerEvent: {}
+[9.945148] (-) TimerEvent: {}
+[10.045583] (-) TimerEvent: {}
+[10.146040] (-) TimerEvent: {}
+[10.246656] (-) TimerEvent: {}
+[10.347119] (-) TimerEvent: {}
+[10.447566] (-) TimerEvent: {}
+[10.548063] (-) TimerEvent: {}
+[10.648563] (-) TimerEvent: {}
+[10.749022] (-) TimerEvent: {}
+[10.849558] (-) TimerEvent: {}
+[10.950074] (-) TimerEvent: {}
+[11.050559] (-) TimerEvent: {}
+[11.151005] (-) TimerEvent: {}
+[11.251488] (-) TimerEvent: {}
+[11.351938] (-) TimerEvent: {}
+[11.452433] (-) TimerEvent: {}
+[11.552899] (-) TimerEvent: {}
+[11.653380] (-) TimerEvent: {}
+[11.753882] (-) TimerEvent: {}
+[11.854334] (-) TimerEvent: {}
+[11.954976] (-) TimerEvent: {}
+[12.055459] (-) TimerEvent: {}
+[12.155857] (-) TimerEvent: {}
+[12.256320] (-) TimerEvent: {}
+[12.356786] (-) TimerEvent: {}
+[12.457340] (-) TimerEvent: {}
+[12.557867] (-) TimerEvent: {}
+[12.658359] (-) TimerEvent: {}
+[12.758869] (-) TimerEvent: {}
+[12.859328] (-) TimerEvent: {}
+[12.959821] (-) TimerEvent: {}
+[13.060320] (-) TimerEvent: {}
+[13.160885] (-) TimerEvent: {}
+[13.261410] (-) TimerEvent: {}
+[13.361887] (-) TimerEvent: {}
+[13.462388] (-) TimerEvent: {}
+[13.496574] (slam-tutorial) StdoutLine: {'line': b'[ 50%] \x1b[32m\x1b[1mLinking CXX static library libstereo_calibration.a\x1b[0m\n'}
+[13.562574] (-) TimerEvent: {}
+[13.612906] (slam-tutorial) StdoutLine: {'line': b'[ 50%] Built target stereo_calibration\n'}
+[13.628070] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target main_node\x1b[0m\n'}
+[13.662711] (-) TimerEvent: {}
+[13.673063] (slam-tutorial) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o\x1b[0m\n'}
+[13.762864] (-) TimerEvent: {}
+[13.863363] (-) TimerEvent: {}
+[13.963794] (-) TimerEvent: {}
+[14.064236] (-) TimerEvent: {}
+[14.164651] (-) TimerEvent: {}
+[14.265083] (-) TimerEvent: {}
+[14.365561] (-) TimerEvent: {}
+[14.466002] (-) TimerEvent: {}
+[14.566463] (-) TimerEvent: {}
+[14.666945] (-) TimerEvent: {}
+[14.767364] (-) TimerEvent: {}
+[14.867823] (-) TimerEvent: {}
+[14.968374] (-) TimerEvent: {}
+[15.068966] (-) TimerEvent: {}
+[15.169389] (-) TimerEvent: {}
+[15.269934] (-) TimerEvent: {}
+[15.370382] (-) TimerEvent: {}
+[15.470816] (-) TimerEvent: {}
+[15.571279] (-) TimerEvent: {}
+[15.671712] (-) TimerEvent: {}
+[15.772215] (-) TimerEvent: {}
+[15.872780] (-) TimerEvent: {}
+[15.973237] (-) TimerEvent: {}
+[16.073713] (-) TimerEvent: {}
+[16.174275] (-) TimerEvent: {}
+[16.274722] (-) TimerEvent: {}
+[16.375158] (-) TimerEvent: {}
+[16.475642] (-) TimerEvent: {}
+[16.576109] (-) TimerEvent: {}
+[16.676574] (-) TimerEvent: {}
+[16.777033] (-) TimerEvent: {}
+[16.877510] (-) TimerEvent: {}
+[16.977919] (-) TimerEvent: {}
+[17.078540] (-) TimerEvent: {}
+[17.179014] (-) TimerEvent: {}
+[17.279447] (-) TimerEvent: {}
+[17.313389] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<Eigen::Matrix<double, 3, 1> > SLAM_Context::get_registered_map() const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[17.313690] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:81:26:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.313797] (slam-tutorial) StderrLine: {'line': b'   81 |         for (const auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[Kvoxel, voxel_block] : map_) {\n'}
+[17.313877] (slam-tutorial) StderrLine: {'line': b'      |                          \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.354977] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::tuple<std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > >, std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > > > get_correspondence(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[17.355271] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:177:16:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.355371] (slam-tutorial) StderrLine: {'line': b'  177 |     const auto \x1b[01;35m\x1b[K[\x1b[m\x1b[Ksource, target] = tbb::parallel_reduce(\n'}
+[17.355559] (slam-tutorial) StderrLine: {'line': b'      |                \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.355770] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[17.355853] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:185:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.355934] (slam-tutorial) StderrLine: {'line': b'  185 |             auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[Ksrc, tgt] = res;\n'}
+[17.356043] (slam-tutorial) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.367797] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[17.368038] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:199:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.368131] (slam-tutorial) StderrLine: {'line': b'  199 |             auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[Ksrc, tgt] = a;\n'}
+[17.368211] (slam-tutorial) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.368287] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:200:25:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.368365] (slam-tutorial) StderrLine: {'line': b'  200 |             const auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[Ksrcp, tgtp] = b;\n'}
+[17.368453] (slam-tutorial) StderrLine: {'line': b'      |                         \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.379550] (-) TimerEvent: {}
+[17.432188] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[KSophus::SE3d AlignClouds(const std::vector<Eigen::Matrix<double, 3, 1> >&, const std::vector<Eigen::Matrix<double, 3, 1> >&, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[17.432481] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:231:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.432579] (slam-tutorial) StderrLine: {'line': b'  231 |     const auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[KJTJ, JTr] = tbb::parallel_reduce(\n'}
+[17.432660] (slam-tutorial) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.433096] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[17.433422] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:239:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.433527] (slam-tutorial) StderrLine: {'line': b'  239 |             auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[KJTJ_private, JTr_private] = J;\n'}
+[17.433609] (slam-tutorial) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.433723] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:241:29:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.433807] (slam-tutorial) StderrLine: {'line': b'  241 |                 const auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[KJ_r, residual] = compute_jacobian_and_residual(i);\n'}
+[17.433885] (slam-tutorial) StderrLine: {'line': b'      |                             \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.479755] (-) TimerEvent: {}
+[17.580225] (-) TimerEvent: {}
+[17.597146] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[KSophus::SE3d register_frame_icp(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, const SE3d&, double, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[17.597418] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:270:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.597512] (slam-tutorial) StderrLine: {'line': b'  270 |         const auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[Ksrc, tgt] = get_correspondence(source, map, max_correspondence_distance);\n'}
+[17.597596] (slam-tutorial) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.654546] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<Eigen::Matrix<double, 3, 1> > voxelize_downsample(const std::vector<Eigen::Matrix<double, 3, 1> >&, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[17.654863] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:319:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.654976] (slam-tutorial) StderrLine: {'line': b'  319 |     for (const auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[Kvoxel, point] : grid) {\n'}
+[17.655062] (slam-tutorial) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.660284] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid RemovePointsFarFromLocation(const Vector3d&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[17.660527] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:352:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kstructured bindings only available with \xe2\x80\x98\x1b[01m\x1b[K-std=c++17\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K-std=gnu++17\x1b[m\x1b[K\xe2\x80\x99\n'}
+[17.660616] (slam-tutorial) StderrLine: {'line': b'  352 |     for (const auto &\x1b[01;35m\x1b[K[\x1b[m\x1b[Kvoxel, voxel_block] : slam_ctx.map_) {\n'}
+[17.660742] (slam-tutorial) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[17.680534] (-) TimerEvent: {}
+[17.683763] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid Map::update_localmap(std::vector<Eigen::Matrix<double, 3, 1> >&, Eigen::Matrix4d)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[17.684031] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:409:57:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kcloud\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[17.684133] (slam-tutorial) StderrLine: {'line': b'  409 | void Map::update_localmap(\x1b[01;35m\x1b[Kstd::vector<Eigen::Vector3d> &cloud\x1b[m\x1b[K , Eigen::Matrix4d new_pose){\n'}
+[17.684239] (slam-tutorial) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[17.684327] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:409:81:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Knew_pose\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[17.684414] (slam-tutorial) StderrLine: {'line': b'  409 | void Map::update_localmap(std::vector<Eigen::Vector3d> &cloud , \x1b[01;35m\x1b[KEigen::Matrix4d new_pose\x1b[m\x1b[K){\n'}
+[17.684499] (slam-tutorial) StderrLine: {'line': b'      |                                                                 \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~\x1b[m\x1b[K\n'}
+[17.780706] (-) TimerEvent: {}
+[17.881157] (-) TimerEvent: {}
+[17.898626] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ImageSubscriberNode::stereo_image_callback(const ConstSharedPtr&, const ConstSharedPtr&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[17.898905] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:596:25:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Kp1\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K-Wunused-but-set-variable\x1b[m\x1b[K]\n'}
+[17.899011] (slam-tutorial) StderrLine: {'line': b'  596 |         Eigen::Vector3d \x1b[01;35m\x1b[Kp1\x1b[m\x1b[K = matched_left_eigen.row(0);\n'}
+[17.899091] (slam-tutorial) StderrLine: {'line': b'      |                         \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[17.899169] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:597:25:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Kp2\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K-Wunused-but-set-variable\x1b[m\x1b[K]\n'}
+[17.899258] (slam-tutorial) StderrLine: {'line': b'  597 |         Eigen::Vector3d \x1b[01;35m\x1b[Kp2\x1b[m\x1b[K = matched_right_eigen.row(0);\n'}
+[17.899335] (slam-tutorial) StderrLine: {'line': b'      |                         \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[17.899411] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:599:25:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Ke1\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K-Wunused-but-set-variable\x1b[m\x1b[K]\n'}
+[17.899488] (slam-tutorial) StderrLine: {'line': b'  599 |         Eigen::Vector3d \x1b[01;35m\x1b[Ke1\x1b[m\x1b[K = compute_epipole(F);\n'}
+[17.899563] (slam-tutorial) StderrLine: {'line': b'      |                         \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[17.981323] (-) TimerEvent: {}
+[18.081952] (-) TimerEvent: {}
+[18.182424] (-) TimerEvent: {}
+[18.282921] (-) TimerEvent: {}
+[18.383429] (-) TimerEvent: {}
+[18.483871] (-) TimerEvent: {}
+[18.584366] (-) TimerEvent: {}
+[18.684798] (-) TimerEvent: {}
+[18.785242] (-) TimerEvent: {}
+[18.885675] (-) TimerEvent: {}
+[18.986236] (-) TimerEvent: {}
+[19.086715] (-) TimerEvent: {}
+[19.187178] (-) TimerEvent: {}
+[19.287636] (-) TimerEvent: {}
+[19.388108] (-) TimerEvent: {}
+[19.488560] (-) TimerEvent: {}
+[19.589070] (-) TimerEvent: {}
+[19.689525] (-) TimerEvent: {}
+[19.789961] (-) TimerEvent: {}
+[19.890418] (-) TimerEvent: {}
+[19.990867] (-) TimerEvent: {}
+[20.091376] (-) TimerEvent: {}
+[20.191831] (-) TimerEvent: {}
+[20.292306] (-) TimerEvent: {}
+[20.392747] (-) TimerEvent: {}
+[20.493235] (-) TimerEvent: {}
+[20.593750] (-) TimerEvent: {}
+[20.694203] (-) TimerEvent: {}
+[20.794721] (-) TimerEvent: {}
+[20.895207] (-) TimerEvent: {}
+[20.995720] (-) TimerEvent: {}
+[21.096179] (-) TimerEvent: {}
+[21.196631] (-) TimerEvent: {}
+[21.297109] (-) TimerEvent: {}
+[21.397569] (-) TimerEvent: {}
+[21.498034] (-) TimerEvent: {}
+[21.598543] (-) TimerEvent: {}
+[21.699006] (-) TimerEvent: {}
+[21.799431] (-) TimerEvent: {}
+[21.899854] (-) TimerEvent: {}
+[22.000296] (-) TimerEvent: {}
+[22.101025] (-) TimerEvent: {}
+[22.201496] (-) TimerEvent: {}
+[22.301984] (-) TimerEvent: {}
+[22.402549] (-) TimerEvent: {}
+[22.503021] (-) TimerEvent: {}
+[22.603488] (-) TimerEvent: {}
+[22.703976] (-) TimerEvent: {}
+[22.804440] (-) TimerEvent: {}
+[22.904938] (-) TimerEvent: {}
+[23.005397] (-) TimerEvent: {}
+[23.105908] (-) TimerEvent: {}
+[23.206339] (-) TimerEvent: {}
+[23.306802] (-) TimerEvent: {}
+[23.407251] (-) TimerEvent: {}
+[23.507682] (-) TimerEvent: {}
+[23.608130] (-) TimerEvent: {}
+[23.708612] (-) TimerEvent: {}
+[23.809069] (-) TimerEvent: {}
+[23.909524] (-) TimerEvent: {}
+[24.010000] (-) TimerEvent: {}
+[24.110459] (-) TimerEvent: {}
+[24.210948] (-) TimerEvent: {}
+[24.311410] (-) TimerEvent: {}
+[24.411895] (-) TimerEvent: {}
+[24.512360] (-) TimerEvent: {}
+[24.612867] (-) TimerEvent: {}
+[24.713304] (-) TimerEvent: {}
+[24.813795] (-) TimerEvent: {}
+[24.914259] (-) TimerEvent: {}
+[25.014721] (-) TimerEvent: {}
+[25.115192] (-) TimerEvent: {}
+[25.215654] (-) TimerEvent: {}
+[25.316114] (-) TimerEvent: {}
+[25.416569] (-) TimerEvent: {}
+[25.517047] (-) TimerEvent: {}
+[25.617603] (-) TimerEvent: {}
+[25.718125] (-) TimerEvent: {}
+[25.818633] (-) TimerEvent: {}
+[25.919214] (-) TimerEvent: {}
+[26.019723] (-) TimerEvent: {}
+[26.120178] (-) TimerEvent: {}
+[26.220659] (-) TimerEvent: {}
+[26.321158] (-) TimerEvent: {}
+[26.421618] (-) TimerEvent: {}
+[26.522094] (-) TimerEvent: {}
+[26.622566] (-) TimerEvent: {}
+[26.723059] (-) TimerEvent: {}
+[26.823513] (-) TimerEvent: {}
+[26.923961] (-) TimerEvent: {}
+[27.024411] (-) TimerEvent: {}
+[27.124852] (-) TimerEvent: {}
+[27.225284] (-) TimerEvent: {}
+[27.325742] (-) TimerEvent: {}
+[27.426167] (-) TimerEvent: {}
+[27.526598] (-) TimerEvent: {}
+[27.627035] (-) TimerEvent: {}
+[27.727616] (-) TimerEvent: {}
+[27.828086] (-) TimerEvent: {}
+[27.928516] (-) TimerEvent: {}
+[28.028993] (-) TimerEvent: {}
+[28.129457] (-) TimerEvent: {}
+[28.229885] (-) TimerEvent: {}
+[28.330333] (-) TimerEvent: {}
+[28.430774] (-) TimerEvent: {}
+[28.531239] (-) TimerEvent: {}
+[28.631693] (-) TimerEvent: {}
+[28.732105] (-) TimerEvent: {}
+[28.832584] (-) TimerEvent: {}
+[28.933062] (-) TimerEvent: {}
+[29.033570] (-) TimerEvent: {}
+[29.134049] (-) TimerEvent: {}
+[29.234467] (-) TimerEvent: {}
+[29.334918] (-) TimerEvent: {}
+[29.435358] (-) TimerEvent: {}
+[29.535778] (-) TimerEvent: {}
+[29.636223] (-) TimerEvent: {}
+[29.736668] (-) TimerEvent: {}
+[29.837091] (-) TimerEvent: {}
+[29.937603] (-) TimerEvent: {}
+[30.038055] (-) TimerEvent: {}
+[30.138478] (-) TimerEvent: {}
+[30.238982] (-) TimerEvent: {}
+[30.339430] (-) TimerEvent: {}
+[30.439895] (-) TimerEvent: {}
+[30.540306] (-) TimerEvent: {}
+[30.640756] (-) TimerEvent: {}
+[30.741170] (-) TimerEvent: {}
+[30.841653] (-) TimerEvent: {}
+[30.942089] (-) TimerEvent: {}
+[31.042529] (-) TimerEvent: {}
+[31.142985] (-) TimerEvent: {}
+[31.243413] (-) TimerEvent: {}
+[31.343928] (-) TimerEvent: {}
+[31.444371] (-) TimerEvent: {}
+[31.544806] (-) TimerEvent: {}
+[31.645269] (-) TimerEvent: {}
+[31.745729] (-) TimerEvent: {}
+[31.846167] (-) TimerEvent: {}
+[31.946643] (-) TimerEvent: {}
+[32.047095] (-) TimerEvent: {}
+[32.147564] (-) TimerEvent: {}
+[32.248020] (-) TimerEvent: {}
+[32.348522] (-) TimerEvent: {}
+[32.448976] (-) TimerEvent: {}
+[32.549458] (-) TimerEvent: {}
+[32.649949] (-) TimerEvent: {}
+[32.750405] (-) TimerEvent: {}
+[32.850863] (-) TimerEvent: {}
+[32.951481] (-) TimerEvent: {}
+[33.051941] (-) TimerEvent: {}
+[33.152407] (-) TimerEvent: {}
+[33.252920] (-) TimerEvent: {}
+[33.353454] (-) TimerEvent: {}
+[33.453883] (-) TimerEvent: {}
+[33.554362] (-) TimerEvent: {}
+[33.654799] (-) TimerEvent: {}
+[33.755257] (-) TimerEvent: {}
+[33.855702] (-) TimerEvent: {}
+[33.956141] (-) TimerEvent: {}
+[34.056558] (-) TimerEvent: {}
+[34.156977] (-) TimerEvent: {}
+[34.257445] (-) TimerEvent: {}
+[34.357875] (-) TimerEvent: {}
+[34.458338] (-) TimerEvent: {}
+[34.558809] (-) TimerEvent: {}
+[34.659278] (-) TimerEvent: {}
+[34.759716] (-) TimerEvent: {}
+[34.860164] (-) TimerEvent: {}
+[34.960626] (-) TimerEvent: {}
+[35.061074] (-) TimerEvent: {}
+[35.161534] (-) TimerEvent: {}
+[35.262014] (-) TimerEvent: {}
+[35.362474] (-) TimerEvent: {}
+[35.462964] (-) TimerEvent: {}
+[35.563442] (-) TimerEvent: {}
+[35.663944] (-) TimerEvent: {}
+[35.764418] (-) TimerEvent: {}
+[35.864913] (-) TimerEvent: {}
+[35.965363] (-) TimerEvent: {}
+[36.065801] (-) TimerEvent: {}
+[36.166258] (-) TimerEvent: {}
+[36.266720] (-) TimerEvent: {}
+[36.367203] (-) TimerEvent: {}
+[36.467679] (-) TimerEvent: {}
+[36.568135] (-) TimerEvent: {}
+[36.597097] (slam-tutorial) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable main_node\x1b[0m\n'}
+[36.668270] (-) TimerEvent: {}
+[36.768682] (-) TimerEvent: {}
+[36.869151] (-) TimerEvent: {}
+[36.969712] (-) TimerEvent: {}
+[37.070410] (-) TimerEvent: {}
+[37.170948] (-) TimerEvent: {}
+[37.271651] (-) TimerEvent: {}
+[37.372156] (-) TimerEvent: {}
+[37.472735] (-) TimerEvent: {}
+[37.573371] (-) TimerEvent: {}
+[37.673998] (-) TimerEvent: {}
+[37.774567] (-) TimerEvent: {}
+[37.875055] (-) TimerEvent: {}
+[37.975596] (-) TimerEvent: {}
+[38.076034] (-) TimerEvent: {}
+[38.176499] (-) TimerEvent: {}
+[38.276930] (-) TimerEvent: {}
+[38.377415] (-) TimerEvent: {}
+[38.477850] (-) TimerEvent: {}
+[38.578309] (-) TimerEvent: {}
+[38.678812] (-) TimerEvent: {}
+[38.779284] (-) TimerEvent: {}
+[38.879676] (-) TimerEvent: {}
+[38.931683] (slam-tutorial) StdoutLine: {'line': b'[100%] Built target main_node\n'}
+[38.946611] (slam-tutorial) CommandEnded: {'returncode': 0}
+[38.972417] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'install'}
+[38.979841] (-) TimerEvent: {}
+[38.982426] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/jeongmyung'), ('OLDPWD', '/home/jeongmyung/slam-tutorial_ws/src'), ('ROS_PYTHON_VERSION', '3'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('COLCON_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jeongmyung'), ('NAME', 'DESKTOP-MF41F2K'), ('WSL_INTEROP', '/run/WSL/9_interop'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', '294fe904-2650-4652-9eae-a76314883930'), ('DISPLAY', '192.168.48.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CUDA_BIN_PATH', '/usr/loca/cuda-12.0/bin'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('WSLENV', 'WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[38.990222] (slam-tutorial) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[38.990868] (slam-tutorial) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[38.991315] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/main_node\n'}
+[38.991619] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/package_run_dependencies/slam-tutorial\n'}
+[38.991962] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/parent_prefix_path/slam-tutorial\n'}
+[38.992268] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.sh\n'}
+[38.992562] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.dsv\n'}
+[38.992916] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.sh\n'}
+[38.993247] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.dsv\n'}
+[38.993528] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.bash\n'}
+[38.993822] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.sh\n'}
+[38.994184] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.zsh\n'}
+[38.994508] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.dsv\n'}
+[38.994742] (slam-tutorial) StdoutLine: {'line': b'-- Symlinking: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv\n'}
+[39.004484] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/packages/slam-tutorial\n'}
+[39.004880] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig.cmake\n'}
+[39.005265] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig-version.cmake\n'}
+[39.005547] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.xml\n'}
+[39.005845] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial//launch/main_node.launch.py\n'}
+[39.008352] (slam-tutorial) CommandEnded: {'returncode': 0}
+[39.063786] (slam-tutorial) JobEnded: {'identifier': 'slam-tutorial', 'rc': 0}
+[39.065916] (-) EventReactorShutdown: {}

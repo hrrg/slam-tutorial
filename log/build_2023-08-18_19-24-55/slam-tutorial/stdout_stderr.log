@@ -1,0 +1,201 @@
+-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+-- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+-- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)
+-- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[ 33%] Built target stereo_calibration
+[35m[1mScanning dependencies of target main_lidar_node[0m
+[35m[1mScanning dependencies of target main_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/main_lidar_node.dir/executables/main_lidar.cpp.o[0m
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > SLAM_Context::get_registered_map() const[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:83:26:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+   83 |         for (const auto &[01;35m[K[[m[Kvoxel, voxel_block] : map_) {
+      |                          [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kstd::tuple<std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > >, std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > > > get_correspondence(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, double)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:179:16:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  179 |     const auto [01;35m[K[[m[Ksource, target] = tbb::parallel_reduce(
+      |                [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:187:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  187 |             auto &[01;35m[K[[m[Ksrc, tgt] = res;
+      |                   [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In member function ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > SLAM_Context::get_registered_map() const[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:77:26:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+   77 |         for (const auto &[01;35m[K[[m[Kvoxel, voxel_block] : map_) {
+      |                          [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:201:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  201 |             auto &[01;35m[K[[m[Ksrc, tgt] = a;
+      |                   [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:202:25:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  202 |             const auto &[01;35m[K[[m[Ksrcp, tgtp] = b;
+      |                         [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In function ‘[01m[Kstd::tuple<std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > >, std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > > > get_correspondence(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, double)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:173:16:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  173 |     const auto [01;35m[K[[m[Ksource, target] = tbb::parallel_reduce(
+      |                [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In lambda function:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:181:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  181 |             auto &[01;35m[K[[m[Ksrc, tgt] = res;
+      |                   [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In lambda function:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:195:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  195 |             auto &[01;35m[K[[m[Ksrc, tgt] = a;
+      |                   [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:196:25:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  196 |             const auto &[01;35m[K[[m[Ksrcp, tgtp] = b;
+      |                         [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[KSophus::SE3d AlignClouds(const std::vector<Eigen::Matrix<double, 3, 1> >&, const std::vector<Eigen::Matrix<double, 3, 1> >&, double)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:233:17:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  233 |     const auto &[01;35m[K[[m[KJTJ, JTr] = tbb::parallel_reduce(
+      |                 [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:241:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  241 |             auto &[01;35m[K[[m[KJTJ_private, JTr_private] = J;
+      |                   [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:243:29:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  243 |                 const auto &[01;35m[K[[m[KJ_r, residual] = compute_jacobian_and_residual(i);
+      |                             [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In function ‘[01m[KSophus::SE3d AlignClouds(const std::vector<Eigen::Matrix<double, 3, 1> >&, const std::vector<Eigen::Matrix<double, 3, 1> >&, double)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:227:17:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  227 |     const auto &[01;35m[K[[m[KJTJ, JTr] = tbb::parallel_reduce(
+      |                 [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In lambda function:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:235:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  235 |             auto &[01;35m[K[[m[KJTJ_private, JTr_private] = J;
+      |                   [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:237:29:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  237 |                 const auto &[01;35m[K[[m[KJ_r, residual] = compute_jacobian_and_residual(i);
+      |                             [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[KSophus::SE3d register_frame_icp(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, const SE3d&, double, double)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:272:21:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  272 |         const auto &[01;35m[K[[m[Ksrc, tgt] = get_correspondence(source, map, max_correspondence_distance);
+      |                     [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > voxelize_downsample(const std::vector<Eigen::Matrix<double, 3, 1> >&, double)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:321:22:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  321 |     for (const auto &[01;35m[K[[m[Kvoxel, point] : grid) {
+      |                      [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid RemovePointsFarFromLocation(const Vector3d&)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:354:22:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  354 |     for (const auto &[01;35m[K[[m[Kvoxel, voxel_block] : slam_ctx.map_) {
+      |                      [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In function ‘[01m[KSophus::SE3d register_frame_icp(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, const SE3d&, double, double)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:266:21:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  266 |         const auto &[01;35m[K[[m[Ksrc, tgt] = get_correspondence(source, map, max_correspondence_distance);
+      |                     [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid update_map(std::vector<Eigen::Matrix<double, 3, 1> >, const SE3d&)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:367:28:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Korigin[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  367 |     const Eigen::Vector3d &[01;35m[Korigin[m[K = pose.translation();
+      |                            [01;35m[K^~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In function ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > voxelize_downsample(const std::vector<Eigen::Matrix<double, 3, 1> >&, double)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:315:22:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  315 |     for (const auto &[01;35m[K[[m[Kvoxel, point] : grid) {
+      |                      [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In function ‘[01m[Kvoid RemovePointsFarFromLocation(const Vector3d&)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:348:22:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  348 |     for (const auto &[01;35m[K[[m[Kvoxel, voxel_block] : slam_ctx.map_) {
+      |                      [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In function ‘[01m[Kvoid update_map(std::vector<Eigen::Matrix<double, 3, 1> >, const SE3d&)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:361:28:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Korigin[m[K’ [[01;35m[K-Wunused-variable[m[K]
+  361 |     const Eigen::Vector3d &[01;35m[Korigin[m[K = pose.translation();
+      |                            [01;35m[K^~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K At global scope:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:455:62:[m[K [01;31m[Kerror: [m[K‘[01m[KPointCloud2[m[K’ does not name a type
+  455 | inline std::vector<Eigen::Vector3d> PointCloud2ToEigen(const [01;31m[KPointCloud2[m[K::ConstSharedPtr msg) {
+      |                                                              [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:455:90:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kmsg[m[K’
+  455 | inline std::vector<Eigen::Vector3d> PointCloud2ToEigen(const PointCloud2::ConstSharedPtr [01;31m[Kmsg[m[K) {
+      |                                                                                          [01;31m[K^~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:455:89:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Kmsg[m[K’
+  455 | inline std::vector<Eigen::Vector3d> PointCloud2ToEigen[34m[K([m[Kconst PointCloud2::ConstSharedPtr[01;31m[K [m[K[32m[Kmsg[m[K) {
+      |                                                       [34m[K~[m[K                                 [01;31m[K^[m[K[32m[K~~~[m[K
+      |                                                                                         [32m[K)[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:455:90:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Kmsg[m[K’
+  455 | inline std::vector<Eigen::Vector3d> PointCloud2ToEigen(const PointCloud2::ConstSharedPtr [01;31m[Kmsg[m[K) {
+      |                                                                                          [01;31m[K^~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In constructor ‘[01m[KLidarSubscriberNode::LidarSubscriberNode()[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:476:25:[m[K [01;31m[Kerror: [m[K‘[01m[KImageSubscriberNode[m[K’ has not been declared
+  476 |              std::bind(&[01;31m[KImageSubscriberNode[m[K::lidar_callback, this, std::placeholders::_1));
+      |                         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:478:119:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubscription_left_image[m[K’ was not declared in this scope
+  478 |         sync_ = std::make_shared<message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image>>([01;31m[Ksubscription_left_image[m[K, subscription_right_image, 3);
+      |                                                                                                                       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:478:144:[m[K [01;31m[Kerror: [m[K‘[01m[Ksubscription_right_image[m[K’ was not declared in this scope
+  478 | e_shared<message_filters::TimeSynchronizer<sensor_msgs::msg::Image, sensor_msgs::msg::Image>>(subscription_left_image, [01;31m[Ksubscription_right_image[m[K, 3);
+      |                                                                                                                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:479:44:[m[K [01;31m[Kerror: [m[K‘[01m[KImageSubscriberNode[m[K’ has not been declared
+  479 |         sync_->registerCallback(std::bind(&[01;31m[KImageSubscriberNode[m[K::stereo_image_callback, this, std::placeholders::_1, std::placeholders::_2));
+      |                                            [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In member function ‘[01m[Kvoid LidarSubscriberNode::lidar_callback(const ConstSharedPtr&)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:496:29:[m[K [01;31m[Kerror: [m[K‘[01m[KPointCloud2ToEigen[m[K’ was not declared in this scope
+  496 |         const auto points = [01;31m[KPointCloud2ToEigen[m[K(msg);
+      |                             [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:497:14:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  497 |         auto [01;35m[K[[m[Kcloud_map, cloud_keypoints, new_pose] = register_frame(points);
+      |              [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:512:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kimg_msg_left[m[K’ was not declared in this scope
+  512 |         transform_msg.header.stamp = [01;31m[Kimg_msg_left[m[K->header.stamp;
+      |                                      [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kvoid ImageSubscriberNode::stereo_image_callback(const ConstSharedPtr&, const ConstSharedPtr&)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:606:14:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+  606 |         auto [01;35m[K[[m[Kcloud_map, cloud_keypoints, new_pose] = register_frame(triangulated_points);
+      |              [01;35m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:592:34:[m[K [01;31m[Kerror: [m[K‘[01m[KImageSubscriberNode[m[K’ was not declared in this scope; did you mean ‘[01m[KLidarSubscriberNode[m[K’?
+  592 |     auto node = std::make_shared<[01;31m[KImageSubscriberNode[m[K>();
+      |                                  [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |                                  [32m[KLidarSubscriberNode[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:592:55:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmake_shared<<expression error> >()[m[K’
+  592 |     auto node = std::make_shared<ImageSubscriberNode>([01;31m[K)[m[K;
+      |                                                       [01;31m[K^[m[K
+In file included from [01m[K/usr/include/c++/9/memory:81[m[K,
+                 from [01m[K/usr/local/include/fmt/format.h:41[m[K,
+                 from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:2[m[K:
+[01m[K/usr/include/c++/9/bits/shared_ptr.h:714:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, class ... _Args> std::shared_ptr<_Tp> std::make_shared(_Args&& ...)[m[K’
+  714 |     [01;36m[Kmake_shared[m[K(_Args&&... __args)
+      |     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/usr/include/c++/9/bits/shared_ptr.h:714:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main_lidar.cpp:592:55:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  592 |     auto node = std::make_shared<ImageSubscriberNode>([01;31m[K)[m[K;
+      |                                                       [01;31m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:570:25:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kp1[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+  570 |         Eigen::Vector3d [01;35m[Kp1[m[K = matched_left_eigen.row(0);
+      |                         [01;35m[K^~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:571:25:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kp2[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+  571 |         Eigen::Vector3d [01;35m[Kp2[m[K = matched_right_eigen.row(0);
+      |                         [01;35m[K^~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:573:25:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Ke1[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+  573 |         Eigen::Vector3d [01;35m[Ke1[m[K = compute_epipole(F);
+      |                         [01;35m[K^~[m[K
+make[2]: *** [CMakeFiles/main_lidar_node.dir/build.make:63: CMakeFiles/main_lidar_node.dir/executables/main_lidar.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:118: CMakeFiles/main_lidar_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 83%] [32m[1mLinking CXX executable main_node[0m
+[ 83%] Built target main_node
+make: *** [Makefile:141: all] Error 2

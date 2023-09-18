@@ -1,0 +1,87 @@
+[0.024s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.075s] [ 50%] Built target stereo_calibration
+[0.089s] [35m[1mScanning dependencies of target main_node[0m
+[0.133s] [ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[3.867s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > SLAM_Context::get_registered_map() const[m[K’:
+[3.867s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:81:26:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[3.867s]    81 |         for (const auto &[01;35m[K[[m[Kvoxel, voxel_block] : map_) {
+[3.867s]       |                          [01;35m[K^[m[K
+[3.909s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kstd::tuple<std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > >, std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > > > get_correspondence(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, double)[m[K’:
+[3.910s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:177:16:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[3.910s]   177 |     const auto [01;35m[K[[m[Ksource, target] = tbb::parallel_reduce(
+[3.910s]       |                [01;35m[K^[m[K
+[3.910s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[3.910s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:185:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[3.910s]   185 |             auto &[01;35m[K[[m[Ksrc, tgt] = res;
+[3.910s]       |                   [01;35m[K^[m[K
+[3.921s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[3.921s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:199:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[3.921s]   199 |             auto &[01;35m[K[[m[Ksrc, tgt] = a;
+[3.922s]       |                   [01;35m[K^[m[K
+[3.922s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:200:25:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[3.922s]   200 |             const auto &[01;35m[K[[m[Ksrcp, tgtp] = b;
+[3.922s]       |                         [01;35m[K^[m[K
+[3.991s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[KSophus::SE3d AlignClouds(const std::vector<Eigen::Matrix<double, 3, 1> >&, const std::vector<Eigen::Matrix<double, 3, 1> >&, double)[m[K’:
+[3.991s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:231:17:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[3.991s]   231 |     const auto &[01;35m[K[[m[KJTJ, JTr] = tbb::parallel_reduce(
+[3.991s]       |                 [01;35m[K^[m[K
+[3.992s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[3.992s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:239:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[3.992s]   239 |             auto &[01;35m[K[[m[KJTJ_private, JTr_private] = J;
+[3.992s]       |                   [01;35m[K^[m[K
+[3.992s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:241:29:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[3.992s]   241 |                 const auto &[01;35m[K[[m[KJ_r, residual] = compute_jacobian_and_residual(i);
+[3.992s]       |                             [01;35m[K^[m[K
+[4.149s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[KSophus::SE3d register_frame_icp(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, const SE3d&, double, double)[m[K’:
+[4.149s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:270:21:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[4.149s]   270 |         const auto &[01;35m[K[[m[Ksrc, tgt] = get_correspondence(source, map, max_correspondence_distance);
+[4.149s]       |                     [01;35m[K^[m[K
+[4.202s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > voxelize_downsample(const std::vector<Eigen::Matrix<double, 3, 1> >&, double)[m[K’:
+[4.202s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:319:22:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[4.202s]   319 |     for (const auto &[01;35m[K[[m[Kvoxel, point] : grid) {
+[4.202s]       |                      [01;35m[K^[m[K
+[4.207s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid RemovePointsFarFromLocation(const Vector3d&)[m[K’:
+[4.207s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:352:22:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[4.207s]   352 |     for (const auto &[01;35m[K[[m[Kvoxel, voxel_block] : slam_ctx.map_) {
+[4.207s]       |                      [01;35m[K^[m[K
+[4.230s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kvoid Map::update_localmap(std::vector<Eigen::Matrix<double, 3, 1> >&, Eigen::Matrix4d)[m[K’:
+[4.230s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:409:57:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcloud[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[4.230s]   409 | void Map::update_localmap([01;35m[Kstd::vector<Eigen::Vector3d> &cloud[m[K , Eigen::Matrix4d new_pose){
+[4.230s]       |                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[4.230s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:409:81:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Knew_pose[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[4.231s]   409 | void Map::update_localmap(std::vector<Eigen::Vector3d> &cloud , [01;35m[KEigen::Matrix4d new_pose[m[K){
+[4.231s]       |                                                                 [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+[4.428s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kvoid ImageSubscriberNode::stereo_image_callback(const ConstSharedPtr&, const ConstSharedPtr&)[m[K’:
+[4.428s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:596:25:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kp1[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[4.428s]   596 |         Eigen::Vector3d [01;35m[Kp1[m[K = matched_left_eigen.row(0);
+[4.428s]       |                         [01;35m[K^~[m[K
+[4.428s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:597:25:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kp2[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[4.428s]   597 |         Eigen::Vector3d [01;35m[Kp2[m[K = matched_right_eigen.row(0);
+[4.428s]       |                         [01;35m[K^~[m[K
+[4.428s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:599:25:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Ke1[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[4.428s]   599 |         Eigen::Vector3d [01;35m[Ke1[m[K = compute_epipole(F);
+[4.429s]       |                         [01;35m[K^~[m[K
+[23.171s] [100%] [32m[1mLinking CXX executable main_node[0m
+[25.361s] [100%] Built target main_node
+[25.374s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[25.412s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[25.419s] -- Install configuration: ""
+[25.419s] -- Execute custom install script
+[25.420s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/main_node
+[25.421s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/package_run_dependencies/slam-tutorial
+[25.421s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/parent_prefix_path/slam-tutorial
+[25.421s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.sh
+[25.421s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.dsv
+[25.422s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.sh
+[25.422s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.dsv
+[25.422s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.bash
+[25.423s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.sh
+[25.423s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.zsh
+[25.423s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.dsv
+[25.424s] -- Symlinking: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv
+[25.433s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/packages/slam-tutorial
+[25.434s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig.cmake
+[25.434s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig-version.cmake
+[25.434s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.xml
+[25.435s] -- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial//launch/main_node.launch.py
+[25.437s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial

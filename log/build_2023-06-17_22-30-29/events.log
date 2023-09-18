@@ -1,0 +1,156 @@
+[0.000000] (-) TimerEvent: {}
+[0.003620] (slam-tutorial) JobQueued: {'identifier': 'slam-tutorial', 'dependencies': OrderedDict()}
+[0.003739] (slam-tutorial) JobStarted: {'identifier': 'slam-tutorial'}
+[0.020707] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'cmake'}
+[0.022475] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'build'}
+[0.023615] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', '--', '-j12', '-l12'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('GIT_ASKPASS', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/local/cuda-12.0/lib64:/usr/local/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/jeongmyung'), ('TERM_PROGRAM_VERSION', '1.79.1'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-e0363965-8a1e-430a-a501-a645ecbf7830.sock'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/node'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('LOGNAME', 'jeongmyung'), ('NAME', 'Code'), ('WSL_INTEROP', '/run/WSL/9_interop'), ('_', '/usr/bin/colcon'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('PATH', '/usr/local/cuda-12.0/bin:/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/bin/remote-cli:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', 'ddd89dfa-1af5-49ed-a4cb-fc3535297736'), ('DISPLAY', '172.31.32.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-6e80eabf7e.sock'), ('TERM_PROGRAM', 'vscode'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[0.085758] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target main_node\x1b[0m\n'}
+[0.099052] (-) TimerEvent: {}
+[0.120380] (slam-tutorial) StdoutLine: {'line': b'[ 50%] Built target lidar_subscriber_node\n'}
+[0.138011] (slam-tutorial) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o\x1b[0m\n'}
+[0.199189] (-) TimerEvent: {}
+[0.299615] (-) TimerEvent: {}
+[0.400105] (-) TimerEvent: {}
+[0.500571] (-) TimerEvent: {}
+[0.601075] (-) TimerEvent: {}
+[0.701701] (-) TimerEvent: {}
+[0.802312] (-) TimerEvent: {}
+[0.902798] (-) TimerEvent: {}
+[1.003331] (-) TimerEvent: {}
+[1.103841] (-) TimerEvent: {}
+[1.204354] (-) TimerEvent: {}
+[1.304887] (-) TimerEvent: {}
+[1.405463] (-) TimerEvent: {}
+[1.505945] (-) TimerEvent: {}
+[1.606437] (-) TimerEvent: {}
+[1.707018] (-) TimerEvent: {}
+[1.807547] (-) TimerEvent: {}
+[1.908043] (-) TimerEvent: {}
+[2.008514] (-) TimerEvent: {}
+[2.077904] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8\x1b[m\x1b[K:\n'}
+[2.078363] (slam-tutorial) StderrLine: {'line': b"\x1b[01m\x1b[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead\n"}
+[2.078489] (slam-tutorial) StderrLine: {'line': b'   41 | #pragma message ("Warning: This header is deprecated. Use \'image_transport.hpp\' instead"\x1b[01;36m\x1b[K)\x1b[m\x1b[K\n'}
+[2.078586] (slam-tutorial) StderrLine: {'line': b'      |                                                                                         \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[2.108694] (-) TimerEvent: {}
+[2.209194] (-) TimerEvent: {}
+[2.309804] (-) TimerEvent: {}
+[2.410440] (-) TimerEvent: {}
+[2.510959] (-) TimerEvent: {}
+[2.611438] (-) TimerEvent: {}
+[2.711949] (-) TimerEvent: {}
+[2.812462] (-) TimerEvent: {}
+[2.912985] (-) TimerEvent: {}
+[3.013434] (-) TimerEvent: {}
+[3.114083] (-) TimerEvent: {}
+[3.214563] (-) TimerEvent: {}
+[3.315049] (-) TimerEvent: {}
+[3.415521] (-) TimerEvent: {}
+[3.515985] (-) TimerEvent: {}
+[3.616457] (-) TimerEvent: {}
+[3.716999] (-) TimerEvent: {}
+[3.817586] (-) TimerEvent: {}
+[3.918313] (-) TimerEvent: {}
+[4.018894] (-) TimerEvent: {}
+[4.119536] (-) TimerEvent: {}
+[4.220118] (-) TimerEvent: {}
+[4.320675] (-) TimerEvent: {}
+[4.421306] (-) TimerEvent: {}
+[4.521889] (-) TimerEvent: {}
+[4.622408] (-) TimerEvent: {}
+[4.722963] (-) TimerEvent: {}
+[4.823586] (-) TimerEvent: {}
+[4.924095] (-) TimerEvent: {}
+[5.024583] (-) TimerEvent: {}
+[5.125115] (-) TimerEvent: {}
+[5.225584] (-) TimerEvent: {}
+[5.326096] (-) TimerEvent: {}
+[5.426725] (-) TimerEvent: {}
+[5.527561] (-) TimerEvent: {}
+[5.628074] (-) TimerEvent: {}
+[5.728590] (-) TimerEvent: {}
+[5.829139] (-) TimerEvent: {}
+[5.929640] (-) TimerEvent: {}
+[6.030175] (-) TimerEvent: {}
+[6.130674] (-) TimerEvent: {}
+[6.231179] (-) TimerEvent: {}
+[6.331727] (-) TimerEvent: {}
+[6.432366] (-) TimerEvent: {}
+[6.532891] (-) TimerEvent: {}
+[6.633355] (-) TimerEvent: {}
+[6.733837] (-) TimerEvent: {}
+[6.834446] (-) TimerEvent: {}
+[6.935138] (-) TimerEvent: {}
+[7.035744] (-) TimerEvent: {}
+[7.136227] (-) TimerEvent: {}
+[7.236801] (-) TimerEvent: {}
+[7.337273] (-) TimerEvent: {}
+[7.437714] (-) TimerEvent: {}
+[7.538228] (-) TimerEvent: {}
+[7.638754] (-) TimerEvent: {}
+[7.739239] (-) TimerEvent: {}
+[7.839706] (-) TimerEvent: {}
+[7.940202] (-) TimerEvent: {}
+[8.040861] (-) TimerEvent: {}
+[8.141348] (-) TimerEvent: {}
+[8.241912] (-) TimerEvent: {}
+[8.342377] (-) TimerEvent: {}
+[8.442830] (-) TimerEvent: {}
+[8.543323] (-) TimerEvent: {}
+[8.643866] (-) TimerEvent: {}
+[8.744367] (-) TimerEvent: {}
+[8.844896] (-) TimerEvent: {}
+[8.945413] (-) TimerEvent: {}
+[9.045969] (-) TimerEvent: {}
+[9.146409] (-) TimerEvent: {}
+[9.246938] (-) TimerEvent: {}
+[9.347396] (-) TimerEvent: {}
+[9.447896] (-) TimerEvent: {}
+[9.548375] (-) TimerEvent: {}
+[9.648534] (slam-tutorial) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable main_node\x1b[0m\n'}
+[9.648797] (-) TimerEvent: {}
+[9.749131] (-) TimerEvent: {}
+[9.849619] (-) TimerEvent: {}
+[9.950181] (-) TimerEvent: {}
+[10.050649] (-) TimerEvent: {}
+[10.151343] (-) TimerEvent: {}
+[10.251945] (-) TimerEvent: {}
+[10.352611] (-) TimerEvent: {}
+[10.453213] (-) TimerEvent: {}
+[10.553782] (-) TimerEvent: {}
+[10.654435] (-) TimerEvent: {}
+[10.754912] (-) TimerEvent: {}
+[10.855487] (-) TimerEvent: {}
+[10.955987] (-) TimerEvent: {}
+[11.056481] (-) TimerEvent: {}
+[11.156996] (-) TimerEvent: {}
+[11.257524] (-) TimerEvent: {}
+[11.358018] (-) TimerEvent: {}
+[11.449804] (slam-tutorial) StdoutLine: {'line': b'[100%] Built target main_node\n'}
+[11.458186] (-) TimerEvent: {}
+[11.463150] (slam-tutorial) CommandEnded: {'returncode': 0}
+[11.497827] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'install'}
+[11.511852] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('GIT_ASKPASS', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/local/cuda-12.0/lib64:/usr/local/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/jeongmyung'), ('TERM_PROGRAM_VERSION', '1.79.1'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-e0363965-8a1e-430a-a501-a645ecbf7830.sock'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/node'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('LOGNAME', 'jeongmyung'), ('NAME', 'Code'), ('WSL_INTEROP', '/run/WSL/9_interop'), ('_', '/usr/bin/colcon'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('PATH', '/usr/local/cuda-12.0/bin:/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/bin/remote-cli:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', 'ddd89dfa-1af5-49ed-a4cb-fc3535297736'), ('DISPLAY', '172.31.32.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-6e80eabf7e.sock'), ('TERM_PROGRAM', 'vscode'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[11.523838] (slam-tutorial) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[11.525150] (slam-tutorial) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[11.526180] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/main_node\n'}
+[11.527465] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/lidar_subscriber_node\n'}
+[11.528015] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/package_run_dependencies/slam-tutorial\n'}
+[11.528444] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/parent_prefix_path/slam-tutorial\n'}
+[11.529243] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.sh\n'}
+[11.529848] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.dsv\n'}
+[11.530287] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.sh\n'}
+[11.530732] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.dsv\n'}
+[11.531190] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.bash\n'}
+[11.531638] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.sh\n'}
+[11.532075] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.zsh\n'}
+[11.532501] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.dsv\n'}
+[11.532899] (slam-tutorial) StdoutLine: {'line': b'-- Symlinking: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv\n'}
+[11.542641] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/packages/slam-tutorial\n'}
+[11.543139] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig.cmake\n'}
+[11.543636] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig-version.cmake\n'}
+[11.543781] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.xml\n'}
+[11.545658] (slam-tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial//launch/main_node.launch.py\n'}
+[11.548041] (slam-tutorial) CommandEnded: {'returncode': 0}
+[11.558965] (-) TimerEvent: {}
+[11.620209] (slam-tutorial) JobEnded: {'identifier': 'slam-tutorial', 'rc': 0}
+[11.622605] (-) EventReactorShutdown: {}

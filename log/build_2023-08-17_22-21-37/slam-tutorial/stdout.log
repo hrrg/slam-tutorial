@@ -1,0 +1,6 @@
+[35m[1mScanning dependencies of target stereo_calibration[0m
+[ 25%] [32mBuilding CXX object include/stereo_calibration/CMakeFiles/stereo_calibration.dir/stereo_calibration.cpp.o[0m
+[ 50%] [32m[1mLinking CXX static library libstereo_calibration.a[0m
+[ 50%] Built target stereo_calibration
+[35m[1mScanning dependencies of target main_node[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m

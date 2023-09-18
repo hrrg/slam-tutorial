@@ -1,0 +1,2 @@
+add_subdirectory(stereo_calibration)
+add_subdirectory(kiss_icp)

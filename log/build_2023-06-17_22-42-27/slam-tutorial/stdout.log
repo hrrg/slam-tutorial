@@ -1,0 +1,3 @@
+[35m[1mScanning dependencies of target main_node[0m
+[ 50%] Built target lidar_subscriber_node
+[ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m

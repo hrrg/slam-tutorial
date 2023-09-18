@@ -1,0 +1,26 @@
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+   41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+      |                                                                                         [01;36m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid detect_keypoints(cv::Mat*, cv::Mat*)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:22:27:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Mat*[m[K’ to ‘[01m[Kcv::InputArray[m[K’ {aka ‘[01m[Kconst cv::_InputArray&[m[K’}
+   22 |     orb->detectAndCompute([01;31m[Kimage_left[m[K, cv::noArray(), keypoints_left, descriptors_left);
+      |                           [01;31m[K^~~~~~~~~~[m[K
+      |                           [01;31m[K|[m[K
+      |                           [01;31m[Kcv::Mat*[m[K
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:13[m[K:
+[01m[K/usr/include/opencv4/opencv2/features2d.hpp:206:55:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvirtual void cv::Feature2D::detectAndCompute(cv::InputArray, cv::InputArray, std::vector<cv::KeyPoint>&, cv::OutputArray, bool)[m[K’
+  206 |     CV_WRAP virtual void detectAndCompute( [01;36m[KInputArray image[m[K, InputArray mask,
+      |                                            [01;36m[K~~~~~~~~~~~^~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:26:27:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Mat*[m[K’ to ‘[01m[Kcv::InputArray[m[K’ {aka ‘[01m[Kconst cv::_InputArray&[m[K’}
+   26 |     orb->detectAndCompute([01;31m[Kimage_right[m[K, cv::noArray(), keypoints_right, descriptors_right);
+      |                           [01;31m[K^~~~~~~~~~~[m[K
+      |                           [01;31m[K|[m[K
+      |                           [01;31m[Kcv::Mat*[m[K
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:13[m[K:
+[01m[K/usr/include/opencv4/opencv2/features2d.hpp:206:55:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvirtual void cv::Feature2D::detectAndCompute(cv::InputArray, cv::InputArray, std::vector<cv::KeyPoint>&, cv::OutputArray, bool)[m[K’
+  206 |     CV_WRAP virtual void detectAndCompute( [01;36m[KInputArray image[m[K, InputArray mask,
+      |                                            [01;36m[K~~~~~~~~~~~^~~~~[m[K
+make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/main_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

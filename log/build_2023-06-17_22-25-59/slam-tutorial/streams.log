@@ -1,0 +1,47 @@
+[0.042s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.509s] [35m[1mScanning dependencies of target lidar_subscriber_node[0m
+[0.509s] [35m[1mScanning dependencies of target main_node[0m
+[0.592s] [ 25%] [32mBuilding CXX object CMakeFiles/lidar_subscriber_node.dir/executables/lidar_subscriber.cpp.o[0m
+[0.601s] [ 50%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[3.274s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[3.274s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[3.275s]    41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[3.275s]       |                                                                                         [01;36m[K^[m[K
+[3.770s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid detect_keypoints(cv::Mat*, cv::Mat*)[m[K’:
+[3.771s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:18:17:[m[K [01;31m[Kerror: [m[K‘[01m[KORB[m[K’ is not a member of ‘[01m[Kcv[m[K’
+[3.771s]    18 |     cv::Ptr<cv::[01;31m[KORB[m[K> orb = cv::ORB::create();
+[3.772s]       |                 [01;31m[K^~~[m[K
+[3.772s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:18:17:[m[K [01;31m[Kerror: [m[K‘[01m[KORB[m[K’ is not a member of ‘[01m[Kcv[m[K’
+[3.772s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:18:20:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.773s]    18 |     cv::Ptr<cv::ORB[01;31m[K>[m[K orb = cv::ORB::create();
+[3.773s]       |                    [01;31m[K^[m[K
+[3.773s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:18:32:[m[K [01;31m[Kerror: [m[K‘[01m[Kcv::ORB[m[K’ has not been declared
+[3.774s]    18 |     cv::Ptr<cv::ORB> orb = cv::[01;31m[KORB[m[K::create();
+[3.774s]       |                                [01;31m[K^~~[m[K
+[3.774s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:21:8:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+[3.774s]    21 |     orb[01;31m[K->[m[KdetectAndCompute(image_left, cv::noArray(), keypoints_left, descriptors_left);
+[3.774s]       |        [01;31m[K^~[m[K
+[3.774s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:25:8:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+[3.775s]    25 |     orb[01;31m[K->[m[KdetectAndCompute(image_right, cv::noArray(), keypoints_right, descriptors_right);
+[3.775s]       |        [01;31m[K^~[m[K
+[7.556s] make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+[7.556s] make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/main_node.dir/all] Error 2
+[7.556s] make[1]: *** Waiting for unfinished jobs....
+[9.733s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kvoid generate_2d_points()[m[K’:
+[9.733s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:123:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kpre_error[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[9.734s]   123 |     double [01;35m[Kpre_error[m[K = 1000000;
+[9.734s]       |            [01;35m[K^~~~~~~~~[m[K
+[9.734s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:124:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcount[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[9.735s]   124 |     int [01;35m[Kcount[m[K = 0;
+[9.735s]       |         [01;35m[K^~~~~[m[K
+[9.735s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[9.735s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:137:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[9.735s]   137 | int main([01;35m[Kint argc[m[K, char **argv) {
+[9.735s]       |          [01;35m[K~~~~^~~~[m[K
+[9.736s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:137:27:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[9.736s]   137 | int main(int argc, [01;35m[Kchar **argv[m[K) {
+[9.736s]       |                    [01;35m[K~~~~~~~^~~~[m[K
+[22.269s] [ 75%] [32m[1mLinking CXX executable lidar_subscriber_node[0m
+[23.949s] [ 75%] Built target lidar_subscriber_node
+[23.950s] make: *** [Makefile:141: all] Error 2
+[23.954s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

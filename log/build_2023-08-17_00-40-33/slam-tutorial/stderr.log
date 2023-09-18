@@ -1,0 +1,5 @@
+CMake Error at CMakeLists.txt:80 (add_subdirectory):
+  add_subdirectory given source "src" which is not an existing directory.
+
+
+make: *** [Makefile:280: cmake_check_build_system] Error 1

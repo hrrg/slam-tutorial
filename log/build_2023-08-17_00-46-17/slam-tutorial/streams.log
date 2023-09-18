@@ -1,0 +1,133 @@
+[0.023s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.048s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.071s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.286s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.294s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.483s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.487s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[4.040s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.101s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[4.103s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.293s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[4.434s] -- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+[5.211s] -- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)
+[5.606s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[5.698s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[5.796s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.833s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.833s] -- Configured cppcheck include dirs: 
+[5.834s] -- Configured cppcheck exclude dirs and/or files: 
+[5.876s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[5.877s] -- Configured cpplint exclude dirs and/or files: 
+[5.881s] -- Added test 'flake8' to check Python code syntax and style conventions
+[5.890s] -- Added test 'lint_cmake' to check CMake code style
+[5.896s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[5.931s] -- Added test 'uncrustify' to check C / C++ code style
+[5.931s] -- Configured uncrustify additional arguments: 
+[5.935s] -- Added test 'xmllint' to check XML markup files
+[5.939s] -- Configuring done
+[5.979s] -- Generating done
+[5.983s] -- Build files have been written to: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[6.024s] [ 50%] Built target stereo_calibration
+[6.036s] [35m[1mScanning dependencies of target main_node[0m
+[6.056s] [ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[9.548s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > SLAM_Context::get_registered_map() const[m[K’:
+[9.548s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:81:26:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.548s]    81 |         for (const auto &[01;35m[K[[m[Kvoxel, voxel_block] : map_) {
+[9.548s]       |                          [01;35m[K^[m[K
+[9.588s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kstd::tuple<std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > >, std::vector<Eigen::Matrix<double, 3, 1, 0, 3, 1>, std::allocator<Eigen::Matrix<double, 3, 1, 0, 3, 1> > > > get_correspondence(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, double)[m[K’:
+[9.588s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:177:16:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.589s]   177 |     const auto [01;35m[K[[m[Ksource, target] = tbb::parallel_reduce(
+[9.589s]       |                [01;35m[K^[m[K
+[9.589s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[9.589s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:185:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.589s]   185 |             auto &[01;35m[K[[m[Ksrc, tgt] = res;
+[9.589s]       |                   [01;35m[K^[m[K
+[9.601s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[9.601s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:199:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.601s]   199 |             auto &[01;35m[K[[m[Ksrc, tgt] = a;
+[9.601s]       |                   [01;35m[K^[m[K
+[9.601s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:200:25:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.601s]   200 |             const auto &[01;35m[K[[m[Ksrcp, tgtp] = b;
+[9.602s]       |                         [01;35m[K^[m[K
+[9.663s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[KSophus::SE3d AlignClouds(const std::vector<Eigen::Matrix<double, 3, 1> >&, const std::vector<Eigen::Matrix<double, 3, 1> >&, double)[m[K’:
+[9.663s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:231:17:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.663s]   231 |     const auto &[01;35m[K[[m[KJTJ, JTr] = tbb::parallel_reduce(
+[9.663s]       |                 [01;35m[K^[m[K
+[9.663s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In lambda function:
+[9.663s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:239:19:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.663s]   239 |             auto &[01;35m[K[[m[KJTJ_private, JTr_private] = J;
+[9.663s]       |                   [01;35m[K^[m[K
+[9.664s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:241:29:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.664s]   241 |                 const auto &[01;35m[K[[m[KJ_r, residual] = compute_jacobian_and_residual(i);
+[9.664s]       |                             [01;35m[K^[m[K
+[9.822s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[KSophus::SE3d register_frame_icp(const std::vector<Eigen::Matrix<double, 3, 1> >&, const tsl::robin_map<Eigen::Matrix<int, 3, 1>, VoxelBlock, VoxelHash>&, const SE3d&, double, double)[m[K’:
+[9.822s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:270:21:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.823s]   270 |         const auto &[01;35m[K[[m[Ksrc, tgt] = get_correspondence(source, map, max_correspondence_distance);
+[9.823s]       |                     [01;35m[K^[m[K
+[9.873s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > voxelize_downsample(const std::vector<Eigen::Matrix<double, 3, 1> >&, double)[m[K’:
+[9.873s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:319:22:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.873s]   319 |     for (const auto &[01;35m[K[[m[Kvoxel, point] : grid) {
+[9.873s]       |                      [01;35m[K^[m[K
+[9.878s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid RemovePointsFarFromLocation(const Vector3d&)[m[K’:
+[9.878s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:352:22:[m[K [01;35m[Kwarning: [m[Kstructured bindings only available with ‘[01m[K-std=c++17[m[K’ or ‘[01m[K-std=gnu++17[m[K’
+[9.879s]   352 |     for (const auto &[01;35m[K[[m[Kvoxel, voxel_block] : slam_ctx.map_) {
+[9.879s]       |                      [01;35m[K^[m[K
+[9.901s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kvoid Map::update_localmap(std::vector<Eigen::Matrix<double, 3, 1> >&, Eigen::Matrix4d)[m[K’:
+[9.902s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:409:57:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcloud[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[9.902s]   409 | void Map::update_localmap([01;35m[Kstd::vector<Eigen::Vector3d> &cloud[m[K , Eigen::Matrix4d new_pose){
+[9.902s]       |                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[9.902s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:409:81:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Knew_pose[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[9.902s]   409 | void Map::update_localmap(std::vector<Eigen::Vector3d> &cloud , [01;35m[KEigen::Matrix4d new_pose[m[K){
+[9.902s]       |                                                                 [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+[9.922s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K At global scope:
+[9.923s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:506:10:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kcv::Mat intrinsic_left[m[K’
+[9.923s]   506 |  cv::Mat [01;31m[Kintrinsic_left[m[K = (cv::Mat_<double>(3,3) << 458.654, 0, 367.215,
+[9.923s]       |          [01;31m[K^~~~~~~~~~~~~~[m[K
+[9.923s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:474:9:[m[K [01;36m[Knote: [m[K‘[01m[Kcv::Mat intrinsic_left[m[K’ previously declared here
+[9.923s]   474 | cv::Mat [01;36m[Kintrinsic_left[m[K =
+[9.924s]       |         [01;36m[K^~~~~~~~~~~~~~[m[K
+[9.924s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:509:10:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kcv::Mat intrinsic_right[m[K’
+[9.924s]   509 |  cv::Mat [01;31m[Kintrinsic_right[m[K = (cv::Mat_<double>(3,3) << 457.587, 0, 379.999,
+[9.924s]       |          [01;31m[K^~~~~~~~~~~~~~~[m[K
+[9.924s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:476:9:[m[K [01;36m[Knote: [m[K‘[01m[Kcv::Mat intrinsic_right[m[K’ previously declared here
+[9.924s]   476 | cv::Mat [01;36m[Kintrinsic_right[m[K =
+[9.924s]       |         [01;36m[K^~~~~~~~~~~~~~~[m[K
+[9.924s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:512:10:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kcv::Mat calib_left[m[K’
+[9.925s]   512 |  cv::Mat [01;31m[Kcalib_left[m[K = (cv::Mat_<double>(3,4) << 0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
+[9.925s]       |          [01;31m[K^~~~~~~~~~[m[K
+[9.925s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:478:9:[m[K [01;36m[Knote: [m[K‘[01m[Kcv::Mat calib_left[m[K’ previously declared here
+[9.925s]   478 | cv::Mat [01;36m[Kcalib_left[m[K =
+[9.925s]       |         [01;36m[K^~~~~~~~~~[m[K
+[9.925s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:515:10:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kcv::Mat calib_right[m[K’
+[9.925s]   515 |  cv::Mat [01;31m[Kcalib_right[m[K = (cv::Mat_<double>(3,4) << 0.0125552670891, -0.999755099723, 0.0182237714554, -0.0198435579556,
+[9.925s]       |          [01;31m[K^~~~~~~~~~~[m[K
+[9.925s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:482:9:[m[K [01;36m[Knote: [m[K‘[01m[Kcv::Mat calib_right[m[K’ previously declared here
+[9.925s]   482 | cv::Mat [01;36m[Kcalib_right[m[K =
+[9.925s]       |         [01;36m[K^~~~~~~~~~~[m[K
+[10.126s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kvoid ImageSubscriberNode::stereo_image_callback(const ConstSharedPtr&, const ConstSharedPtr&)[m[K’:
+[10.126s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:706:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kimg1[m[K’ was not declared in this scope
+[10.126s]   706 |         obtainCorrespondingPoints([01;31m[Kimg1[m[K, img2, matched_left, matched_right, 50, false);
+[10.126s]       |                                   [01;31m[K^~~~[m[K
+[10.129s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:706:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kimg2[m[K’ was not declared in this scope
+[10.129s]   706 |         obtainCorrespondingPoints(img1, [01;31m[Kimg2[m[K, matched_left, matched_right, 50, false);
+[10.129s]       |                                         [01;31m[K^~~~[m[K
+[10.133s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:741:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kframe[m[K’ was not declared in this scope; did you mean ‘[01m[KFrame[m[K’?
+[10.133s]   741 |             [01;31m[Kframe[m[K.matched_keypoints_left.push_back(cv::Point2d(x,y));
+[10.133s]       |             [01;31m[K^~~~~[m[K
+[10.133s]       |             [32m[KFrame[m[K
+[10.136s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:747:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kframe[m[K’ was not declared in this scope; did you mean ‘[01m[KFrame[m[K’?
+[10.136s]   747 |             [01;31m[Kframe[m[K.matched_keypoints_right.push_back(cv::Point2d(x,y));
+[10.136s]       |             [01;31m[K^~~~~[m[K
+[10.136s]       |             [32m[KFrame[m[K
+[10.136s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:750:36:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KTracker::triangulate_points()[m[K’
+[10.136s]   750 |         tracker.triangulate_points([01;31m[K)[m[K;
+[10.136s]       |                                    [01;31m[K^[m[K
+[10.136s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:543:34:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::vector<Eigen::Matrix<double, 3, 1> > Tracker::triangulate_points(const std::vector<cv::Point_<double> >&, const std::vector<cv::Point_<double> >&)[m[K’
+[10.136s]   543 |     std::vector<Eigen::Vector3d> [01;36m[Ktriangulate_points[m[K(const std::vector<cv::Point2d>& ,const std::vector<cv::Point2d>& );
+[10.137s]       |                                  [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[10.137s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:543:34:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 0 provided
+[19.805s] make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+[19.805s] make[1]: *** [CMakeFiles/Makefile2:116: CMakeFiles/main_node.dir/all] Error 2
+[19.806s] make: *** [Makefile:141: all] Error 2
+[19.810s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

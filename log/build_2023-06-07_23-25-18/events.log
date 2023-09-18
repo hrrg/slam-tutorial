@@ -1,0 +1,381 @@
+[0.000000] (-) TimerEvent: {}
+[0.001440] (slam-tutorial) JobQueued: {'identifier': 'slam-tutorial', 'dependencies': OrderedDict()}
+[0.001578] (slam-tutorial) JobStarted: {'identifier': 'slam-tutorial'}
+[0.014885] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'cmake'}
+[0.017911] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'build'}
+[0.018023] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', '--', '-j12', '-l12'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('HOME', '/home/jeongmyung'), ('OLDPWD', '/home/jeongmyung/slam-tutorial_ws/src'), ('ROS_PYTHON_VERSION', '3'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('COLCON_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jeongmyung'), ('NAME', 'DESKTOP-MF41F2K'), ('WSL_INTEROP', '/run/WSL/4579_interop'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', 'd47575f3-a1c5-4f64-a35f-2d088b63bfdc'), ('DISPLAY', '172.31.32.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('WSLENV', 'WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[0.050680] (slam-tutorial) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.072273] (slam-tutorial) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.099515] (-) TimerEvent: {}
+[0.199959] (-) TimerEvent: {}
+[0.285063] (slam-tutorial) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.294189] (slam-tutorial) StdoutLine: {'line': b'-- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[0.300129] (-) TimerEvent: {}
+[0.400564] (-) TimerEvent: {}
+[0.473960] (slam-tutorial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.478076] (slam-tutorial) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.500709] (-) TimerEvent: {}
+[0.601260] (-) TimerEvent: {}
+[0.701677] (-) TimerEvent: {}
+[0.802144] (-) TimerEvent: {}
+[0.902661] (-) TimerEvent: {}
+[1.003189] (-) TimerEvent: {}
+[1.103721] (-) TimerEvent: {}
+[1.204179] (-) TimerEvent: {}
+[1.304602] (-) TimerEvent: {}
+[1.405010] (-) TimerEvent: {}
+[1.505409] (-) TimerEvent: {}
+[1.605820] (-) TimerEvent: {}
+[1.706255] (-) TimerEvent: {}
+[1.806684] (-) TimerEvent: {}
+[1.907146] (-) TimerEvent: {}
+[2.007561] (-) TimerEvent: {}
+[2.108103] (-) TimerEvent: {}
+[2.208546] (-) TimerEvent: {}
+[2.309034] (-) TimerEvent: {}
+[2.409451] (-) TimerEvent: {}
+[2.509924] (-) TimerEvent: {}
+[2.610392] (-) TimerEvent: {}
+[2.710809] (-) TimerEvent: {}
+[2.811278] (-) TimerEvent: {}
+[2.911729] (-) TimerEvent: {}
+[3.012148] (-) TimerEvent: {}
+[3.112667] (-) TimerEvent: {}
+[3.213149] (-) TimerEvent: {}
+[3.313550] (-) TimerEvent: {}
+[3.413968] (-) TimerEvent: {}
+[3.514392] (-) TimerEvent: {}
+[3.614800] (-) TimerEvent: {}
+[3.715217] (-) TimerEvent: {}
+[3.815628] (-) TimerEvent: {}
+[3.916071] (-) TimerEvent: {}
+[4.016560] (-) TimerEvent: {}
+[4.117082] (-) TimerEvent: {}
+[4.217627] (-) TimerEvent: {}
+[4.318144] (-) TimerEvent: {}
+[4.418657] (-) TimerEvent: {}
+[4.519123] (-) TimerEvent: {}
+[4.619597] (-) TimerEvent: {}
+[4.720005] (-) TimerEvent: {}
+[4.820431] (-) TimerEvent: {}
+[4.920874] (-) TimerEvent: {}
+[4.986994] (slam-tutorial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.021043] (-) TimerEvent: {}
+[5.050375] (slam-tutorial) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[5.051997] (slam-tutorial) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.121210] (-) TimerEvent: {}
+[5.221638] (-) TimerEvent: {}
+[5.265473] (slam-tutorial) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[5.321818] (-) TimerEvent: {}
+[5.422263] (-) TimerEvent: {}
+[5.427824] (slam-tutorial) StdoutLine: {'line': b'-- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)\n'}
+[5.522461] (-) TimerEvent: {}
+[5.622966] (-) TimerEvent: {}
+[5.723353] (-) TimerEvent: {}
+[5.823801] (-) TimerEvent: {}
+[5.924215] (-) TimerEvent: {}
+[6.024625] (-) TimerEvent: {}
+[6.125082] (-) TimerEvent: {}
+[6.225589] (-) TimerEvent: {}
+[6.326142] (-) TimerEvent: {}
+[6.426562] (-) TimerEvent: {}
+[6.463584] (slam-tutorial) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[6.513574] (slam-tutorial) StdoutLine: {'line': b'--   Found eigen3, version 3.3.7\n'}
+[6.526731] (-) TimerEvent: {}
+[6.550308] (slam-tutorial) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[6.550654] (slam-tutorial) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)\n'}
+[6.579128] (slam-tutorial) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.65.0") found components: system filesystem date_time iostreams serialization \n'}
+[6.626893] (-) TimerEvent: {}
+[6.684322] (slam-tutorial) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[6.700543] (slam-tutorial) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.23\n'}
+[6.727034] (-) TimerEvent: {}
+[6.827415] (-) TimerEvent: {}
+[6.890778] (slam-tutorial) StdoutLine: {'line': b'-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  \n'}
+[6.892609] (slam-tutorial) StdoutLine: {'line': b'-- Found OpenNI: /usr/lib/libOpenNI.so;libusb::libusb (found version "1.5.4.0") \n'}
+[6.892848] (slam-tutorial) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[6.927571] (-) TimerEvent: {}
+[7.027970] (-) TimerEvent: {}
+[7.128438] (-) TimerEvent: {}
+[7.159548] (slam-tutorial) StdoutLine: {'line': b'-- Found OpenNI2: /usr/lib/libOpenNI2.so;libusb::libusb (found version "2.2.0.33") \n'}
+[7.159819] (slam-tutorial) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so;libusb::libusb)\n'}
+[7.160236] (slam-tutorial) StderrLine: {'line': b'** WARNING ** io features related to pcap will be disabled\n'}
+[7.160362] (slam-tutorial) StderrLine: {'line': b'** WARNING ** io features related to png will be disabled\n'}
+[7.228601] (-) TimerEvent: {}
+[7.230572] (slam-tutorial) StdoutLine: {'line': b'-- The imported target "vtkParseOGLExt" references the file\n'}
+[7.230789] (slam-tutorial) StdoutLine: {'line': b'   "/usr/bin/vtkParseOGLExt-7.1"\n'}
+[7.230913] (slam-tutorial) StdoutLine: {'line': b'but this file does not exist.  Possible reasons include:\n'}
+[7.230999] (slam-tutorial) StdoutLine: {'line': b'* The file was deleted, renamed, or moved to another location.\n'}
+[7.231077] (slam-tutorial) StdoutLine: {'line': b'* An install or uninstall procedure did not complete successfully.\n'}
+[7.231156] (slam-tutorial) StdoutLine: {'line': b'* The installation package was faulty and contained\n'}
+[7.231232] (slam-tutorial) StdoutLine: {'line': b'   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"\n'}
+[7.231307] (slam-tutorial) StdoutLine: {'line': b'but not all the files it references.\n'}
+[7.231382] (slam-tutorial) StdoutLine: {'line': b'\n'}
+[7.231745] (slam-tutorial) StdoutLine: {'line': b'-- The imported target "vtkRenderingPythonTkWidgets" references the file\n'}
+[7.231971] (slam-tutorial) StdoutLine: {'line': b'   "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"\n'}
+[7.232060] (slam-tutorial) StdoutLine: {'line': b'but this file does not exist.  Possible reasons include:\n'}
+[7.232140] (slam-tutorial) StdoutLine: {'line': b'* The file was deleted, renamed, or moved to another location.\n'}
+[7.232216] (slam-tutorial) StdoutLine: {'line': b'* An install or uninstall procedure did not complete successfully.\n'}
+[7.232292] (slam-tutorial) StdoutLine: {'line': b'* The installation package was faulty and contained\n'}
+[7.232368] (slam-tutorial) StdoutLine: {'line': b'   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"\n'}
+[7.232444] (slam-tutorial) StdoutLine: {'line': b'but not all the files it references.\n'}
+[7.232701] (slam-tutorial) StdoutLine: {'line': b'\n'}
+[7.232783] (slam-tutorial) StdoutLine: {'line': b'-- The imported target "vtk" references the file\n'}
+[7.232913] (slam-tutorial) StdoutLine: {'line': b'   "/usr/bin/vtk"\n'}
+[7.233271] (slam-tutorial) StdoutLine: {'line': b'but this file does not exist.  Possible reasons include:\n'}
+[7.233422] (slam-tutorial) StdoutLine: {'line': b'* The file was deleted, renamed, or moved to another location.\n'}
+[7.233564] (slam-tutorial) StdoutLine: {'line': b'* An install or uninstall procedure did not complete successfully.\n'}
+[7.233730] (slam-tutorial) StdoutLine: {'line': b'* The installation package was faulty and contained\n'}
+[7.233818] (slam-tutorial) StdoutLine: {'line': b'   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"\n'}
+[7.233973] (slam-tutorial) StdoutLine: {'line': b'but not all the files it references.\n'}
+[7.234063] (slam-tutorial) StdoutLine: {'line': b'\n'}
+[7.234140] (slam-tutorial) StdoutLine: {'line': b'-- The imported target "pvtk" references the file\n'}
+[7.234216] (slam-tutorial) StdoutLine: {'line': b'   "/usr/bin/pvtk"\n'}
+[7.234291] (slam-tutorial) StdoutLine: {'line': b'but this file does not exist.  Possible reasons include:\n'}
+[7.234366] (slam-tutorial) StdoutLine: {'line': b'* The file was deleted, renamed, or moved to another location.\n'}
+[7.234453] (slam-tutorial) StdoutLine: {'line': b'* An install or uninstall procedure did not complete successfully.\n'}
+[7.234529] (slam-tutorial) StdoutLine: {'line': b'* The installation package was faulty and contained\n'}
+[7.234603] (slam-tutorial) StdoutLine: {'line': b'   "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"\n'}
+[7.234677] (slam-tutorial) StdoutLine: {'line': b'but not all the files it references.\n'}
+[7.234751] (slam-tutorial) StdoutLine: {'line': b'\n'}
+[7.278272] (slam-tutorial) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.3.7)\n'}
+[7.328765] (-) TimerEvent: {}
+[7.429230] (-) TimerEvent: {}
+[7.529644] (-) TimerEvent: {}
+[7.630037] (-) TimerEvent: {}
+[7.730441] (-) TimerEvent: {}
+[7.830827] (-) TimerEvent: {}
+[7.931285] (-) TimerEvent: {}
+[8.031726] (-) TimerEvent: {}
+[8.132183] (-) TimerEvent: {}
+[8.232621] (-) TimerEvent: {}
+[8.333046] (-) TimerEvent: {}
+[8.392761] (slam-tutorial) StdoutLine: {'line': b"-- Checking for module 'flann'\n"}
+[8.410379] (slam-tutorial) StdoutLine: {'line': b'--   Found flann, version 1.9.1\n'}
+[8.433218] (-) TimerEvent: {}
+[8.533761] (-) TimerEvent: {}
+[8.634220] (-) TimerEvent: {}
+[8.734667] (-) TimerEvent: {}
+[8.835078] (-) TimerEvent: {}
+[8.880806] (slam-tutorial) StdoutLine: {'line': b'-- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  \n'}
+[8.881106] (slam-tutorial) StdoutLine: {'line': b'-- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)\n'}
+[8.888302] (slam-tutorial) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[8.894785] (slam-tutorial) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so;libusb::libusb)\n'}
+[8.912911] (slam-tutorial) StdoutLine: {'line': b'-- looking for PCL_COMMON\n'}
+[8.913241] (slam-tutorial) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/local/lib/libpcl_common.so  \n'}
+[8.913703] (slam-tutorial) StdoutLine: {'line': b'-- looking for PCL_OCTREE\n'}
+[8.914217] (slam-tutorial) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/local/lib/libpcl_octree.so  \n'}
+[8.914541] (slam-tutorial) StdoutLine: {'line': b'-- looking for PCL_IO\n'}
+[8.915039] (slam-tutorial) StdoutLine: {'line': b'-- Found PCL_IO: /usr/local/lib/libpcl_io.so  \n'}
+[8.915541] (slam-tutorial) StdoutLine: {'line': b'-- looking for PCL_KDTREE\n'}
+[8.916053] (slam-tutorial) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/local/lib/libpcl_kdtree.so  \n'}
+[8.916419] (slam-tutorial) StdoutLine: {'line': b'-- looking for PCL_GEOMETRY\n'}
+[8.917113] (slam-tutorial) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/local/include/pcl-1.12  \n'}
+[8.917500] (slam-tutorial) StdoutLine: {'line': b'-- looking for PCL_SEARCH\n'}
+[8.918149] (slam-tutorial) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/local/lib/libpcl_search.so  \n'}
+[8.918556] (slam-tutorial) StdoutLine: {'line': b'-- looking for PCL_VISUALIZATION\n'}
+[8.919081] (slam-tutorial) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/local/lib/libpcl_visualization.so  \n'}
+[8.920207] (slam-tutorial) StdoutLine: {'line': b'-- Found PCL: pcl_common;pcl_octree;pcl_io;pcl_kdtree;pcl_search;pcl_visualization;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/libOpenNI2.so;libusb::libusb;vtkChartsCore;vtkCommonColor;vtkCommonCore;vtksys;vtkCommonDataModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkCommonExecutionModel;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersCore;vtkInfovisCore;vtkFiltersExtraction;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkFiltersModeling;vtkImagingSources;vtkInteractionImage;vtkImagingColor;vtkInteractionStyle;vtkInteractionWidgets;vtkFiltersHybrid;vtkImagingGeneral;vtkImagingHybrid;vtkIOImage;vtkDICOMParser;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkRenderingAnnotation;vtkRenderingVolume;vtkIOXML;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkIOGeometry;vtkIOLegacy;vtkIOPLY;vtkRenderingLOD;vtkViewsCore;vtkViewsContext2D;vtkRenderingOpenGL2;vtkGUISupportQt;FLANN::FLANN (Required is at least version "1.10") \n'}
+[8.920737] (slam-tutorial) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[8.935201] (-) TimerEvent: {}
+[8.987069] (slam-tutorial) StderrLine: {'line': b'/usr/local/include/pcl-1.12/usr/include/eigen3/usr/include/usr/include/ni/usr/include/openni2/usr/include/vtk-7.1/usr/include/freetype2/usr/include/x86_64-linux-gnu\n'}
+[9.035373] (-) TimerEvent: {}
+[9.049307] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[9.061108] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[9.062855] (slam-tutorial) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[9.062957] (slam-tutorial) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[9.074472] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[9.074695] (slam-tutorial) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[9.076474] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[9.079721] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[9.081864] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[9.095292] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[9.095514] (slam-tutorial) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[9.097244] (slam-tutorial) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[9.101502] (slam-tutorial) StdoutLine: {'line': b'-- Configuring done\n'}
+[9.135529] (-) TimerEvent: {}
+[9.199810] (slam-tutorial) StdoutLine: {'line': b'-- Generating done\n'}
+[9.203124] (slam-tutorial) StdoutLine: {'line': b'-- Build files have been written to: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial\n'}
+[9.233296] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target lidar_subscriber_node\x1b[0m\n'}
+[9.235672] (-) TimerEvent: {}
+[9.236768] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target main_node\x1b[0m\n'}
+[9.290503] (slam-tutorial) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/lidar_subscriber_node.dir/executables/lidar_subscriber.cpp.o\x1b[0m\n'}
+[9.335889] (-) TimerEvent: {}
+[9.343726] (slam-tutorial) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o\x1b[0m\n'}
+[9.436057] (-) TimerEvent: {}
+[9.536440] (-) TimerEvent: {}
+[9.636835] (-) TimerEvent: {}
+[9.737308] (-) TimerEvent: {}
+[9.837741] (-) TimerEvent: {}
+[9.938179] (-) TimerEvent: {}
+[10.038616] (-) TimerEvent: {}
+[10.139158] (-) TimerEvent: {}
+[10.239678] (-) TimerEvent: {}
+[10.340148] (-) TimerEvent: {}
+[10.440666] (-) TimerEvent: {}
+[10.541135] (-) TimerEvent: {}
+[10.641592] (-) TimerEvent: {}
+[10.742135] (-) TimerEvent: {}
+[10.842653] (-) TimerEvent: {}
+[10.943228] (-) TimerEvent: {}
+[11.043648] (-) TimerEvent: {}
+[11.144113] (-) TimerEvent: {}
+[11.244591] (-) TimerEvent: {}
+[11.345036] (-) TimerEvent: {}
+[11.365825] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8\x1b[m\x1b[K:\n'}
+[11.366052] (slam-tutorial) StderrLine: {'line': b"\x1b[01m\x1b[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead\n"}
+[11.366217] (slam-tutorial) StderrLine: {'line': b'   41 | #pragma message ("Warning: This header is deprecated. Use \'image_transport.hpp\' instead"\x1b[01;36m\x1b[K)\x1b[m\x1b[K\n'}
+[11.366357] (slam-tutorial) StderrLine: {'line': b'      |                                                                                         \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[11.445211] (-) TimerEvent: {}
+[11.545675] (-) TimerEvent: {}
+[11.646127] (-) TimerEvent: {}
+[11.746534] (-) TimerEvent: {}
+[11.846974] (-) TimerEvent: {}
+[11.947451] (-) TimerEvent: {}
+[12.047901] (-) TimerEvent: {}
+[12.148413] (-) TimerEvent: {}
+[12.248864] (-) TimerEvent: {}
+[12.349319] (-) TimerEvent: {}
+[12.449753] (-) TimerEvent: {}
+[12.550209] (-) TimerEvent: {}
+[12.650713] (-) TimerEvent: {}
+[12.751142] (-) TimerEvent: {}
+[12.851588] (-) TimerEvent: {}
+[12.952074] (-) TimerEvent: {}
+[13.052576] (-) TimerEvent: {}
+[13.153088] (-) TimerEvent: {}
+[13.253521] (-) TimerEvent: {}
+[13.353933] (-) TimerEvent: {}
+[13.454497] (-) TimerEvent: {}
+[13.554979] (-) TimerEvent: {}
+[13.655403] (-) TimerEvent: {}
+[13.755821] (-) TimerEvent: {}
+[13.856262] (-) TimerEvent: {}
+[13.956777] (-) TimerEvent: {}
+[14.057229] (-) TimerEvent: {}
+[14.157676] (-) TimerEvent: {}
+[14.258166] (-) TimerEvent: {}
+[14.358728] (-) TimerEvent: {}
+[14.459205] (-) TimerEvent: {}
+[14.559650] (-) TimerEvent: {}
+[14.660156] (-) TimerEvent: {}
+[14.760583] (-) TimerEvent: {}
+[14.861071] (-) TimerEvent: {}
+[14.961533] (-) TimerEvent: {}
+[15.061972] (-) TimerEvent: {}
+[15.162475] (-) TimerEvent: {}
+[15.263123] (-) TimerEvent: {}
+[15.363662] (-) TimerEvent: {}
+[15.464119] (-) TimerEvent: {}
+[15.564556] (-) TimerEvent: {}
+[15.664996] (-) TimerEvent: {}
+[15.765434] (-) TimerEvent: {}
+[15.865844] (-) TimerEvent: {}
+[15.966288] (-) TimerEvent: {}
+[16.066758] (-) TimerEvent: {}
+[16.167183] (-) TimerEvent: {}
+[16.191953] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid estimate_motion_svd(pcl::PointCloud<pcl::PointXYZ>::Ptr, pcl::PointCloud<pcl::PointXYZ>::Ptr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[16.192899] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[KcomputeCentroid(const Ptr&, pcl::PointXYZ*)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.193076] (slam-tutorial) StderrLine: {'line': b'   34 |     pcl::computeCentroid(ref_cloud, &centroid_ref\x1b[01;31m\x1b[K)\x1b[m\x1b[K;\n'}
+[16.193271] (slam-tutorial) StderrLine: {'line': b'      |                                                  \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[16.193428] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099\x1b[m\x1b[K,\n'}
+[16.193569] (slam-tutorial) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44\x1b[m\x1b[K,\n'}
+[16.193710] (slam-tutorial) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9\x1b[m\x1b[K:\n'}
+[16.193854] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, PointOutT&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.193988] (slam-tutorial) StderrLine: {'line': b'  894 | \x1b[01;36m\x1b[KcomputeCentroid\x1b[m\x1b[K (const pcl::PointCloud<PointInT>& cloud,\n'}
+[16.194134] (slam-tutorial) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[16.194261] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[16.194387] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kconst Ptr\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >\x1b[m\x1b[K\xe2\x80\x99} is not derived from \xe2\x80\x98\x1b[01m\x1b[Kconst pcl::PointCloud<PointT>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.194563] (slam-tutorial) StderrLine: {'line': b'   34 |     pcl::computeCentroid(ref_cloud, &centroid_ref\x1b[01;36m\x1b[K)\x1b[m\x1b[K;\n'}
+[16.194683] (slam-tutorial) StderrLine: {'line': b'      |                                                  \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[16.194838] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099\x1b[m\x1b[K,\n'}
+[16.194976] (slam-tutorial) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44\x1b[m\x1b[K,\n'}
+[16.195152] (slam-tutorial) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9\x1b[m\x1b[K:\n'}
+[16.195326] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, const Indices&, PointOutT&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.195491] (slam-tutorial) StderrLine: {'line': b'  913 | \x1b[01;36m\x1b[KcomputeCentroid\x1b[m\x1b[K (const pcl::PointCloud<PointInT>& cloud,\n'}
+[16.195650] (slam-tutorial) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[16.195809] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[16.195959] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kconst Ptr\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >\x1b[m\x1b[K\xe2\x80\x99} is not derived from \xe2\x80\x98\x1b[01m\x1b[Kconst pcl::PointCloud<PointT>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.196170] (slam-tutorial) StderrLine: {'line': b'   34 |     pcl::computeCentroid(ref_cloud, &centroid_ref\x1b[01;36m\x1b[K)\x1b[m\x1b[K;\n'}
+[16.196361] (slam-tutorial) StderrLine: {'line': b'      |                                                  \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[16.196498] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[KcomputeCentroid(const Ptr&, pcl::PointXYZ*)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.196651] (slam-tutorial) StderrLine: {'line': b'   35 |     pcl::computeCentroid(curr_cloud, &centroid_curr\x1b[01;31m\x1b[K)\x1b[m\x1b[K;\n'}
+[16.196785] (slam-tutorial) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[16.196919] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099\x1b[m\x1b[K,\n'}
+[16.197057] (slam-tutorial) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44\x1b[m\x1b[K,\n'}
+[16.197240] (slam-tutorial) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9\x1b[m\x1b[K:\n'}
+[16.197376] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, PointOutT&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.197521] (slam-tutorial) StderrLine: {'line': b'  894 | \x1b[01;36m\x1b[KcomputeCentroid\x1b[m\x1b[K (const pcl::PointCloud<PointInT>& cloud,\n'}
+[16.197662] (slam-tutorial) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[16.197794] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[16.197945] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kconst Ptr\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >\x1b[m\x1b[K\xe2\x80\x99} is not derived from \xe2\x80\x98\x1b[01m\x1b[Kconst pcl::PointCloud<PointT>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.198092] (slam-tutorial) StderrLine: {'line': b'   35 |     pcl::computeCentroid(curr_cloud, &centroid_curr\x1b[01;36m\x1b[K)\x1b[m\x1b[K;\n'}
+[16.198272] (slam-tutorial) StderrLine: {'line': b'      |                                                    \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[16.198411] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099\x1b[m\x1b[K,\n'}
+[16.198590] (slam-tutorial) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44\x1b[m\x1b[K,\n'}
+[16.198732] (slam-tutorial) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9\x1b[m\x1b[K:\n'}
+[16.198866] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, const Indices&, PointOutT&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.199001] (slam-tutorial) StderrLine: {'line': b'  913 | \x1b[01;36m\x1b[KcomputeCentroid\x1b[m\x1b[K (const pcl::PointCloud<PointInT>& cloud,\n'}
+[16.199174] (slam-tutorial) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[16.199313] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[16.199469] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kconst Ptr\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >\x1b[m\x1b[K\xe2\x80\x99} is not derived from \xe2\x80\x98\x1b[01m\x1b[Kconst pcl::PointCloud<PointT>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[16.199611] (slam-tutorial) StderrLine: {'line': b'   35 |     pcl::computeCentroid(curr_cloud, &centroid_curr\x1b[01;36m\x1b[K)\x1b[m\x1b[K;\n'}
+[16.199751] (slam-tutorial) StderrLine: {'line': b'      |                                                    \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[16.222014] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid generate_2d_points()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[16.222272] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:86:12:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kpre_error\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-variable\x1b[m\x1b[K]\n'}
+[16.222359] (slam-tutorial) StderrLine: {'line': b'   86 |     double \x1b[01;35m\x1b[Kpre_error\x1b[m\x1b[K = 1000000;\n'}
+[16.222436] (slam-tutorial) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[16.222685] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:87:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kcount\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-variable\x1b[m\x1b[K]\n'}
+[16.222779] (slam-tutorial) StderrLine: {'line': b'   87 |     int \x1b[01;35m\x1b[Kcount\x1b[m\x1b[K = 0;\n'}
+[16.222854] (slam-tutorial) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[16.222927] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint main(int, char**)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[16.223001] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:100:14:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kargc\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[16.223075] (slam-tutorial) StderrLine: {'line': b'  100 | int main(\x1b[01;35m\x1b[Kint argc\x1b[m\x1b[K, char **argv) {\n'}
+[16.223195] (slam-tutorial) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K~~~~^~~~\x1b[m\x1b[K\n'}
+[16.223270] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:100:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kargv\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[16.223343] (slam-tutorial) StderrLine: {'line': b'  100 | int main(int argc, \x1b[01;35m\x1b[Kchar **argv\x1b[m\x1b[K) {\n'}
+[16.223414] (slam-tutorial) StderrLine: {'line': b'      |                    \x1b[01;35m\x1b[K~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[16.267359] (-) TimerEvent: {}
+[16.367789] (-) TimerEvent: {}
+[16.468237] (-) TimerEvent: {}
+[16.568681] (-) TimerEvent: {}
+[16.669145] (-) TimerEvent: {}
+[16.769605] (-) TimerEvent: {}
+[16.870039] (-) TimerEvent: {}
+[16.970483] (-) TimerEvent: {}
+[17.070923] (-) TimerEvent: {}
+[17.171358] (-) TimerEvent: {}
+[17.271832] (-) TimerEvent: {}
+[17.372264] (-) TimerEvent: {}
+[17.472698] (-) TimerEvent: {}
+[17.573124] (-) TimerEvent: {}
+[17.673579] (-) TimerEvent: {}
+[17.774044] (-) TimerEvent: {}
+[17.874574] (-) TimerEvent: {}
+[17.975141] (-) TimerEvent: {}
+[18.075733] (-) TimerEvent: {}
+[18.176241] (-) TimerEvent: {}
+[18.277147] (-) TimerEvent: {}
+[18.377631] (-) TimerEvent: {}
+[18.478093] (-) TimerEvent: {}
+[18.578527] (-) TimerEvent: {}
+[18.597322] (slam-tutorial) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable main_node\x1b[0m\n'}
+[18.607006] (slam-tutorial) StderrLine: {'line': b'make[2]: *** [CMakeFiles/lidar_subscriber_node.dir/build.make:63: CMakeFiles/lidar_subscriber_node.dir/executables/lidar_subscriber.cpp.o] Error 1\n'}
+[18.607329] (slam-tutorial) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/lidar_subscriber_node.dir/all] Error 2\n'}
+[18.607419] (slam-tutorial) StderrLine: {'line': b'make[1]: *** Waiting for unfinished jobs....\n'}
+[18.678674] (-) TimerEvent: {}
+[18.779320] (-) TimerEvent: {}
+[18.879791] (-) TimerEvent: {}
+[18.980309] (-) TimerEvent: {}
+[19.080736] (-) TimerEvent: {}
+[19.181166] (-) TimerEvent: {}
+[19.281593] (-) TimerEvent: {}
+[19.382034] (-) TimerEvent: {}
+[19.482471] (-) TimerEvent: {}
+[19.582988] (-) TimerEvent: {}
+[19.683505] (-) TimerEvent: {}
+[19.784010] (-) TimerEvent: {}
+[19.814156] (slam-tutorial) StdoutLine: {'line': b'[ 75%] Built target main_node\n'}
+[19.815280] (slam-tutorial) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[19.817732] (slam-tutorial) CommandEnded: {'returncode': 2}
+[19.862439] (slam-tutorial) JobEnded: {'identifier': 'slam-tutorial', 'rc': 2}
+[19.873306] (-) EventReactorShutdown: {}

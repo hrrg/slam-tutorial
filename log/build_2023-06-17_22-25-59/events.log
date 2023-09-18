@@ -1,0 +1,293 @@
+[0.000000] (-) TimerEvent: {}
+[0.000599] (slam-tutorial) JobQueued: {'identifier': 'slam-tutorial', 'dependencies': OrderedDict()}
+[0.001083] (slam-tutorial) JobStarted: {'identifier': 'slam-tutorial'}
+[0.031711] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'cmake'}
+[0.034266] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'build'}
+[0.035383] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', '--', '-j12', '-l12'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('GIT_ASKPASS', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/local/cuda-12.0/lib64:/usr/local/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/jeongmyung'), ('TERM_PROGRAM_VERSION', '1.79.1'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-e0363965-8a1e-430a-a501-a645ecbf7830.sock'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/node'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('LOGNAME', 'jeongmyung'), ('NAME', 'Code'), ('WSL_INTEROP', '/run/WSL/9_interop'), ('_', '/usr/bin/colcon'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('PATH', '/usr/local/cuda-12.0/bin:/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/bin/remote-cli:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', 'ddd89dfa-1af5-49ed-a4cb-fc3535297736'), ('DISPLAY', '172.31.32.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-6e80eabf7e.sock'), ('TERM_PROGRAM', 'vscode'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[0.099678] (-) TimerEvent: {}
+[0.200143] (-) TimerEvent: {}
+[0.300618] (-) TimerEvent: {}
+[0.401147] (-) TimerEvent: {}
+[0.501582] (-) TimerEvent: {}
+[0.509591] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target lidar_subscriber_node\x1b[0m\n'}
+[0.510090] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target main_node\x1b[0m\n'}
+[0.593345] (slam-tutorial) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/lidar_subscriber_node.dir/executables/lidar_subscriber.cpp.o\x1b[0m\n'}
+[0.601773] (-) TimerEvent: {}
+[0.602280] (slam-tutorial) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o\x1b[0m\n'}
+[0.701954] (-) TimerEvent: {}
+[0.802394] (-) TimerEvent: {}
+[0.902779] (-) TimerEvent: {}
+[1.003270] (-) TimerEvent: {}
+[1.103720] (-) TimerEvent: {}
+[1.204222] (-) TimerEvent: {}
+[1.304714] (-) TimerEvent: {}
+[1.405249] (-) TimerEvent: {}
+[1.505724] (-) TimerEvent: {}
+[1.606210] (-) TimerEvent: {}
+[1.706805] (-) TimerEvent: {}
+[1.807308] (-) TimerEvent: {}
+[1.907767] (-) TimerEvent: {}
+[2.008263] (-) TimerEvent: {}
+[2.108707] (-) TimerEvent: {}
+[2.209239] (-) TimerEvent: {}
+[2.309796] (-) TimerEvent: {}
+[2.410329] (-) TimerEvent: {}
+[2.510812] (-) TimerEvent: {}
+[2.611317] (-) TimerEvent: {}
+[2.711852] (-) TimerEvent: {}
+[2.812432] (-) TimerEvent: {}
+[2.913032] (-) TimerEvent: {}
+[3.013539] (-) TimerEvent: {}
+[3.114220] (-) TimerEvent: {}
+[3.214760] (-) TimerEvent: {}
+[3.274885] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8\x1b[m\x1b[K:\n'}
+[3.275387] (slam-tutorial) StderrLine: {'line': b"\x1b[01m\x1b[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead\n"}
+[3.275514] (slam-tutorial) StderrLine: {'line': b'   41 | #pragma message ("Warning: This header is deprecated. Use \'image_transport.hpp\' instead"\x1b[01;36m\x1b[K)\x1b[m\x1b[K\n'}
+[3.275681] (slam-tutorial) StderrLine: {'line': b'      |                                                                                         \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[3.314962] (-) TimerEvent: {}
+[3.415483] (-) TimerEvent: {}
+[3.515979] (-) TimerEvent: {}
+[3.616464] (-) TimerEvent: {}
+[3.716930] (-) TimerEvent: {}
+[3.770956] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid detect_keypoints(cv::Mat*, cv::Mat*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.771821] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:18:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KORB\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[Kcv\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.772301] (slam-tutorial) StderrLine: {'line': b'   18 |     cv::Ptr<cv::\x1b[01;31m\x1b[KORB\x1b[m\x1b[K> orb = cv::ORB::create();\n'}
+[3.772505] (slam-tutorial) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.772743] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:18:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KORB\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[Kcv\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.773091] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:18:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[3.773416] (slam-tutorial) StderrLine: {'line': b'   18 |     cv::Ptr<cv::ORB\x1b[01;31m\x1b[K>\x1b[m\x1b[K orb = cv::ORB::create();\n'}
+[3.773787] (slam-tutorial) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.774106] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:18:32:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcv::ORB\x1b[m\x1b[K\xe2\x80\x99 has not been declared\n'}
+[3.774397] (slam-tutorial) StderrLine: {'line': b'   18 |     cv::Ptr<cv::ORB> orb = cv::\x1b[01;31m\x1b[KORB\x1b[m\x1b[K::create();\n'}
+[3.775013] (slam-tutorial) StderrLine: {'line': b'      |                                \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[3.775136] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:21:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kbase operand of \xe2\x80\x98\x1b[01m\x1b[K->\x1b[m\x1b[K\xe2\x80\x99 is not a pointer\n'}
+[3.775236] (slam-tutorial) StderrLine: {'line': b'   21 |     orb\x1b[01;31m\x1b[K->\x1b[m\x1b[KdetectAndCompute(image_left, cv::noArray(), keypoints_left, descriptors_left);\n'}
+[3.775330] (slam-tutorial) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~\x1b[m\x1b[K\n'}
+[3.775437] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:25:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kbase operand of \xe2\x80\x98\x1b[01m\x1b[K->\x1b[m\x1b[K\xe2\x80\x99 is not a pointer\n'}
+[3.775591] (slam-tutorial) StderrLine: {'line': b'   25 |     orb\x1b[01;31m\x1b[K->\x1b[m\x1b[KdetectAndCompute(image_right, cv::noArray(), keypoints_right, descriptors_right);\n'}
+[3.775759] (slam-tutorial) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~\x1b[m\x1b[K\n'}
+[3.817104] (-) TimerEvent: {}
+[3.917592] (-) TimerEvent: {}
+[4.018041] (-) TimerEvent: {}
+[4.118568] (-) TimerEvent: {}
+[4.219043] (-) TimerEvent: {}
+[4.319585] (-) TimerEvent: {}
+[4.420222] (-) TimerEvent: {}
+[4.520821] (-) TimerEvent: {}
+[4.621376] (-) TimerEvent: {}
+[4.721949] (-) TimerEvent: {}
+[4.822491] (-) TimerEvent: {}
+[4.922968] (-) TimerEvent: {}
+[5.023460] (-) TimerEvent: {}
+[5.123995] (-) TimerEvent: {}
+[5.224587] (-) TimerEvent: {}
+[5.325098] (-) TimerEvent: {}
+[5.425569] (-) TimerEvent: {}
+[5.526043] (-) TimerEvent: {}
+[5.626526] (-) TimerEvent: {}
+[5.727020] (-) TimerEvent: {}
+[5.827603] (-) TimerEvent: {}
+[5.928177] (-) TimerEvent: {}
+[6.028796] (-) TimerEvent: {}
+[6.129561] (-) TimerEvent: {}
+[6.230125] (-) TimerEvent: {}
+[6.330681] (-) TimerEvent: {}
+[6.431256] (-) TimerEvent: {}
+[6.531811] (-) TimerEvent: {}
+[6.632339] (-) TimerEvent: {}
+[6.732878] (-) TimerEvent: {}
+[6.833381] (-) TimerEvent: {}
+[6.933878] (-) TimerEvent: {}
+[7.034359] (-) TimerEvent: {}
+[7.134830] (-) TimerEvent: {}
+[7.235319] (-) TimerEvent: {}
+[7.336042] (-) TimerEvent: {}
+[7.436586] (-) TimerEvent: {}
+[7.537203] (-) TimerEvent: {}
+[7.556724] (slam-tutorial) StderrLine: {'line': b'make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1\n'}
+[7.557125] (slam-tutorial) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/main_node.dir/all] Error 2\n'}
+[7.557232] (slam-tutorial) StderrLine: {'line': b'make[1]: *** Waiting for unfinished jobs....\n'}
+[7.637404] (-) TimerEvent: {}
+[7.737972] (-) TimerEvent: {}
+[7.838551] (-) TimerEvent: {}
+[7.939077] (-) TimerEvent: {}
+[8.039588] (-) TimerEvent: {}
+[8.140085] (-) TimerEvent: {}
+[8.240545] (-) TimerEvent: {}
+[8.341062] (-) TimerEvent: {}
+[8.441519] (-) TimerEvent: {}
+[8.541982] (-) TimerEvent: {}
+[8.642543] (-) TimerEvent: {}
+[8.743003] (-) TimerEvent: {}
+[8.843474] (-) TimerEvent: {}
+[8.943932] (-) TimerEvent: {}
+[9.044471] (-) TimerEvent: {}
+[9.144997] (-) TimerEvent: {}
+[9.245571] (-) TimerEvent: {}
+[9.346194] (-) TimerEvent: {}
+[9.446673] (-) TimerEvent: {}
+[9.547171] (-) TimerEvent: {}
+[9.647742] (-) TimerEvent: {}
+[9.733849] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid generate_2d_points()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.734218] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:123:12:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kpre_error\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-variable\x1b[m\x1b[K]\n'}
+[9.734509] (slam-tutorial) StderrLine: {'line': b'  123 |     double \x1b[01;35m\x1b[Kpre_error\x1b[m\x1b[K = 1000000;\n'}
+[9.734825] (slam-tutorial) StderrLine: {'line': b'      |            \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[9.735171] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:124:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kcount\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-variable\x1b[m\x1b[K]\n'}
+[9.735557] (slam-tutorial) StderrLine: {'line': b'  124 |     int \x1b[01;35m\x1b[Kcount\x1b[m\x1b[K = 0;\n'}
+[9.735758] (slam-tutorial) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[9.735953] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint main(int, char**)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.736123] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:137:14:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kargc\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[9.736262] (slam-tutorial) StderrLine: {'line': b'  137 | int main(\x1b[01;35m\x1b[Kint argc\x1b[m\x1b[K, char **argv) {\n'}
+[9.736392] (slam-tutorial) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K~~~~^~~~\x1b[m\x1b[K\n'}
+[9.736553] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:137:27:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kargv\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[9.736695] (slam-tutorial) StderrLine: {'line': b'  137 | int main(int argc, \x1b[01;35m\x1b[Kchar **argv\x1b[m\x1b[K) {\n'}
+[9.736847] (slam-tutorial) StderrLine: {'line': b'      |                    \x1b[01;35m\x1b[K~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[9.747984] (-) TimerEvent: {}
+[9.848568] (-) TimerEvent: {}
+[9.949153] (-) TimerEvent: {}
+[10.049697] (-) TimerEvent: {}
+[10.150175] (-) TimerEvent: {}
+[10.250627] (-) TimerEvent: {}
+[10.351214] (-) TimerEvent: {}
+[10.451702] (-) TimerEvent: {}
+[10.552168] (-) TimerEvent: {}
+[10.652624] (-) TimerEvent: {}
+[10.753089] (-) TimerEvent: {}
+[10.853573] (-) TimerEvent: {}
+[10.954199] (-) TimerEvent: {}
+[11.054666] (-) TimerEvent: {}
+[11.155156] (-) TimerEvent: {}
+[11.255648] (-) TimerEvent: {}
+[11.356142] (-) TimerEvent: {}
+[11.456607] (-) TimerEvent: {}
+[11.557097] (-) TimerEvent: {}
+[11.657587] (-) TimerEvent: {}
+[11.758091] (-) TimerEvent: {}
+[11.858589] (-) TimerEvent: {}
+[11.959062] (-) TimerEvent: {}
+[12.059507] (-) TimerEvent: {}
+[12.159992] (-) TimerEvent: {}
+[12.260495] (-) TimerEvent: {}
+[12.360989] (-) TimerEvent: {}
+[12.461501] (-) TimerEvent: {}
+[12.562024] (-) TimerEvent: {}
+[12.662551] (-) TimerEvent: {}
+[12.763055] (-) TimerEvent: {}
+[12.863551] (-) TimerEvent: {}
+[12.964055] (-) TimerEvent: {}
+[13.064551] (-) TimerEvent: {}
+[13.164996] (-) TimerEvent: {}
+[13.265487] (-) TimerEvent: {}
+[13.366011] (-) TimerEvent: {}
+[13.466510] (-) TimerEvent: {}
+[13.567017] (-) TimerEvent: {}
+[13.667529] (-) TimerEvent: {}
+[13.768029] (-) TimerEvent: {}
+[13.868486] (-) TimerEvent: {}
+[13.968989] (-) TimerEvent: {}
+[14.069556] (-) TimerEvent: {}
+[14.170096] (-) TimerEvent: {}
+[14.270674] (-) TimerEvent: {}
+[14.371324] (-) TimerEvent: {}
+[14.471881] (-) TimerEvent: {}
+[14.572470] (-) TimerEvent: {}
+[14.672983] (-) TimerEvent: {}
+[14.773444] (-) TimerEvent: {}
+[14.873956] (-) TimerEvent: {}
+[14.974528] (-) TimerEvent: {}
+[15.075009] (-) TimerEvent: {}
+[15.175470] (-) TimerEvent: {}
+[15.275953] (-) TimerEvent: {}
+[15.376461] (-) TimerEvent: {}
+[15.477037] (-) TimerEvent: {}
+[15.577576] (-) TimerEvent: {}
+[15.678184] (-) TimerEvent: {}
+[15.778710] (-) TimerEvent: {}
+[15.879358] (-) TimerEvent: {}
+[15.979975] (-) TimerEvent: {}
+[16.080611] (-) TimerEvent: {}
+[16.181216] (-) TimerEvent: {}
+[16.281744] (-) TimerEvent: {}
+[16.382234] (-) TimerEvent: {}
+[16.482706] (-) TimerEvent: {}
+[16.583220] (-) TimerEvent: {}
+[16.683687] (-) TimerEvent: {}
+[16.784232] (-) TimerEvent: {}
+[16.884699] (-) TimerEvent: {}
+[16.985197] (-) TimerEvent: {}
+[17.085695] (-) TimerEvent: {}
+[17.186211] (-) TimerEvent: {}
+[17.286891] (-) TimerEvent: {}
+[17.387489] (-) TimerEvent: {}
+[17.487966] (-) TimerEvent: {}
+[17.588442] (-) TimerEvent: {}
+[17.688944] (-) TimerEvent: {}
+[17.789457] (-) TimerEvent: {}
+[17.889966] (-) TimerEvent: {}
+[17.990484] (-) TimerEvent: {}
+[18.090961] (-) TimerEvent: {}
+[18.191439] (-) TimerEvent: {}
+[18.291896] (-) TimerEvent: {}
+[18.392372] (-) TimerEvent: {}
+[18.492839] (-) TimerEvent: {}
+[18.593294] (-) TimerEvent: {}
+[18.693761] (-) TimerEvent: {}
+[18.794387] (-) TimerEvent: {}
+[18.894887] (-) TimerEvent: {}
+[18.995390] (-) TimerEvent: {}
+[19.095867] (-) TimerEvent: {}
+[19.196488] (-) TimerEvent: {}
+[19.296995] (-) TimerEvent: {}
+[19.397466] (-) TimerEvent: {}
+[19.497990] (-) TimerEvent: {}
+[19.598426] (-) TimerEvent: {}
+[19.698941] (-) TimerEvent: {}
+[19.799405] (-) TimerEvent: {}
+[19.899854] (-) TimerEvent: {}
+[20.000327] (-) TimerEvent: {}
+[20.100792] (-) TimerEvent: {}
+[20.201284] (-) TimerEvent: {}
+[20.301718] (-) TimerEvent: {}
+[20.402201] (-) TimerEvent: {}
+[20.502670] (-) TimerEvent: {}
+[20.603247] (-) TimerEvent: {}
+[20.703764] (-) TimerEvent: {}
+[20.804285] (-) TimerEvent: {}
+[20.904766] (-) TimerEvent: {}
+[21.005231] (-) TimerEvent: {}
+[21.105670] (-) TimerEvent: {}
+[21.206103] (-) TimerEvent: {}
+[21.306552] (-) TimerEvent: {}
+[21.407009] (-) TimerEvent: {}
+[21.507551] (-) TimerEvent: {}
+[21.608056] (-) TimerEvent: {}
+[21.708495] (-) TimerEvent: {}
+[21.809040] (-) TimerEvent: {}
+[21.909589] (-) TimerEvent: {}
+[22.010037] (-) TimerEvent: {}
+[22.110499] (-) TimerEvent: {}
+[22.210972] (-) TimerEvent: {}
+[22.270255] (slam-tutorial) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable lidar_subscriber_node\x1b[0m\n'}
+[22.311164] (-) TimerEvent: {}
+[22.411734] (-) TimerEvent: {}
+[22.512258] (-) TimerEvent: {}
+[22.612713] (-) TimerEvent: {}
+[22.713221] (-) TimerEvent: {}
+[22.813743] (-) TimerEvent: {}
+[22.914309] (-) TimerEvent: {}
+[23.014788] (-) TimerEvent: {}
+[23.115277] (-) TimerEvent: {}
+[23.215713] (-) TimerEvent: {}
+[23.316129] (-) TimerEvent: {}
+[23.416655] (-) TimerEvent: {}
+[23.517167] (-) TimerEvent: {}
+[23.617645] (-) TimerEvent: {}
+[23.718194] (-) TimerEvent: {}
+[23.818749] (-) TimerEvent: {}
+[23.919243] (-) TimerEvent: {}
+[23.949961] (slam-tutorial) StdoutLine: {'line': b'[ 75%] Built target lidar_subscriber_node\n'}
+[23.951018] (slam-tutorial) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[23.954194] (slam-tutorial) CommandEnded: {'returncode': 2}
+[24.019995] (-) TimerEvent: {}
+[24.021646] (slam-tutorial) JobEnded: {'identifier': 'slam-tutorial', 'rc': 2}
+[24.032982] (-) EventReactorShutdown: {}

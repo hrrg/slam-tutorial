@@ -1,0 +1,12 @@
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+   41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+      |                                                                                         [01;36m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kvoid ImageSubscriberNode::topic_callback(const ConstSharedPtr&, const ConstSharedPtr&) const[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:43:5:[m[K [01;31m[Kerror: [m[K‘[01m[KLCPP_INFO[m[K’ was not declared in this scope; did you mean ‘[01m[KRCLCPP_INFO[m[K’?
+   43 |     [01;31m[KLCPP_INFO[m[K(this->get_logger(), "Image Subscriber Test");
+      |     [01;31m[K^~~~~~~~~[m[K
+      |     [32m[KRCLCPP_INFO[m[K
+make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/main_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

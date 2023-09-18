@@ -1,0 +1,46 @@
+[35m[1mScanning dependencies of target lidar_subscriber_node[0m
+[ 50%] Built target main_node
+[ 75%] [32mBuilding CXX object CMakeFiles/lidar_subscriber_node.dir/executables/lidar_subscriber.cpp.o[0m
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kvoid estimate_motion_svd(pcl::PointCloud<pcl::PointXYZ>::Ptr, pcl::PointCloud<pcl::PointXYZ>::Ptr)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:27:68:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kref_cloud[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   27 | void estimate_motion_svd([01;35m[Kconst pcl::PointCloud<pcl::PointXYZ>::Ptr ref_cloud[m[K, const pcl::PointCloud<pcl::PointXYZ>::Ptr curr_cloud) {
+      |                          [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:27:121:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcurr_cloud[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   27 | void estimate_motion_svd(const pcl::PointCloud<pcl::PointXYZ>::Ptr ref_cloud, [01;35m[Kconst pcl::PointCloud<pcl::PointXYZ>::Ptr curr_cloud[m[K) {
+      |                                                                               [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kvoid generate_2d_points()[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:86:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kpre_error[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   86 |     double [01;35m[Kpre_error[m[K = 1000000;
+      |            [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:87:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcount[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   87 |     int [01;35m[Kcount[m[K = 0;
+      |         [01;35m[K^~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:100:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  100 | int main([01;35m[Kint argc[m[K, char **argv) {
+      |          [01;35m[K~~~~^~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:100:27:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+  100 | int main(int argc, [01;35m[Kchar **argv[m[K) {
+      |                    [01;35m[K~~~~~~~^~~~[m[K
+[100%] [32m[1mLinking CXX executable lidar_subscriber_node[0m
+[100%] Built target lidar_subscriber_node
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/main_node
+-- Symlinking: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/slam-tutorial/lidar_subscriber_node
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/package_run_dependencies/slam-tutorial
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/parent_prefix_path/slam-tutorial
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.sh
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/environment/path.dsv
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.bash
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.sh
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.zsh
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/local_setup.dsv
+-- Symlinking: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/ament_index/resource_index/packages/slam-tutorial
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig.cmake
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/cmake/slam-tutorialConfig-version.cmake
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.xml
+-- Up-to-date symlink: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial//launch/main_node.launch.py

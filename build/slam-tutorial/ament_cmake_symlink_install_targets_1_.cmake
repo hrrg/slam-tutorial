@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/main_lidar_node" "TARGETS" "main_lidar_node" "DESTINATION" "lib/slam-tutorial")

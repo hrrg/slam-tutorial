@@ -1,0 +1,4 @@
+[ 33%] Built target stereo_calibration
+[35m[1mScanning dependencies of target main_lidar_node[0m
+[ 66%] Built target main_node
+[ 83%] [32mBuilding CXX object CMakeFiles/main_lidar_node.dir/executables/main_lidar.cpp.o[0m

@@ -1,0 +1,12 @@
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:30:10:[m[K [01;31m[Kfatal error: [m[Kstereo_calibration.h: No such file or directory
+   30 | #include [01;31m[K"stereo_calibration.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:116: CMakeFiles/main_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/include/stereo_calibration/stereo_calibration.cpp:[m[K In function ‘[01m[KEigen::MatrixXd computeFundamentalmatrixNormalized(const MatrixXd&, const MatrixXd&)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/include/stereo_calibration/stereo_calibration.cpp:94:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn[m[K’ [[01;35m[K-Wunused-variable[m[K]
+   94 |     int [01;35m[Kn[m[K = points1.rows();
+      |         [01;35m[K^[m[K
+make: *** [Makefile:141: all] Error 2

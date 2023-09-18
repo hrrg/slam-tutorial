@@ -1,0 +1,177 @@
+[0.022s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.049s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.071s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.284s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.293s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.472s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.477s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[4.986s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.049s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[5.051s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[5.264s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[5.426s] -- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+[6.462s] -- Checking for module 'eigen3'
+[6.512s] --   Found eigen3, version 3.3.7
+[6.549s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[6.549s] -- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+[6.578s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.65.0") found components: system filesystem date_time iostreams serialization 
+[6.683s] -- Checking for module 'libusb-1.0'
+[6.699s] --   Found libusb-1.0, version 1.0.23
+[6.889s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[6.891s] -- Found OpenNI: /usr/lib/libOpenNI.so;libusb::libusb (found version "1.5.4.0") 
+[6.891s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[7.158s] -- Found OpenNI2: /usr/lib/libOpenNI2.so;libusb::libusb (found version "2.2.0.33") 
+[7.158s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so;libusb::libusb)
+[7.159s] ** WARNING ** io features related to pcap will be disabled
+[7.159s] ** WARNING ** io features related to png will be disabled
+[7.229s] -- The imported target "vtkParseOGLExt" references the file
+[7.229s]    "/usr/bin/vtkParseOGLExt-7.1"
+[7.229s] but this file does not exist.  Possible reasons include:
+[7.229s] * The file was deleted, renamed, or moved to another location.
+[7.230s] * An install or uninstall procedure did not complete successfully.
+[7.230s] * The installation package was faulty and contained
+[7.230s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[7.230s] but not all the files it references.
+[7.230s] 
+[7.230s] -- The imported target "vtkRenderingPythonTkWidgets" references the file
+[7.230s]    "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+[7.230s] but this file does not exist.  Possible reasons include:
+[7.231s] * The file was deleted, renamed, or moved to another location.
+[7.231s] * An install or uninstall procedure did not complete successfully.
+[7.231s] * The installation package was faulty and contained
+[7.231s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[7.231s] but not all the files it references.
+[7.231s] 
+[7.231s] -- The imported target "vtk" references the file
+[7.232s]    "/usr/bin/vtk"
+[7.232s] but this file does not exist.  Possible reasons include:
+[7.232s] * The file was deleted, renamed, or moved to another location.
+[7.232s] * An install or uninstall procedure did not complete successfully.
+[7.232s] * The installation package was faulty and contained
+[7.232s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[7.232s] but not all the files it references.
+[7.232s] 
+[7.233s] -- The imported target "pvtk" references the file
+[7.233s]    "/usr/bin/pvtk"
+[7.233s] but this file does not exist.  Possible reasons include:
+[7.233s] * The file was deleted, renamed, or moved to another location.
+[7.233s] * An install or uninstall procedure did not complete successfully.
+[7.233s] * The installation package was faulty and contained
+[7.233s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[7.233s] but not all the files it references.
+[7.233s] 
+[7.277s] -- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+[8.391s] -- Checking for module 'flann'
+[8.409s] --   Found flann, version 1.9.1
+[8.879s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[8.880s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[8.887s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[8.893s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so;libusb::libusb)
+[8.911s] -- looking for PCL_COMMON
+[8.912s] -- Found PCL_COMMON: /usr/local/lib/libpcl_common.so  
+[8.912s] -- looking for PCL_OCTREE
+[8.913s] -- Found PCL_OCTREE: /usr/local/lib/libpcl_octree.so  
+[8.913s] -- looking for PCL_IO
+[8.913s] -- Found PCL_IO: /usr/local/lib/libpcl_io.so  
+[8.914s] -- looking for PCL_KDTREE
+[8.914s] -- Found PCL_KDTREE: /usr/local/lib/libpcl_kdtree.so  
+[8.915s] -- looking for PCL_GEOMETRY
+[8.916s] -- Found PCL_GEOMETRY: /usr/local/include/pcl-1.12  
+[8.916s] -- looking for PCL_SEARCH
+[8.917s] -- Found PCL_SEARCH: /usr/local/lib/libpcl_search.so  
+[8.917s] -- looking for PCL_VISUALIZATION
+[8.918s] -- Found PCL_VISUALIZATION: /usr/local/lib/libpcl_visualization.so  
+[8.919s] -- Found PCL: pcl_common;pcl_octree;pcl_io;pcl_kdtree;pcl_search;pcl_visualization;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/libOpenNI2.so;libusb::libusb;vtkChartsCore;vtkCommonColor;vtkCommonCore;vtksys;vtkCommonDataModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkCommonExecutionModel;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersCore;vtkInfovisCore;vtkFiltersExtraction;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkFiltersModeling;vtkImagingSources;vtkInteractionImage;vtkImagingColor;vtkInteractionStyle;vtkInteractionWidgets;vtkFiltersHybrid;vtkImagingGeneral;vtkImagingHybrid;vtkIOImage;vtkDICOMParser;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkRenderingAnnotation;vtkRenderingVolume;vtkIOXML;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkIOGeometry;vtkIOLegacy;vtkIOPLY;vtkRenderingLOD;vtkViewsCore;vtkViewsContext2D;vtkRenderingOpenGL2;vtkGUISupportQt;FLANN::FLANN (Required is at least version "1.10") 
+[8.919s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[8.986s] /usr/local/include/pcl-1.12/usr/include/eigen3/usr/include/usr/include/ni/usr/include/openni2/usr/include/vtk-7.1/usr/include/freetype2/usr/include/x86_64-linux-gnu
+[9.048s] -- Added test 'copyright' to check source files copyright and LICENSE
+[9.060s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[9.061s] -- Configured cppcheck include dirs: 
+[9.061s] -- Configured cppcheck exclude dirs and/or files: 
+[9.073s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[9.073s] -- Configured cpplint exclude dirs and/or files: 
+[9.075s] -- Added test 'flake8' to check Python code syntax and style conventions
+[9.078s] -- Added test 'lint_cmake' to check CMake code style
+[9.080s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[9.094s] -- Added test 'uncrustify' to check C / C++ code style
+[9.094s] -- Configured uncrustify additional arguments: 
+[9.096s] -- Added test 'xmllint' to check XML markup files
+[9.100s] -- Configuring done
+[9.198s] -- Generating done
+[9.202s] -- Build files have been written to: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[9.232s] [35m[1mScanning dependencies of target lidar_subscriber_node[0m
+[9.235s] [35m[1mScanning dependencies of target main_node[0m
+[9.289s] [ 25%] [32mBuilding CXX object CMakeFiles/lidar_subscriber_node.dir/executables/lidar_subscriber.cpp.o[0m
+[9.342s] [ 50%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[11.364s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[11.365s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[11.365s]    41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[11.365s]       |                                                                                         [01;36m[K^[m[K
+[16.191s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kvoid estimate_motion_svd(pcl::PointCloud<pcl::PointXYZ>::Ptr, pcl::PointCloud<pcl::PointXYZ>::Ptr)[m[K’:
+[16.191s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KcomputeCentroid(const Ptr&, pcl::PointXYZ*)[m[K’
+[16.192s]    34 |     pcl::computeCentroid(ref_cloud, &centroid_ref[01;31m[K)[m[K;
+[16.192s]       |                                                  [01;31m[K^[m[K
+[16.192s] In file included from [01m[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099[m[K,
+[16.192s]                  from [01m[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44[m[K,
+[16.192s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9[m[K:
+[16.192s] [01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, PointOutT&)[m[K’
+[16.192s]   894 | [01;36m[KcomputeCentroid[m[K (const pcl::PointCloud<PointInT>& cloud,
+[16.193s]       | [01;36m[K^~~~~~~~~~~~~~~[m[K
+[16.193s] [01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[16.193s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst Ptr[m[K’ {aka ‘[01m[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >[m[K’} is not derived from ‘[01m[Kconst pcl::PointCloud<PointT>[m[K’
+[16.193s]    34 |     pcl::computeCentroid(ref_cloud, &centroid_ref[01;36m[K)[m[K;
+[16.193s]       |                                                  [01;36m[K^[m[K
+[16.193s] In file included from [01m[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099[m[K,
+[16.193s]                  from [01m[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44[m[K,
+[16.194s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9[m[K:
+[16.194s] [01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, const Indices&, PointOutT&)[m[K’
+[16.194s]   913 | [01;36m[KcomputeCentroid[m[K (const pcl::PointCloud<PointInT>& cloud,
+[16.194s]       | [01;36m[K^~~~~~~~~~~~~~~[m[K
+[16.194s] [01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[16.194s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:34:50:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst Ptr[m[K’ {aka ‘[01m[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >[m[K’} is not derived from ‘[01m[Kconst pcl::PointCloud<PointT>[m[K’
+[16.195s]    34 |     pcl::computeCentroid(ref_cloud, &centroid_ref[01;36m[K)[m[K;
+[16.195s]       |                                                  [01;36m[K^[m[K
+[16.195s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KcomputeCentroid(const Ptr&, pcl::PointXYZ*)[m[K’
+[16.195s]    35 |     pcl::computeCentroid(curr_cloud, &centroid_curr[01;31m[K)[m[K;
+[16.195s]       |                                                    [01;31m[K^[m[K
+[16.195s] In file included from [01m[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099[m[K,
+[16.196s]                  from [01m[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44[m[K,
+[16.196s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9[m[K:
+[16.196s] [01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, PointOutT&)[m[K’
+[16.196s]   894 | [01;36m[KcomputeCentroid[m[K (const pcl::PointCloud<PointInT>& cloud,
+[16.196s]       | [01;36m[K^~~~~~~~~~~~~~~[m[K
+[16.196s] [01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:894:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[16.196s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst Ptr[m[K’ {aka ‘[01m[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >[m[K’} is not derived from ‘[01m[Kconst pcl::PointCloud<PointT>[m[K’
+[16.197s]    35 |     pcl::computeCentroid(curr_cloud, &centroid_curr[01;36m[K)[m[K;
+[16.197s]       |                                                    [01;36m[K^[m[K
+[16.197s] In file included from [01m[K/usr/local/include/pcl-1.12/pcl/common/centroid.h:1099[m[K,
+[16.197s]                  from [01m[K/usr/local/include/pcl-1.12/pcl/common/transforms.h:44[m[K,
+[16.197s]                  from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:9[m[K:
+[16.197s] [01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class PointInT, class PointOutT> std::size_t pcl::computeCentroid(const pcl::PointCloud<PointT>&, const Indices&, PointOutT&)[m[K’
+[16.198s]   913 | [01;36m[KcomputeCentroid[m[K (const pcl::PointCloud<PointInT>& cloud,
+[16.198s]       | [01;36m[K^~~~~~~~~~~~~~~[m[K
+[16.198s] [01m[K/usr/local/include/pcl-1.12/pcl/common/impl/centroid.hpp:913:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[16.198s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:35:52:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst Ptr[m[K’ {aka ‘[01m[Kconst std::shared_ptr<pcl::PointCloud<pcl::PointXYZ> >[m[K’} is not derived from ‘[01m[Kconst pcl::PointCloud<PointT>[m[K’
+[16.198s]    35 |     pcl::computeCentroid(curr_cloud, &centroid_curr[01;36m[K)[m[K;
+[16.198s]       |                                                    [01;36m[K^[m[K
+[16.221s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kvoid generate_2d_points()[m[K’:
+[16.221s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:86:12:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kpre_error[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[16.221s]    86 |     double [01;35m[Kpre_error[m[K = 1000000;
+[16.221s]       |            [01;35m[K^~~~~~~~~[m[K
+[16.221s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:87:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcount[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[16.221s]    87 |     int [01;35m[Kcount[m[K = 0;
+[16.221s]       |         [01;35m[K^~~~~[m[K
+[16.221s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[16.221s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:100:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[16.222s]   100 | int main([01;35m[Kint argc[m[K, char **argv) {
+[16.222s]       |          [01;35m[K~~~~^~~~[m[K
+[16.222s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/lidar_subscriber.cpp:100:27:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[16.222s]   100 | int main(int argc, [01;35m[Kchar **argv[m[K) {
+[16.222s]       |                    [01;35m[K~~~~~~~^~~~[m[K
+[18.596s] [ 75%] [32m[1mLinking CXX executable main_node[0m
+[18.606s] make[2]: *** [CMakeFiles/lidar_subscriber_node.dir/build.make:63: CMakeFiles/lidar_subscriber_node.dir/executables/lidar_subscriber.cpp.o] Error 1
+[18.606s] make[1]: *** [CMakeFiles/Makefile2:80: CMakeFiles/lidar_subscriber_node.dir/all] Error 2
+[18.606s] make[1]: *** Waiting for unfinished jobs....
+[19.813s] [ 75%] Built target main_node
+[19.814s] make: *** [Makefile:141: all] Error 2
+[19.817s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

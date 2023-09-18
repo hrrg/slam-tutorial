@@ -1,0 +1,27 @@
+[0.023s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.061s] [35m[1mScanning dependencies of target main_node[0m
+[0.086s] [ 50%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[1.681s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[1.681s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[1.681s]    41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[1.681s]       |                                                                                         [01;36m[K^[m[K
+[1.725s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid callback_image(const ConstSharedPtr&)[m[K’:
+[1.725s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:16:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kimage[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.725s]    16 | void callback_image([01;35m[Kconst sensor_msgs::msg::Image::ConstSharedPtr & image[m[K) {
+[1.725s]       |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[1.728s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[1.728s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:31:111:[m[K [01;35m[Kwarning: [m[Ktypedef ‘[01m[KMySyncPolicy[m[K’ locally defined but not used [[01;35m[K-Wunused-local-typedefs[m[K]
+[1.728s]    31 |     typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::msg::Image, sensor_msgs::msg::Image> [01;35m[KMySyncPolicy[m[K;
+[1.728s]       |                                                                                                               [01;35m[K^~~~~~~~~~~~[m[K
+[2.346s] [100%] [32m[1mLinking CXX executable main_node[0m
+[2.713s] /usr/bin/ld: CMakeFiles/main_node.dir/executables/main.cpp.o: in function `main':
+[2.714s] main.cpp:(.text+0x3a1): undefined reference to `image_transport::ImageTransport::ImageTransport(std::shared_ptr<rclcpp::Node>)'
+[2.714s] /usr/bin/ld: main.cpp:(.text+0x5cd): undefined reference to `image_transport::ImageTransport::~ImageTransport()'
+[2.714s] /usr/bin/ld: main.cpp:(.text+0x74d): undefined reference to `image_transport::ImageTransport::~ImageTransport()'
+[2.714s] /usr/bin/ld: CMakeFiles/main_node.dir/executables/main.cpp.o: in function `image_transport::ImageTransport::subscribe(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > const> const&), image_transport::TransportHints const*)':
+[2.715s] main.cpp:(.text._ZN15image_transport14ImageTransport9subscribeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjPFvRKSt10shared_ptrIKN11sensor_msgs3msg6Image_ISaIvEEEEEPKNS_14TransportHintsE[_ZN15image_transport14ImageTransport9subscribeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjPFvRKSt10shared_ptrIKN11sensor_msgs3msg6Image_ISaIvEEEEEPKNS_14TransportHintsE]+0x7a): undefined reference to `image_transport::ImageTransport::subscribe(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, std::function<void (std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > const> const&)> const&, std::shared_ptr<void> const&, image_transport::TransportHints const*)'
+[2.715s] collect2: error: ld returned 1 exit status
+[2.715s] make[2]: *** [CMakeFiles/main_node.dir/build.make:189: main_node] Error 1
+[2.715s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/main_node.dir/all] Error 2
+[2.716s] make: *** [Makefile:141: all] Error 2
+[2.718s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

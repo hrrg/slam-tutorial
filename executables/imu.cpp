@@ -30,25 +30,30 @@ public:
     {
         use_imu_ = true;
         imu_subscriber_ = create_subscription<sensor_msgs::msg::Imu>(
-            "imu", rclcpp::SensorDataQoS(), 
+            "/alphasense/imu", rclcpp::SensorDataQoS(), 
             [this](const sensor_msgs::msg::Imu::SharedPtr msg) {
                 imu_callback(msg);
             });
-
+        tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
         rclcpp::QoS qos(rclcpp::KeepLast{100});
     }
     
 private:
     void imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
         if (!use_imu_) {return;}
-
+        
         double roll, pitch, yaw;
         tf2::Quaternion orientation;
+        
         tf2::fromMsg(msg->orientation, orientation);
+        orientation.setW(1.0);
         tf2::Matrix3x3(orientation).getRPY(roll, pitch, yaw);
+        RCLCPP_INFO(this->get_logger(), "imu callback %f %f %f",imu_shift_x_[imu_ptr_last_], imu_shift_y_[imu_ptr_last_],imu_shift_z_[imu_ptr_last_]);
+        RCLCPP_INFO(this->get_logger(), "imu callback roll %f pitch %f yaw %f",roll, pitch, yaw);
         float acc_x = static_cast<float>(msg->linear_acceleration.x) + sin(pitch) * 9.81;
         float acc_y = static_cast<float>(msg->linear_acceleration.y) - cos(pitch) * sin(roll) * 9.81;
-        float acc_z = static_cast<float>(msg->linear_acceleration.z) - cos(pitch) * cos(roll) * 9.81;
+        float acc_z = static_cast<float>(msg->linear_acceleration.z) + cos(pitch) * cos(roll) * 9.81;
+
 
         Eigen::Vector3f angular_velo{
         static_cast<float>(msg->angular_velocity.x),
@@ -63,13 +68,39 @@ private:
         double imu_time = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
 
         preprocess(angular_velo, acc, quat, imu_time);
+          // Calculate transform from imu_shift and imu_angular_rotation
+        geometry_msgs::msg::TransformStamped transformStamped;
+        transformStamped.header.stamp = rclcpp::Time(imu_time); // Use the IMU timestamp
+        transformStamped.header.frame_id = "base_link"; // Source frame
+        transformStamped.child_frame_id = "imu_link";   // Target frame
+
+        // Set the translation using imu_shift
+        transformStamped.transform.translation.x = imu_shift_x_[imu_ptr_last_];
+        transformStamped.transform.translation.y = imu_shift_y_[imu_ptr_last_];
+        transformStamped.transform.translation.z = imu_shift_z_[imu_ptr_last_];
+
+        // Set the rotation using imu_angular_rotation
+        tf2::Quaternion q;
+        q.setRPY(
+            imu_angular_rot_x_[imu_ptr_last_],
+            imu_angular_rot_y_[imu_ptr_last_],
+            imu_angular_rot_z_[imu_ptr_last_]
+        );
+        transformStamped.transform.rotation.x = q.x();
+        transformStamped.transform.rotation.y = q.y();
+        transformStamped.transform.rotation.z = q.z();
+        transformStamped.transform.rotation.w = q.w();
+
+        // Publish the transform
+        tf_broadcaster->sendTransform(transformStamped);
+        
     }
     void preprocess(Eigen::Vector3f angular_velo, Eigen::Vector3f acc, const Eigen::Quaternionf quat,const double imu_time);
 
     
 private:
     rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_subscriber_;
-
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster; // what is tf broadcasters role?
     bool use_imu_;
     double scan_period_{0.1};
     static const int imu_que_length_{200};
@@ -127,7 +158,7 @@ void ImuSubscriberNode::preprocess(
     imu_angular_velo_z_[imu_ptr_last_] = angular_velo.z();
 
     Eigen::Matrix3f rot = quat.toRotationMatrix();
-    acc = rot * acc;
+    //acc = rot * acc;
 
     int imu_ptr_back = (imu_ptr_last_ - 1 + imu_que_length_) % imu_que_length_;
     double time_diff = imu_time_[imu_ptr_last_] - imu_time_[imu_ptr_back];

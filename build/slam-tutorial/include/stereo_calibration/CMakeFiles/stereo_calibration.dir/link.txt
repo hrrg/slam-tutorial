@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstereo_calibration.a  CMakeFiles/stereo_calibration.dir/stereo_calibration.cpp.o
+/usr/bin/ranlib libstereo_calibration.a

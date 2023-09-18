@@ -1,0 +1,24 @@
+[35m[1mScanning dependencies of target main_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7[m[K:
+[01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+   41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+      |                                                                                         [01;36m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid callback_image(sensor_msgs::msg::Image_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:16:62:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kimage[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+   16 | void callback_image([01;35m[Kconst sensor_msgs::msg::Image::SharedPtr image[m[K) {
+      |                     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:27:80:[m[K [01;31m[Kerror: [m[K‘[01m[Knh[m[K’ was not declared in this scope
+   27 |     message_filters::Subscriber<sensor_msgs::msg::Image> image_subscriber_left([01;31m[Knh[m[K)
+      |                                                                                [01;31m[K^~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:29:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Kimage_transport[m[K’
+   29 |     [01;31m[Kimage_transport[m[K::ImageTransport it(node);
+      |     [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:30:50:[m[K [01;31m[Kerror: [m[K‘[01m[Kit[m[K’ was not declared in this scope; did you mean ‘[01m[Kint[m[K’?
+   30 |     image_transport::Subscriber image_left_sub = [01;31m[Kit[m[K.subscribe("/alphasense/cam0/image_raw", 1, callback_image);
+      |                                                  [01;31m[K^~[m[K
+      |                                                  [32m[Kint[m[K
+make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/main_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

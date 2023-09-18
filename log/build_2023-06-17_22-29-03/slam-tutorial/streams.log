@@ -1,0 +1,31 @@
+[0.021s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.065s] [35m[1mScanning dependencies of target main_node[0m
+[0.091s] [ 50%] Built target lidar_subscriber_node
+[0.110s] [ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[2.260s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[2.260s] [01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+[2.260s]    41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+[2.260s]       |                                                                                         [01;36m[K^[m[K
+[2.725s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid detect_keypoints(cv::Mat*, cv::Mat*)[m[K’:
+[2.726s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:22:27:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Mat*[m[K’ to ‘[01m[Kcv::InputArray[m[K’ {aka ‘[01m[Kconst cv::_InputArray&[m[K’}
+[2.726s]    22 |     orb->detectAndCompute([01;31m[Kimage_left[m[K, cv::noArray(), keypoints_left, descriptors_left);
+[2.726s]       |                           [01;31m[K^~~~~~~~~~[m[K
+[2.726s]       |                           [01;31m[K|[m[K
+[2.726s]       |                           [01;31m[Kcv::Mat*[m[K
+[2.726s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:13[m[K:
+[2.726s] [01m[K/usr/include/opencv4/opencv2/features2d.hpp:206:55:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvirtual void cv::Feature2D::detectAndCompute(cv::InputArray, cv::InputArray, std::vector<cv::KeyPoint>&, cv::OutputArray, bool)[m[K’
+[2.726s]   206 |     CV_WRAP virtual void detectAndCompute( [01;36m[KInputArray image[m[K, InputArray mask,
+[2.726s]       |                                            [01;36m[K~~~~~~~~~~~^~~~~[m[K
+[2.726s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:26:27:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Mat*[m[K’ to ‘[01m[Kcv::InputArray[m[K’ {aka ‘[01m[Kconst cv::_InputArray&[m[K’}
+[2.727s]    26 |     orb->detectAndCompute([01;31m[Kimage_right[m[K, cv::noArray(), keypoints_right, descriptors_right);
+[2.727s]       |                           [01;31m[K^~~~~~~~~~~[m[K
+[2.727s]       |                           [01;31m[K|[m[K
+[2.727s]       |                           [01;31m[Kcv::Mat*[m[K
+[2.727s] In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:13[m[K:
+[2.727s] [01m[K/usr/include/opencv4/opencv2/features2d.hpp:206:55:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvirtual void cv::Feature2D::detectAndCompute(cv::InputArray, cv::InputArray, std::vector<cv::KeyPoint>&, cv::OutputArray, bool)[m[K’
+[2.727s]   206 |     CV_WRAP virtual void detectAndCompute( [01;36m[KInputArray image[m[K, InputArray mask,
+[2.727s]       |                                            [01;36m[K~~~~~~~~~~~^~~~~[m[K
+[6.043s] make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+[6.043s] make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/main_node.dir/all] Error 2
+[6.043s] make: *** [Makefile:141: all] Error 2
+[6.048s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': WSLENV=ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

@@ -1,0 +1,105 @@
+[0.430s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.431s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fa8c9e4e250>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=12, paths=None, symlink_install=True, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fa8c9e4e250>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fa8c9e4e790>)
+[0.459s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.460s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.460s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.460s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.460s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.460s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.460s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.484s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'slam-tutorial'
+[0.485s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.485s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.485s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.485s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.485s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.507s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.507s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.510s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/jeongmyung/slam-tutorial_ws/install
+[0.512s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 312 installed packages in /opt/ros/foxy
+[0.514s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'cmake_args' from command line to 'None'
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'cmake_target' from command line to 'None'
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'cmake_clean_cache' from command line to 'False'
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'cmake_clean_first' from command line to 'False'
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'cmake_force_configure' from command line to 'False'
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'ament_cmake_args' from command line to 'None'
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'catkin_cmake_args' from command line to 'None'
+[0.603s] Level 5:colcon.colcon_core.verb:set package 'slam-tutorial' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.603s] DEBUG:colcon.colcon_core.verb:Building package 'slam-tutorial' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial', 'merge_install': False, 'path': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial', 'symlink_install': True, 'test_result_base': None}
+[0.604s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.609s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.609s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial' with build type 'ament_cmake'
+[0.609s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial'
+[0.615s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.615s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.615s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.633s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[25.192s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[25.226s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[25.250s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(slam-tutorial)
+[25.253s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[25.257s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial' for CMake module files
+[25.257s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial' for CMake config files
+[25.258s] Level 1:colcon.colcon_core.shell:create_environment_hook('slam-tutorial', 'cmake_prefix_path')
+[25.259s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/hook/cmake_prefix_path.ps1'
+[25.260s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/hook/cmake_prefix_path.dsv'
+[25.261s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/hook/cmake_prefix_path.sh'
+[25.262s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib'
+[25.262s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/bin'
+[25.262s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/pkgconfig/slam-tutorial.pc'
+[25.262s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/python3.8/site-packages'
+[25.263s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/bin'
+[25.265s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.ps1'
+[25.265s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv'
+[25.266s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.sh'
+[25.267s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.bash'
+[25.267s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.zsh'
+[25.268s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/colcon-core/packages/slam-tutorial)
+[25.295s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(slam-tutorial)
+[25.298s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial' for CMake module files
+[25.299s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial' for CMake config files
+[25.299s] Level 1:colcon.colcon_core.shell:create_environment_hook('slam-tutorial', 'cmake_prefix_path')
+[25.301s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/hook/cmake_prefix_path.ps1'
+[25.301s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/hook/cmake_prefix_path.dsv'
+[25.302s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/hook/cmake_prefix_path.sh'
+[25.302s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib'
+[25.302s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/bin'
+[25.303s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/pkgconfig/slam-tutorial.pc'
+[25.303s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/lib/python3.8/site-packages'
+[25.303s] Level 1:colcon.colcon_core.environment:checking '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/bin'
+[25.305s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.ps1'
+[25.306s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.dsv'
+[25.306s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.sh'
+[25.307s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.bash'
+[25.307s] INFO:colcon.colcon_core.shell:Creating package script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/slam-tutorial/package.zsh'
+[25.308s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/slam-tutorial/share/colcon-core/packages/slam-tutorial)
+[25.308s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[25.309s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[25.309s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[25.310s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[25.317s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[25.317s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[25.317s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[25.340s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[25.341s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[25.343s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/local_setup.ps1'
+[25.344s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/_local_setup_util_ps1.py'
+[25.345s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/setup.ps1'
+[25.347s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/local_setup.sh'
+[25.348s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/_local_setup_util_sh.py'
+[25.348s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/setup.sh'
+[25.350s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/local_setup.bash'
+[25.350s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/setup.bash'
+[25.352s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/local_setup.zsh'
+[25.353s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/install/setup.zsh'

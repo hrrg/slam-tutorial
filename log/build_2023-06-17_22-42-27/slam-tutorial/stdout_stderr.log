@@ -1,0 +1,31 @@
+[35m[1mScanning dependencies of target main_node[0m
+[ 50%] Built target lidar_subscriber_node
+[ 75%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+   41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+      |                                                                                         [01;36m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In function ‘[01m[Kvoid detect_keypoints(cv::Mat*, cv::Mat*)[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:45:65:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KdrawMatches(cv::Mat*&, std::vector<cv::KeyPoint>&, cv::Mat*&, std::vector<cv::KeyPoint>&, std::vector<cv::DMatch>&, cv::Mat&, cv::Scalar_<double>, cv::Scalar_<double>, std::vector<char>, cv::DrawMatchesFlags)[m[K’
+   45 |                     cv::DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS[01;31m[K)[m[K;
+      |                                                                 [01;31m[K^[m[K
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:13[m[K:
+[01m[K/usr/include/opencv4/opencv2/features2d.hpp:1260:19:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid cv::drawMatches(cv::InputArray, const std::vector<cv::KeyPoint>&, cv::InputArray, const std::vector<cv::KeyPoint>&, const std::vector<cv::DMatch>&, cv::InputOutputArray, const Scalar&, const Scalar&, const std::vector<char>&, cv::DrawMatchesFlags)[m[K’
+ 1260 | CV_EXPORTS_W void [01;36m[KdrawMatches[m[K( InputArray img1, const std::vector<KeyPoint>& keypoints1,
+      |                   [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/features2d.hpp:1260:43:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kcv::Mat*[m[K’ to ‘[01m[Kcv::InputArray[m[K’ {aka ‘[01m[Kconst cv::_InputArray&[m[K’}
+ 1260 | CV_EXPORTS_W void drawMatches( [01;36m[KInputArray img1[m[K, const std::vector<KeyPoint>& keypoints1,
+      |                                [01;36m[K~~~~~~~~~~~^~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/features2d.hpp:1267:36:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid cv::drawMatches(cv::InputArray, const std::vector<cv::KeyPoint>&, cv::InputArray, const std::vector<cv::KeyPoint>&, const std::vector<std::vector<cv::DMatch> >&, cv::InputOutputArray, const Scalar&, const Scalar&, const std::vector<std::vector<char> >&, cv::DrawMatchesFlags)[m[K’
+ 1267 | CV_EXPORTS_AS(drawMatchesKnn) void [01;36m[KdrawMatches[m[K( InputArray img1, const std::vector<KeyPoint>& keypoints1,
+      |                                    [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/features2d.hpp:1267:60:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kcv::Mat*[m[K’ to ‘[01m[Kcv::InputArray[m[K’ {aka ‘[01m[Kconst cv::_InputArray&[m[K’}
+ 1267 | CV_EXPORTS_AS(drawMatchesKnn) void drawMatches( [01;36m[KInputArray img1[m[K, const std::vector<KeyPoint>& keypoints1,
+      |                                                 [01;36m[K~~~~~~~~~~~^~~~[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:48:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kmatched_Image[m[K’ was not declared in this scope; did you mean ‘[01m[Kmatched_image[m[K’?
+   48 |     cv::imshow("Matches", [01;31m[Kmatched_Image[m[K);
+      |                           [01;31m[K^~~~~~~~~~~~~[m[K
+      |                           [32m[Kmatched_image[m[K
+make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/main_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

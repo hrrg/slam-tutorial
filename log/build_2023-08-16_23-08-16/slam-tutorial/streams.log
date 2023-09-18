@@ -1,0 +1,24 @@
+[0.017s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.041s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.063s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.222s] Traceback (most recent call last):
+[0.222s]   File "/opt/ros/foxy/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py", line 21, in <module>
+[0.223s]     from ament_package.templates import get_environment_hook_template_path
+[0.223s] ModuleNotFoundError: No module named 'ament_package'
+[0.249s] CMake Error at /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:41 (message):
+[0.249s]   execute_process(/usr/bin/python3
+[0.249s]   /opt/ros/foxy/share/ament_cmake_core/cmake/package_templates/templates_2_cmake.py
+[0.250s]   /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/ament_cmake_package_templates/templates.cmake)
+[0.250s]   returned error code 1
+[0.250s] Call Stack (most recent call first):
+[0.250s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.251s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.251s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.251s]   CMakeLists.txt:14 (find_package)
+[0.251s] 
+[0.252s] 
+[0.252s] -- Configuring incomplete, errors occurred!
+[0.252s] See also "/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/CMakeFiles/CMakeOutput.log".
+[0.252s] See also "/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial/CMakeFiles/CMakeError.log".
+[0.252s] make: *** [Makefile:310: cmake_check_build_system] Error 1
+[0.255s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

@@ -1,0 +1,61 @@
+[0.000000] (-) TimerEvent: {}
+[0.001683] (slam-tutorial) JobQueued: {'identifier': 'slam-tutorial', 'dependencies': OrderedDict()}
+[0.001758] (slam-tutorial) JobStarted: {'identifier': 'slam-tutorial'}
+[0.015086] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'cmake'}
+[0.016029] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'build'}
+[0.017393] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', '--', '-j12', '-l12'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/jeongmyung'), ('OLDPWD', '/home/jeongmyung/slam-tutorial_ws/src'), ('ROS_PYTHON_VERSION', '3'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('COLCON_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jeongmyung'), ('NAME', 'DESKTOP-MF41F2K'), ('WSL_INTEROP', '/run/WSL/9_interop'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Ruby27-x64/bin:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', '1cbe95f3-22da-425b-9efc-4c798928ca60'), ('DISPLAY', '172.23.192.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/jeongmyung/slam-tutorial_ws/install/slam-tutorial:/opt/ros/foxy'), ('WSLENV', 'WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[0.062186] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target main_node\x1b[0m\n'}
+[0.087819] (slam-tutorial) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o\x1b[0m\n'}
+[0.098465] (-) TimerEvent: {}
+[0.198890] (-) TimerEvent: {}
+[0.299310] (-) TimerEvent: {}
+[0.399740] (-) TimerEvent: {}
+[0.500300] (-) TimerEvent: {}
+[0.600911] (-) TimerEvent: {}
+[0.701323] (-) TimerEvent: {}
+[0.801810] (-) TimerEvent: {}
+[0.902195] (-) TimerEvent: {}
+[1.002602] (-) TimerEvent: {}
+[1.103080] (-) TimerEvent: {}
+[1.203548] (-) TimerEvent: {}
+[1.303982] (-) TimerEvent: {}
+[1.404549] (-) TimerEvent: {}
+[1.505039] (-) TimerEvent: {}
+[1.605462] (-) TimerEvent: {}
+[1.682479] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:7\x1b[m\x1b[K:\n'}
+[1.682764] (slam-tutorial) StderrLine: {'line': b"\x1b[01m\x1b[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead\n"}
+[1.682869] (slam-tutorial) StderrLine: {'line': b'   41 | #pragma message ("Warning: This header is deprecated. Use \'image_transport.hpp\' instead"\x1b[01;36m\x1b[K)\x1b[m\x1b[K\n'}
+[1.682959] (slam-tutorial) StderrLine: {'line': b'      |                                                                                         \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[1.705656] (-) TimerEvent: {}
+[1.726554] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid callback_image(const ConstSharedPtr&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.726817] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:16:69:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kimage\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[1.726961] (slam-tutorial) StderrLine: {'line': b'   16 | void callback_image(\x1b[01;35m\x1b[Kconst sensor_msgs::msg::Image::ConstSharedPtr & image\x1b[m\x1b[K) {\n'}
+[1.727053] (slam-tutorial) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[1.729339] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint main(int, char**)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.729565] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:31:111:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktypedef \xe2\x80\x98\x1b[01m\x1b[KMySyncPolicy\x1b[m\x1b[K\xe2\x80\x99 locally defined but not used [\x1b[01;35m\x1b[K-Wunused-local-typedefs\x1b[m\x1b[K]\n'}
+[1.729689] (slam-tutorial) StderrLine: {'line': b'   31 |     typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::msg::Image, sensor_msgs::msg::Image> \x1b[01;35m\x1b[KMySyncPolicy\x1b[m\x1b[K;\n'}
+[1.729783] (slam-tutorial) StderrLine: {'line': b'      |                                                                                                               \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.805815] (-) TimerEvent: {}
+[1.906236] (-) TimerEvent: {}
+[2.006737] (-) TimerEvent: {}
+[2.107308] (-) TimerEvent: {}
+[2.207721] (-) TimerEvent: {}
+[2.308314] (-) TimerEvent: {}
+[2.347831] (slam-tutorial) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable main_node\x1b[0m\n'}
+[2.408477] (-) TimerEvent: {}
+[2.508949] (-) TimerEvent: {}
+[2.609358] (-) TimerEvent: {}
+[2.709768] (-) TimerEvent: {}
+[2.714853] (slam-tutorial) StderrLine: {'line': b"/usr/bin/ld: CMakeFiles/main_node.dir/executables/main.cpp.o: in function `main':\n"}
+[2.715337] (slam-tutorial) StderrLine: {'line': b"main.cpp:(.text+0x3a1): undefined reference to `image_transport::ImageTransport::ImageTransport(std::shared_ptr<rclcpp::Node>)'\n"}
+[2.715564] (slam-tutorial) StderrLine: {'line': b"/usr/bin/ld: main.cpp:(.text+0x5cd): undefined reference to `image_transport::ImageTransport::~ImageTransport()'\n"}
+[2.715785] (slam-tutorial) StderrLine: {'line': b"/usr/bin/ld: main.cpp:(.text+0x74d): undefined reference to `image_transport::ImageTransport::~ImageTransport()'\n"}
+[2.716027] (slam-tutorial) StderrLine: {'line': b"/usr/bin/ld: CMakeFiles/main_node.dir/executables/main.cpp.o: in function `image_transport::ImageTransport::subscribe(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, void (*)(std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > const> const&), image_transport::TransportHints const*)':\n"}
+[2.716440] (slam-tutorial) StderrLine: {'line': b"main.cpp:(.text._ZN15image_transport14ImageTransport9subscribeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjPFvRKSt10shared_ptrIKN11sensor_msgs3msg6Image_ISaIvEEEEEPKNS_14TransportHintsE[_ZN15image_transport14ImageTransport9subscribeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjPFvRKSt10shared_ptrIKN11sensor_msgs3msg6Image_ISaIvEEEEEPKNS_14TransportHintsE]+0x7a): undefined reference to `image_transport::ImageTransport::subscribe(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, std::function<void (std::shared_ptr<sensor_msgs::msg::Image_<std::allocator<void> > const> const&)> const&, std::shared_ptr<void> const&, image_transport::TransportHints const*)'\n"}
+[2.716541] (slam-tutorial) StderrLine: {'line': b'collect2: error: ld returned 1 exit status\n'}
+[2.716789] (slam-tutorial) StderrLine: {'line': b'make[2]: *** [CMakeFiles/main_node.dir/build.make:189: main_node] Error 1\n'}
+[2.717098] (slam-tutorial) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/main_node.dir/all] Error 2\n'}
+[2.717316] (slam-tutorial) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[2.719440] (slam-tutorial) CommandEnded: {'returncode': 2}
+[2.759476] (slam-tutorial) JobEnded: {'identifier': 'slam-tutorial', 'rc': 2}
+[2.770310] (-) EventReactorShutdown: {}

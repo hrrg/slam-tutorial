@@ -1,0 +1,16 @@
+In file included from [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8[m[K:
+[01m[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:[m[K [01;36m[Knote: [m[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead
+   41 | #pragma message ("Warning: This header is deprecated. Use 'image_transport.hpp' instead"[01;36m[K)[m[K
+      |                                                                                         [01;36m[K^[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:[m[K In member function ‘[01m[Kvoid ImageSubscriberNode::topic_callback(const ConstSharedPtr&, const ConstSharedPtr&) const[m[K’:
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:40:105:[m[K [01;31m[Kerror: [m[K‘[01m[KCV_INTER_LINEAR[m[K’ is not a member of ‘[01m[Kcv[m[K’; did you mean ‘[01m[KINTER_LINEAR[m[K’?
+   40 |     cv::resize(frame_left, frame_left, cv::Size(frame_left.cols*0.75, frame_left.rows*0.75),  0, 0, cv::[01;31m[KCV_INTER_LINEAR[m[K);
+      |                                                                                                         [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |                                                                                                         [32m[KINTER_LINEAR[m[K
+[01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:41:108:[m[K [01;31m[Kerror: [m[K‘[01m[KCV_INTER_LINEAR[m[K’ is not a member of ‘[01m[Kcv[m[K’; did you mean ‘[01m[KINTER_LINEAR[m[K’?
+   41 |     cv::resize(frame_right, frame_right, cv::Size(frame_right.cols*0.75, frame_right.rows*0.75), 0, 0, cv::[01;31m[KCV_INTER_LINEAR[m[K);
+      |                                                                                                            [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |                                                                                                            [32m[KINTER_LINEAR[m[K
+make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/main_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

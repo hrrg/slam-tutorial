@@ -1,0 +1,49 @@
+[0.022s] Invoking command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12
+[0.048s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.069s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.284s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.309s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.469s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.477s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[3.993s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.077s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[4.080s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.304s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[4.461s] -- Found image_transport: 2.4.0 (/opt/ros/foxy/share/image_transport/cmake)
+[5.355s] -- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)
+[5.806s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[5.915s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[6.015s] -- Added test 'copyright' to check source files copyright and LICENSE
+[6.050s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[6.050s] -- Configured cppcheck include dirs: 
+[6.050s] -- Configured cppcheck exclude dirs and/or files: 
+[6.082s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[6.082s] -- Configured cpplint exclude dirs and/or files: 
+[6.087s] -- Added test 'flake8' to check Python code syntax and style conventions
+[6.095s] -- Added test 'lint_cmake' to check CMake code style
+[6.100s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[6.132s] -- Added test 'uncrustify' to check C / C++ code style
+[6.132s] -- Configured uncrustify additional arguments: 
+[6.137s] -- Added test 'xmllint' to check XML markup files
+[6.153s] -- Configuring done
+[6.206s] -- Generating done
+[6.209s] -- Build files have been written to: /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial
+[6.236s] [35m[1mScanning dependencies of target stereo_calibration[0m
+[6.240s] [35m[1mScanning dependencies of target main_node[0m
+[6.281s] [ 25%] [32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o[0m
+[6.343s] [ 50%] [32mBuilding CXX object src/stereo_calibration/CMakeFiles/stereo_calibration.dir/stereo_calibration.cpp.o[0m
+[6.650s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:30:10:[m[K [01;31m[Kfatal error: [m[Kstereo_calibration.h: No such file or directory
+[6.650s]    30 | #include [01;31m[K"stereo_calibration.h"[m[K
+[6.650s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.650s] compilation terminated.
+[6.653s] make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1
+[6.653s] make[1]: *** [CMakeFiles/Makefile2:116: CMakeFiles/main_node.dir/all] Error 2
+[6.653s] make[1]: *** Waiting for unfinished jobs....
+[7.985s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/src/stereo_calibration/stereo_calibration.cpp:[m[K In function ‘[01m[KEigen::MatrixXd computeFundamentalmatrixNormalized(const MatrixXd&, const MatrixXd&)[m[K’:
+[7.986s] [01m[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/src/stereo_calibration/stereo_calibration.cpp:94:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kn[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[7.986s]    94 |     int [01;35m[Kn[m[K = points1.rows();
+[7.986s]       |         [01;35m[K^[m[K
+[19.829s] [ 75%] [32m[1mLinking CXX static library libstereo_calibration.a[0m
+[19.962s] [ 75%] Built target stereo_calibration
+[19.963s] make: *** [Makefile:141: all] Error 2
+[19.968s] Invoked command in '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial -- -j12 -l12

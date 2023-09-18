@@ -1,0 +1,101 @@
+[0.000000] (-) TimerEvent: {}
+[0.002622] (slam-tutorial) JobQueued: {'identifier': 'slam-tutorial', 'dependencies': OrderedDict()}
+[0.003287] (slam-tutorial) JobStarted: {'identifier': 'slam-tutorial'}
+[0.021238] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'cmake'}
+[0.022398] (slam-tutorial) JobProgress: {'identifier': 'slam-tutorial', 'progress': 'build'}
+[0.024296] (slam-tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', '--', '-j12', '-l12'], 'cwd': '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jeongmyung'), ('GIT_ASKPASS', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/usr/local/cuda-12.0/lib64:/usr/local/lib:/usr/local/cuda-12.0/lib64:/usr/local/lib:'), ('WT_PROFILE_ID', '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/jeongmyung'), ('TERM_PROGRAM_VERSION', '1.79.1'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-e0363965-8a1e-430a-a501-a645ecbf7830.sock'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/node'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-20.04'), ('_colcon_cd_root', '/home/jeongmyung/lidarslam2_ws'), ('LOGNAME', 'jeongmyung'), ('NAME', 'Code'), ('WSL_INTEROP', '/run/WSL/9_interop'), ('_', '/usr/bin/colcon'), ('TERM', 'xterm-256color'), ('LIBGL_ALWAYS_INDIRECT', '0'), ('PATH', '/usr/local/cuda-12.0/bin:/home/jeongmyung/.vscode-server/bin/4cb974a7aed77a74c7813bdccd99ee0d04901215/bin/remote-cli:/home/jeongmyung/.local/bin:/usr/local/cuda-12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/NetSarang/Xshell 6/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Git/cmd:/mnt/c/bin:/mnt/c/cmake:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/dlwjd/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/dlwjd/AppData/Local/Microsoft/WindowsApps:/mnt/c/src/vcpkg/installed/x64-windows/bin:/mnt/c/src/vcpkg:/mnt/c/users/dlwjd/.gem/ruby/2.7.0/bin:/mnt/c/Users/dlwjd/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/mingw64/bin:/snap/bin'), ('WT_SESSION', 'ddd89dfa-1af5-49ed-a4cb-fc3535297736'), ('DISPLAY', '172.31.32.1:0.0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/vscode-git-6e80eabf7e.sock'), ('TERM_PROGRAM', 'vscode'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('BASH_ENV', '/etc/bash.bashrc'), ('PWD', '/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/build/slam-tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('COLCON', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID')]), 'shell': False}
+[0.097371] (slam-tutorial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target main_node\x1b[0m\n'}
+[0.099622] (-) TimerEvent: {}
+[0.133499] (slam-tutorial) StdoutLine: {'line': b'[ 50%] Built target lidar_subscriber_node\n'}
+[0.154702] (slam-tutorial) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/main_node.dir/executables/main.cpp.o\x1b[0m\n'}
+[0.199814] (-) TimerEvent: {}
+[0.300396] (-) TimerEvent: {}
+[0.401019] (-) TimerEvent: {}
+[0.501471] (-) TimerEvent: {}
+[0.601942] (-) TimerEvent: {}
+[0.702478] (-) TimerEvent: {}
+[0.803052] (-) TimerEvent: {}
+[0.903652] (-) TimerEvent: {}
+[1.004186] (-) TimerEvent: {}
+[1.104703] (-) TimerEvent: {}
+[1.205258] (-) TimerEvent: {}
+[1.306026] (-) TimerEvent: {}
+[1.406604] (-) TimerEvent: {}
+[1.507137] (-) TimerEvent: {}
+[1.607687] (-) TimerEvent: {}
+[1.708267] (-) TimerEvent: {}
+[1.808848] (-) TimerEvent: {}
+[1.909494] (-) TimerEvent: {}
+[2.010012] (-) TimerEvent: {}
+[2.110468] (-) TimerEvent: {}
+[2.210905] (-) TimerEvent: {}
+[2.236934] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:8\x1b[m\x1b[K:\n'}
+[2.237226] (slam-tutorial) StderrLine: {'line': b"\x1b[01m\x1b[K/opt/ros/foxy/include/image_transport/image_transport.h:41:89:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K#pragma message: Warning: This header is deprecated. Use 'image_transport.hpp' instead\n"}
+[2.237347] (slam-tutorial) StderrLine: {'line': b'   41 | #pragma message ("Warning: This header is deprecated. Use \'image_transport.hpp\' instead"\x1b[01;36m\x1b[K)\x1b[m\x1b[K\n'}
+[2.237453] (slam-tutorial) StderrLine: {'line': b'      |                                                                                         \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[2.311127] (-) TimerEvent: {}
+[2.411699] (-) TimerEvent: {}
+[2.512280] (-) TimerEvent: {}
+[2.612756] (-) TimerEvent: {}
+[2.713258] (-) TimerEvent: {}
+[2.758644] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid detect_keypoints(cv::Mat*, cv::Mat*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.759155] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:45:65:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[KdrawMatches(cv::Mat*&, std::vector<cv::KeyPoint>&, cv::Mat*&, std::vector<cv::KeyPoint>&, std::vector<cv::DMatch>&, cv::Mat&, cv::Scalar_<double>, cv::Scalar_<double>, std::vector<char>, cv::DrawMatchesFlags)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.759345] (slam-tutorial) StderrLine: {'line': b'   45 |                     cv::DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS\x1b[01;31m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.759504] (slam-tutorial) StderrLine: {'line': b'      |                                                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.759664] (slam-tutorial) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/jeongmyung/slam-tutorial_ws/src/slam-tutorial/executables/main.cpp:13\x1b[m\x1b[K:\n'}
+[2.759922] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/opencv4/opencv2/features2d.hpp:1260:19:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kvoid cv::drawMatches(cv::InputArray, const std::vector<cv::KeyPoint>&, cv::InputArray, const std::vector<cv::KeyPoint>&, const std::vector<cv::DMatch>&, cv::InputOutputArray, const Scalar&, const Scalar&, const std::vector<char>&, cv::DrawMatchesFlags)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.760072] (slam-tutorial) StderrLine: {'line': b' 1260 | CV_EXPORTS_W void \x1b[01;36m\x1b[KdrawMatches\x1b[m\x1b[K( InputArray img1, const std::vector<KeyPoint>& keypoints1,\n'}
+[2.760184] (slam-tutorial) StderrLine: {'line': b'      |                   \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.760289] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/opencv4/opencv2/features2d.hpp:1260:43:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kcv::Mat*\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kcv::InputArray\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst cv::_InputArray&\x1b[m\x1b[K\xe2\x80\x99}\n'}
+[2.760396] (slam-tutorial) StderrLine: {'line': b' 1260 | CV_EXPORTS_W void drawMatches( \x1b[01;36m\x1b[KInputArray img1\x1b[m\x1b[K, const std::vector<KeyPoint>& keypoints1,\n'}
+[2.760501] (slam-tutorial) StderrLine: {'line': b'      |                                \x1b[01;36m\x1b[K~~~~~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[2.760605] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/opencv4/opencv2/features2d.hpp:1267:36:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kvoid cv::drawMatches(cv::InputArray, const std::vector<cv::KeyPoint>&, cv::InputArray, const std::vector<cv::KeyPoint>&, const std::vector<std::vector<cv::DMatch> >&, cv::InputOutputArray, const Scalar&, const Scalar&, const std::vector<std::vector<char> >&, cv::DrawMatchesFlags)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.760754] (slam-tutorial) StderrLine: {'line': b' 1267 | CV_EXPORTS_AS(drawMatchesKnn) void \x1b[01;36m\x1b[KdrawMatches\x1b[m\x1b[K( InputArray img1, const std::vector<KeyPoint>& keypoints1,\n'}
+[2.760917] (slam-tutorial) StderrLine: {'line': b'      |                                    \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.761046] (slam-tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/opencv4/opencv2/features2d.hpp:1267:60:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kcv::Mat*\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kcv::InputArray\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst cv::_InputArray&\x1b[m\x1b[K\xe2\x80\x99}\n'}
+[2.761195] (slam-tutorial) StderrLine: {'line': b' 1267 | CV_EXPORTS_AS(drawMatchesKnn) void drawMatches( \x1b[01;36m\x1b[KInputArray img1\x1b[m\x1b[K, const std::vector<KeyPoint>& keypoints1,\n'}
+[2.761341] (slam-tutorial) StderrLine: {'line': b'      |                                                 \x1b[01;36m\x1b[K~~~~~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[2.813488] (-) TimerEvent: {}
+[2.914066] (-) TimerEvent: {}
+[3.014586] (-) TimerEvent: {}
+[3.115109] (-) TimerEvent: {}
+[3.215662] (-) TimerEvent: {}
+[3.316292] (-) TimerEvent: {}
+[3.416979] (-) TimerEvent: {}
+[3.517490] (-) TimerEvent: {}
+[3.618094] (-) TimerEvent: {}
+[3.718585] (-) TimerEvent: {}
+[3.819131] (-) TimerEvent: {}
+[3.919695] (-) TimerEvent: {}
+[4.020207] (-) TimerEvent: {}
+[4.120645] (-) TimerEvent: {}
+[4.221101] (-) TimerEvent: {}
+[4.321603] (-) TimerEvent: {}
+[4.422194] (-) TimerEvent: {}
+[4.522663] (-) TimerEvent: {}
+[4.623121] (-) TimerEvent: {}
+[4.723604] (-) TimerEvent: {}
+[4.824158] (-) TimerEvent: {}
+[4.924861] (-) TimerEvent: {}
+[5.025486] (-) TimerEvent: {}
+[5.126162] (-) TimerEvent: {}
+[5.226862] (-) TimerEvent: {}
+[5.327506] (-) TimerEvent: {}
+[5.428318] (-) TimerEvent: {}
+[5.528911] (-) TimerEvent: {}
+[5.629477] (-) TimerEvent: {}
+[5.730110] (-) TimerEvent: {}
+[5.830579] (-) TimerEvent: {}
+[5.931102] (-) TimerEvent: {}
+[6.031589] (-) TimerEvent: {}
+[6.132166] (-) TimerEvent: {}
+[6.232812] (-) TimerEvent: {}
+[6.333456] (-) TimerEvent: {}
+[6.434174] (-) TimerEvent: {}
+[6.534684] (-) TimerEvent: {}
+[6.550966] (slam-tutorial) StderrLine: {'line': b'make[2]: *** [CMakeFiles/main_node.dir/build.make:63: CMakeFiles/main_node.dir/executables/main.cpp.o] Error 1\n'}
+[6.551482] (slam-tutorial) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:107: CMakeFiles/main_node.dir/all] Error 2\n'}
+[6.551758] (slam-tutorial) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[6.553977] (slam-tutorial) CommandEnded: {'returncode': 2}
+[6.615977] (slam-tutorial) JobEnded: {'identifier': 'slam-tutorial', 'rc': 2}
+[6.627111] (-) EventReactorShutdown: {}
