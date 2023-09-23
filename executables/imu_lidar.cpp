@@ -100,9 +100,9 @@ class SubscriberNode : public rclcpp::Node {
         pose_msg.pose.orientation.y = quaternion.y();
         pose_msg.pose.orientation.z = quaternion.z();
         pose_msg.pose.orientation.w = quaternion.w();
-        pose_msg.pose.position.x = translation.x();
-        pose_msg.pose.position.y = translation.y();
-        pose_msg.pose.position.z = translation.z();
+        pose_msg.pose.position.x = imu_shift[imu_queue_cursor_][0];
+        pose_msg.pose.position.y = imu_shift[imu_queue_cursor_][1];
+        pose_msg.pose.position.z = imu_shift[imu_queue_cursor_][2];
         pose_msg.header.stamp = msg->header.stamp;
         pose_msg.header.frame_id = odom_frame_;
 
