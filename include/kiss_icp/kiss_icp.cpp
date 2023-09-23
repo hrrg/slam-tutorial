@@ -318,7 +318,7 @@ deskew_pointcloud(const std::vector<Eigen::Vector3d> &cloud,
         double time_delta = timestamps[i];
         rotation += time_delta * angular_velocity;
     }
-    rotation *= -1;
+    // rotation *= -1;
     std::cout << "rotation" << rotation[0] << rotation[1] << rotation[2] << "\n";
     for (int i = 0; i < cloud.size(); i++) {
         const auto &pt = cloud[i];
