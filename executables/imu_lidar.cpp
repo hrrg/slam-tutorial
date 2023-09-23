@@ -94,6 +94,20 @@ class SubscriberNode : public rclcpp::Node {
         transform_msg.transform.translation.y = imu_shift[imu_queue_cursor_][1];
         transform_msg.transform.translation.z = imu_shift[imu_queue_cursor_][2];
         tf_broadcaster_->sendTransform(transform_msg);
+
+        geometry_msgs::msg::PoseStamped pose_msg;
+        pose_msg.pose.orientation.x = quaternion.x();
+        pose_msg.pose.orientation.y = quaternion.y();
+        pose_msg.pose.orientation.z = quaternion.z();
+        pose_msg.pose.orientation.w = quaternion.w();
+        pose_msg.pose.position.x = translation.x();
+        pose_msg.pose.position.y = translation.y();
+        pose_msg.pose.position.z = translation.z();
+        pose_msg.header.stamp = msg->header.stamp;
+        pose_msg.header.frame_id = odom_frame_;
+
+        path_msg_.poses.push_back(pose_msg);
+        path_publisher_->publish(path_msg_);
     }
 
     void lidar_callback(const sensor_msgs::msg::PointCloud2::SharedPtr msg) {
