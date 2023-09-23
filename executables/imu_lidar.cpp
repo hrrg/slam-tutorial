@@ -76,7 +76,7 @@ class SubscriberNode : public rclcpp::Node {
         imu_velocity[imu_queue_cursor_] = imu_velocity[imu_ptr_back] + acceleration * time_diff;
         imu_rotation[imu_queue_cursor_] = imu_rotation[imu_ptr_back] + angular_velocity * time_diff;
 
-        RCLCPP_INFO(this->get_logger(), "%lf %lf %lf", imu_shift[imu_queue_cursor_][0],
+        RCLCPP_INFO(this->get_logger(), "Imu %lf %lf %lf", imu_shift[imu_queue_cursor_][0],
                     imu_shift[imu_queue_cursor_][1], imu_shift[imu_queue_cursor_][2]);
         geometry_msgs::msg::TransformStamped transform_msg;
         Eigen::Quaterniond quaternion;
@@ -199,7 +199,8 @@ class SubscriberNode : public rclcpp::Node {
 
         path_msg_.poses.push_back(pose_msg);
         path_publisher_->publish(path_msg_);
-
+        RCLCPP_INFO(this->get_logger(), "Lidar %lf %lf %lf", translation.x(),
+                    translation.y(), translation.z());
         //// publish odometry msg
         auto odom_msg = std::make_unique<nav_msgs::msg::Odometry>();
         odom_msg->header = pose_msg.header;
